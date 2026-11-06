@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA PINES | Luxury Camping Ground & Adventure Camp</title>
+  <meta name="description" content="Sleep under the stars and wake up to wonder. Premium glamping domes, safari tents, treehouses, and guided wilderness adventures.">
+  <meta property="og:title" content="AURA PINES - Camping Ground & Adventure Camp">
+  <meta property="og:description" content="Premium glamping, guided trails, and starlit campfire evenings in pristine pine forests.">
+  <meta property="og:type" content="website">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+
+  <!-- Main Navbar -->
+  <header class="main-navbar">
+    <div class="camp-container d-flex align-items-center justify-content-between">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Aura Pines Home">
+        <div class="brand-icon">
+          <i class="bi bi-fire"></i>
+        </div>
+        <span>AURA PINES</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-toggle active">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li>
+                <a href="index.html" class="nav-dropdown-item active">Glamping Sanctuary</a>
+              </li>
+              <li>
+                <a href="index-2.html" class="nav-dropdown-item">Alpine Expeditions</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <!-- RTL Toggle Button on Nav Bar (Icon Only) -->
+        <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <!-- Theme Toggle Button on Nav Bar -->
+        <button class="icon-btn-toggle theme-toggle-btn" title="Toggle light/dark theme" aria-label="Toggle light or dark theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <!-- Sign In Icon Button (Desktop Only; on mobile it is inside the hamburger drawer) -->
+        <a href="login.html" class="icon-btn-toggle nav-signin-btn d-none d-md-inline-flex" title="Sign In" aria-label="Sign In">
+          <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+        <!-- Dashboard on Nav Bar -->
+        <a href="dashboard.html" class="btn-camp btn-camp-secondary d-none d-md-inline-flex" style="padding: 0.5rem 0.95rem;" title="Dashboard">
+          <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
+        </a>
+        <!-- My Trips on Nav Bar -->
+        <a href="dashboard.html#bookings" class="btn-camp btn-camp-secondary d-none d-lg-inline-flex" style="padding: 0.5rem 0.95rem;" title="My Trips">
+          <i class="bi bi-compass"></i> <span>My Trips</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon">
+          <i class="bi bi-fire"></i>
+        </div>
+        <span>AURA PINES</span>
+      </div>
+      <button class="icon-btn-toggle mobile-drawer-close" aria-label="Close menu">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <!-- Sign In Button inside Mobile Drawer -->
+    <div class="mobile-drawer-auth mb-3">
+      <a href="login.html" class="btn-camp btn-camp-primary w-100 justify-content-center">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Sign In / Register
+      </a>
+    </div>
+    <ul class="mobile-nav-links">
+      <li>
+        <a href="#" class="mobile-dropdown-btn">
+          <span><i class="bi bi-house-door"></i> Home</span>
+          <i class="bi bi-chevron-down mobile-chevron"></i>
+        </a>
+        <ul class="mobile-dropdown-menu show">
+          <li><a href="index.html" class="active">Glamping Sanctuary</a></li>
+          <li><a href="index-2.html">Alpine Expeditions</a></li>
+        </ul>
+      </li>
+      <li><a href="packages.html"><i class="bi bi-box2-heart"></i> Packages</a></li>
+      <li><a href="activities.html"><i class="bi bi-compass"></i> Activities</a></li>
+      <li><a href="gallery.html"><i class="bi bi-images"></i> Gallery</a></li>
+      <li><a href="about.html"><i class="bi bi-tree"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Guest Dashboard</a></li>
+      <li><a href="login.html"><i class="bi bi-person"></i> Guest Login</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex gap-2 justify-content-between align-items-center">
+      <button class="btn-camp btn-camp-secondary btn-sm theme-toggle-btn w-50">
+        <i class="bi bi-moon-stars-fill me-1"></i> Theme
+      </button>
+      <button class="btn-camp btn-camp-secondary btn-sm rtl-toggle-btn w-50">
+        <i class="bi bi-arrow-left-right me-1"></i> <span class="rtl-label">RTL</span>
+      </button>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION (ANIMATED MOVING BACKGROUND) -->
+    <section class="hero-campsite">
+      <div class="hero-bg-animated" style="background-image: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=2000&q=85');"></div>
+      <div class="hero-overlay"></div>
+      <div class="camp-container position-relative">
+        <div class="row align-items-center g-4 g-lg-5">
+          <!-- Left Column: Hero Headline & Info -->
+          <div class="col-lg-7 col-xl-7">
+            <div class="hero-content">
+              <span class="section-badge mb-3">
+                <i class="bi bi-stars"></i> Wilderness Glamping & Alpine Basecamp
+              </span>
+              <h1 class="hero-headline">
+                Sleep Under the Stars.<br>Wake Up to Wonder.
+              </h1>
+              <p class="hero-lead">
+                Premium tents, guided adventures, and unforgettable campfire evenings, set in the heart of the wilderness.
+              </p>
+              <div class="d-flex flex-wrap gap-3">
+                <a href="booking.html" class="btn-camp btn-camp-primary btn-lg">
+                  <i class="bi bi-calendar-check"></i> Book Your Stay
+                </a>
+                <a href="packages.html" class="btn-camp btn-camp-secondary btn-lg">
+                  <i class="bi bi-compass"></i> Explore Packages
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Quick-Search Booking Bar / Card -->
+          <div class="col-lg-5 col-xl-5">
+            <div class="booking-search-bar">
+              <div class="booking-search-header mb-3 pb-2 border-bottom d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="camp-badge badge-ember mb-1"><i class="bi bi-calendar-check"></i> Best Rate Guaranteed</span>
+                  <div style="font-family: var(--font-serif); font-size: 1.35rem; font-weight: 700; color: var(--text-primary);">Check Availability</div>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--state-success); font-weight: 600;">
+                  <i class="bi bi-shield-check"></i> Free Cancellation
+                </div>
+              </div>
+              <form id="campSearchForm">
+                <div class="booking-search-grid">
+                  <div class="search-field-group">
+                    <label for="searchCheckIn" class="search-field-label">
+                      <i class="bi bi-calendar-event"></i> Check-In
+                    </label>
+                    <input type="date" id="searchCheckIn" data-type="date" class="search-field-input" required>
+                  </div>
+                  <div class="search-field-group">
+                    <label for="searchCheckOut" class="search-field-label">
+                      <i class="bi bi-calendar-check"></i> Check-Out
+                    </label>
+                    <input type="date" id="searchCheckOut" data-type="date" class="search-field-input" required>
+                  </div>
+                  <div class="search-field-group">
+                    <label for="searchGuests" class="search-field-label">
+                      <i class="bi bi-people"></i> Guests
+                    </label>
+                    <select id="searchGuests" class="search-field-input">
+                      <option value="1 Adult">1 Adult</option>
+                      <option value="2 Adults" selected>2 Adults</option>
+                      <option value="2 Adults, 1 Child">2 Adults, 1 Child</option>
+                      <option value="2 Adults, 2 Children">2 Adults, 2 Children</option>
+                      <option value="4+ Adults Group">4+ Adults Group</option>
+                    </select>
+                  </div>
+                  <div class="search-field-group">
+                    <label for="searchStayType" class="search-field-label">
+                      <i class="bi bi-tent"></i> Stay Type
+                    </label>
+                    <select id="searchStayType" class="search-field-input">
+                      <option value="glamping-dome" selected>Glamping Dome</option>
+                      <option value="safari-tent">Safari Tent</option>
+                      <option value="treehouse">Canopy Treehouse</option>
+                      <option value="family-cabin">Family Cabin</option>
+                      <option value="riverside-pitch">Riverside Pitch</option>
+                      <option value="backpacker-pitch">Backpacker Pitch</option>
+                    </select>
+                  </div>
+                  <div class="btn-search-col">
+                    <button type="submit" class="btn-camp btn-camp-primary w-100" style="height: 48px; padding-inline: 1.5rem; font-size: 1rem;">
+                      <i class="bi bi-search"></i> Check Availability
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ANIMATED STATISTICS COUNTER BAR -->
+    <section class="stats-counter-strip" aria-label="Campground statistics">
+      <div class="camp-container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-item-number counter-value" data-target="14850" data-suffix="+">0</div>
+            <div class="stat-item-label">Guests Hosted Safely</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-number counter-value" data-target="450" data-suffix=" Acres">0</div>
+            <div class="stat-item-label">Pristine Wilderness Reserve</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-number counter-value" data-target="28" data-suffix=" Trails">0</div>
+            <div class="stat-item-label">Marked & Guided Trekking Paths</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-number counter-value" data-target="4.96" data-decimals="2" data-suffix=" / 5">0</div>
+            <div class="stat-item-label">Average Verified Guest Rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAY TYPES SHOWCASE -->
+    <section class="section-space">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-house-heart"></i> Handcrafted Wilderness Stays</span>
+          <h2 class="section-title">Shelters Designed for Deep Serenity</h2>
+          <p class="section-desc">From panoramic geodesic domes gazing at the cosmos to secluded riverside pitches, select your sanctuary.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Stay 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" alt="Luxury Glamping Dome" loading="lazy">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Most Popular</span>
+                  <button class="card-wishlist-btn" data-item-id="stay-dome" data-item-title="Luxury Glamping Dome" data-item-type="Stay" data-item-price="$280/night" data-item-image="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-people me-1"></i> Up to 2 Guests</span>
+                  <span><i class="bi bi-star-fill text-warning me-1"></i> 4.98 (124 reviews)</span>
+                </div>
+                <h3 class="camp-card-title"><a href="booking.html?stayType=glamping-dome">Luxury Glamping Dome</a></h3>
+                <p class="camp-card-desc">Geodesic architecture with a clear skylight canopy for private stargazing, plush king bedding, and cedar pellet stove.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-stars"></i> Skylight Roof</span>
+                  <span class="feature-pill"><i class="bi bi-fire"></i> Pellet Stove</span>
+                  <span class="feature-pill"><i class="bi bi-droplet"></i> Ensuite Bath</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$280</span>
+                    <span class="price-tag-period">per night / 2 guests</span>
+                  </div>
+                  <a href="booking.html?stayType=glamping-dome" class="btn-camp btn-camp-primary btn-sm w-100">Book Stay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stay 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1496545672447-f699b503d270?auto=format&fit=crop&w=800&q=80" alt="Safari Canvas Tent" loading="lazy">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Classic Glamp</span>
+                  <button class="card-wishlist-btn" data-item-id="stay-safari" data-item-title="Safari Canvas Tent" data-item-type="Stay" data-item-price="$175/night" data-item-image="https://images.unsplash.com/photo-1496545672447-f699b503d270?auto=format&fit=crop&w=800&q=80" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-people me-1"></i> Up to 2 Guests</span>
+                  <span><i class="bi bi-star-fill text-warning me-1"></i> 4.93 (98 reviews)</span>
+                </div>
+                <h3 class="camp-card-title"><a href="booking.html?stayType=safari-tent">Safari Canvas Tent</a></h3>
+                <p class="camp-card-desc">Weatherproof heavy-duty cotton canvas set on elevated wooden decking with handwoven wool rugs and Adirondack chairs.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-layers"></i> Wood Decking</span>
+                  <span class="feature-pill"><i class="bi bi-lamp"></i> Solar Lighting</span>
+                  <span class="feature-pill"><i class="bi bi-cup-hot"></i> Coffee Maker</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$175</span>
+                    <span class="price-tag-period">per night / 2 guests</span>
+                  </div>
+                  <a href="booking.html?stayType=safari-tent" class="btn-camp btn-camp-primary btn-sm w-100">Book Stay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stay 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Canopy Pine Treehouse" loading="lazy">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Panoramic Height</span>
+                  <button class="card-wishlist-btn" data-item-id="stay-treehouse" data-item-title="Canopy Pine Treehouse" data-item-type="Stay" data-item-price="$380/night" data-item-image="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-people me-1"></i> Up to 4 Guests</span>
+                  <span><i class="bi bi-star-fill text-warning me-1"></i> 5.0 (82 reviews)</span>
+                </div>
+                <h3 class="camp-card-title"><a href="booking.html?stayType=treehouse">Canopy Pine Treehouse</a></h3>
+                <p class="camp-card-desc">Suspended 22 feet above the pine forest floor with wraparound veranda views, open-air cedar soak tub, and suspension bridge.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-water"></i> Cedar Soak Tub</span>
+                  <span class="feature-pill"><i class="bi bi-eye"></i> Canopy Views</span>
+                  <span class="feature-pill"><i class="bi bi-wifi"></i> High-speed Wi-Fi</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$380</span>
+                    <span class="price-tag-period">per night / 4 guests</span>
+                  </div>
+                  <a href="booking.html?stayType=treehouse" class="btn-camp btn-camp-primary btn-sm w-100">Book Stay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stay 4 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=800&q=80" alt="Cedarwood Family Cabin" loading="lazy">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Spacious Family</span>
+                  <button class="card-wishlist-btn" data-item-id="stay-cabin" data-item-title="Cedarwood Family Cabin" data-item-type="Stay" data-item-price="$340/night" data-item-image="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=800&q=80" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-people me-1"></i> Up to 6 Guests</span>
+                  <span><i class="bi bi-star-fill text-warning me-1"></i> 4.91 (110 reviews)</span>
+                </div>
+                <h3 class="camp-card-title"><a href="booking.html?stayType=family-cabin">Cedarwood Family Cabin</a></h3>
+                <p class="camp-card-desc">Two private bedrooms, handcrafted timber bunk beds for children, a cozy stone hearth, and a fully equipped rustic kitchen.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-door-closed"></i> 2 Bedrooms</span>
+                  <span class="feature-pill"><i class="bi bi-fire"></i> Stone Fireplace</span>
+                  <span class="feature-pill"><i class="bi bi-egg-fried"></i> Full Kitchenette</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$340</span>
+                    <span class="price-tag-period">per night / 6 guests</span>
+                  </div>
+                  <a href="booking.html?stayType=family-cabin" class="btn-camp btn-camp-primary btn-sm w-100">Book Stay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stay 5 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80" alt="Riverside Pitch Deck" loading="lazy">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Waterside Calm</span>
+                  <button class="card-wishlist-btn" data-item-id="stay-riverside" data-item-title="Riverside Pitch Deck" data-item-type="Stay" data-item-price="$95/night" data-item-image="https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-people me-1"></i> Up to 4 Guests</span>
+                  <span><i class="bi bi-star-fill text-warning me-1"></i> 4.88 (65 reviews)</span>
+                </div>
+                <h3 class="camp-card-title"><a href="booking.html?stayType=riverside-pitch">Riverside Pitch Deck</a></h3>
+                <p class="camp-card-desc">Bring your own high-end tent or use our canvas dome on a dedicated timber platform overlooking crystal rapids.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-water"></i> River Access</span>
+                  <span class="feature-pill"><i class="bi bi-plug"></i> Solar Charging</span>
+                  <span class="feature-pill"><i class="bi bi-circle"></i> Private Fire Ring</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$95</span>
+                    <span class="price-tag-period">per night / pitch</span>
+                  </div>
+                  <a href="booking.html?stayType=riverside-pitch" class="btn-camp btn-camp-primary btn-sm w-100">Book Stay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stay 6 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?auto=format&fit=crop&w=800&q=80" alt="Alpine Backpacker Pitch" loading="lazy">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Wild Trekker</span>
+                  <button class="card-wishlist-btn" data-item-id="stay-backpacker" data-item-title="Alpine Backpacker Pitch" data-item-type="Stay" data-item-price="$55/night" data-item-image="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?auto=format&fit=crop&w=800&q=80" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-people me-1"></i> Up to 2 Guests</span>
+                  <span><i class="bi bi-star-fill text-warning me-1"></i> 4.85 (51 reviews)</span>
+                </div>
+                <h3 class="camp-card-title"><a href="booking.html?stayType=backpacker-pitch">Alpine Backpacker Pitch</a></h3>
+                <p class="camp-card-desc">High-altitude secluded pitch reserved for lightweight hikers and ridge trekkers with communal spring water and bear lockers.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-droplet"></i> Spring Water</span>
+                  <span class="feature-pill"><i class="bi bi-shield-check"></i> Bear Box</span>
+                  <span class="feature-pill"><i class="bi bi-compass"></i> Trailhead Access</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$55</span>
+                    <span class="price-tag-period">per night / trekker</span>
+                  </div>
+                  <a href="booking.html?stayType=backpacker-pitch" class="btn-camp btn-camp-primary btn-sm w-100">Book Stay</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- "A DAY AT CAMP" TIMELINE -->
+    <section class="section-space" style="background: var(--bg-surface); border-block: 1px solid var(--border-color);">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-clock-history"></i> The Rhythm of the Pines</span>
+          <h2 class="section-title">A Day in the Heart of Camp</h2>
+          <p class="section-desc">From early morning alpine mist over the lake to crackling birch logs beneath galaxies, your day flows effortlessly.</p>
+        </div>
+
+        <div class="camp-timeline">
+          <!-- Timeline Node 1 -->
+          <div class="timeline-item">
+            <div class="timeline-node"><i class="bi bi-sunrise"></i></div>
+            <div class="timeline-card">
+              <div class="timeline-time">07:00 AM • Dawn Whisper</div>
+              <h4 style="margin-bottom: 0.5rem;">Pine Forest Awakening & Herbal Brew</h4>
+              <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Awaken to birdsong and fresh mountain dew. Enjoy pour-over French press coffee delivered right to your tent deck with fresh sourdough pastries.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Node 2 -->
+          <div class="timeline-item">
+            <div class="timeline-node"><i class="bi bi-water"></i></div>
+            <div class="timeline-card">
+              <div class="timeline-time">10:00 AM • River & Ridge</div>
+              <h4 style="margin-bottom: 0.5rem;">Glacial Rapids Kayaking & Alpine Trek</h4>
+              <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Gear up with our certified wilderness guides. Choose between gentle mirrored lake kayaking or a panoramic ridge scramble along Eagle Crag.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Node 3 -->
+          <div class="timeline-item">
+            <div class="timeline-node"><i class="bi bi-basket"></i></div>
+            <div class="timeline-card">
+              <div class="timeline-time">01:30 PM • Forest Foraging</div>
+              <h4 style="margin-bottom: 0.5rem;">Artisan Foraged Wilderness Lunch</h4>
+              <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Gather under the shaded cedar grove for wood-fired flatbreads, roasted pine nuts, foraged mushroom spreads, and chilled mountain cider.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Node 4 -->
+          <div class="timeline-item">
+            <div class="timeline-node"><i class="bi bi-fire"></i></div>
+            <div class="timeline-card">
+              <div class="timeline-time">07:30 PM • Fireside Ember</div>
+              <h4 style="margin-bottom: 0.5rem;">Central Hearth Feast & Acoustic Ballads</h4>
+              <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">As darkness falls over the ridge, the camp circle ignites. Enjoy hickory barbecue, artisanal s'mores, and captivating local folklore by the fire.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Node 5 -->
+          <div class="timeline-item">
+            <div class="timeline-node"><i class="bi bi-stars"></i></div>
+            <div class="timeline-card">
+              <div class="timeline-time">09:30 PM • Deep Space</div>
+              <h4 style="margin-bottom: 0.5rem;">Zero-Light-Pollution Astronomy</h4>
+              <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Peer through our high-powered Celestron observatory telescopes to witness the rings of Saturn, nebulae, and the luminous Milky Way arch.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CAMPSITE VIEWS GALLERY SLIDER / GRID -->
+    <section class="section-space">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-camera"></i> Wilderness Panorama</span>
+          <h2 class="section-title">Captured in the Wild</h2>
+          <p class="section-desc">Glimpses of starlit skies, morning river mist, and quiet moments around camp.</p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-lg-4 col-md-6">
+            <div class="camp-card" style="cursor: pointer;" data-lightbox-src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Sunrise Over Mirror Lake">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=2000&q=90" alt="Sunrise Over Mirror Lake" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="p-3 d-flex align-items-center justify-content-between" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+                <strong style="color: var(--text-primary); font-size: 1.05rem; font-family: var(--font-serif);">Sunrise Over Mirror Lake</strong>
+                <span class="gallery-expand-hint" style="color: var(--text-muted); font-size: 0.85rem;"><i class="bi bi-arrows-angle-expand"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="camp-card" style="cursor: pointer;" data-lightbox-src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Campfire Sparks Under the Stars">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=2000&q=90" alt="Campfire Sparks Under the Stars" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="p-3 d-flex align-items-center justify-content-between" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+                <strong style="color: var(--text-primary); font-size: 1.05rem; font-family: var(--font-serif);">Campfire Sparks Under the Stars</strong>
+                <span class="gallery-expand-hint" style="color: var(--text-muted); font-size: 0.85rem;"><i class="bi bi-arrows-angle-expand"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="camp-card" style="cursor: pointer;" data-lightbox-src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Glamping Dome at Twilight">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=2000&q=90" alt="Glamping Dome at Twilight" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="p-3 d-flex align-items-center justify-content-between" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+                <strong style="color: var(--text-primary); font-size: 1.05rem; font-family: var(--font-serif);">Glamping Dome at Twilight</strong>
+                <span class="gallery-expand-hint" style="color: var(--text-muted); font-size: 0.85rem;"><i class="bi bi-arrows-angle-expand"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="camp-card" style="cursor: pointer;" data-lightbox-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Kayaking Glacial Waters">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2000&q=90" alt="Kayaking Glacial Waters" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="p-3 d-flex align-items-center justify-content-between" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+                <strong style="color: var(--text-primary); font-size: 1.05rem; font-family: var(--font-serif);">Kayaking Glacial Waters</strong>
+                <span class="gallery-expand-hint" style="color: var(--text-muted); font-size: 0.85rem;"><i class="bi bi-arrows-angle-expand"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12">
+            <div class="camp-card" style="cursor: pointer;" data-lightbox-src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="High Ridge Treehouse Canopy">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=2000&q=90" alt="High Ridge Treehouse Canopy" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="p-3 d-flex align-items-center justify-content-between" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+                <strong style="color: var(--text-primary); font-size: 1.05rem; font-family: var(--font-serif);">High Ridge Treehouse Canopy</strong>
+                <span class="gallery-expand-hint" style="color: var(--text-muted); font-size: 0.85rem;"><i class="bi bi-arrows-angle-expand"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a href="gallery.html" class="btn-camp btn-camp-secondary">
+            View All Photographs <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AMENITIES GRID -->
+    <section class="section-space" style="background: var(--bg-surface); border-block: 1px solid var(--border-color);">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-shield-check"></i> Wilderness Refined</span>
+          <h2 class="section-title">Camp Amenities & Comforts</h2>
+          <p class="section-desc">Off-grid immersion does not mean sacrificing thoughtful comfort. Everything you need is seamlessly integrated.</p>
+        </div>
+
+        <div class="amenities-grid">
+          <div class="amenity-card">
+            <i class="bi bi-fire amenity-icon"></i>
+            <h4 class="amenity-title">Campfire Circles</h4>
+            <p class="amenity-desc">Nightly birchwood fires, complimentary marshmallow kits, and storytelling.</p>
+          </div>
+          <div class="amenity-card">
+            <i class="bi bi-droplet-half amenity-icon"></i>
+            <h4 class="amenity-title">Solar Hot Showers</h4>
+            <p class="amenity-desc">Private cedar bathhouses with rainfall showers and herbal organic soaps.</p>
+          </div>
+          <div class="amenity-card">
+            <i class="bi bi-wifi amenity-icon"></i>
+            <h4 class="amenity-title">Starlit Wi-Fi Zone</h4>
+            <p class="amenity-desc">High-speed satellite connectivity in the central timber lounge for remote work.</p>
+          </div>
+          <div class="amenity-card">
+            <i class="bi bi-cup-hot amenity-icon"></i>
+            <h4 class="amenity-title">Forest Kitchen</h4>
+            <p class="amenity-desc">Wood-burning pizza oven, gas grills, and cast-iron cookware available.</p>
+          </div>
+          <div class="amenity-card">
+            <i class="bi bi-ev-station amenity-icon"></i>
+            <h4 class="amenity-title">EV Charging & Parking</h4>
+            <p class="amenity-desc">Secured parking with Level-2 solar EV charging stations at trailhead.</p>
+          </div>
+          <div class="amenity-card">
+            <i class="bi bi-recycle amenity-icon"></i>
+            <h4 class="amenity-title">Eco Compost Restrooms</h4>
+            <p class="amenity-desc">Odorless Swedish composting facilities conforming to strict park ecology.</p>
+          </div>
+          <div class="amenity-card">
+            <i class="bi bi-heart-pulse amenity-icon"></i>
+            <h4 class="amenity-title">Wilderness First Aid</h4>
+            <p class="amenity-desc">24/7 on-site certified EMT rangers and satellite emergency beacons.</p>
+          </div>
+          <div class="amenity-card">
+            <i class="bi bi-cup-straw amenity-icon"></i>
+            <h4 class="amenity-title">Spring Water Canteen</h4>
+            <p class="amenity-desc">Natural mineral spring hydration stations with UV filtration throughout camp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEASONAL WEATHER & BEST-TIME WIDGET -->
+    <section class="section-space">
+      <div class="camp-container">
+        <div class="weather-widget">
+          <div class="weather-header">
+            <div>
+              <span class="camp-badge badge-teal mb-2 text-nowrap"><i class="bi bi-geo-alt"></i> Whispering Ridge (Elev. 4,120 ft)</span>
+              <h3 style="margin-bottom: 0;">Live Camp Climate & Best Seasons</h3>
+            </div>
+            <div class="weather-current">
+              <div>
+                <div class="weather-temp">64°F</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);"><i class="bi bi-moon-stars"></i> Clear Starlit Night</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row align-items-center g-4">
+            <div class="col-lg-4">
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Current Conditions</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Winds: 4 mph NW • Humidity: 42% • Stargazing Clarity Index: <strong>98%</strong> (Superb). Campfires permitted at all designated fire rings tonight.</p>
+              <div class="d-flex gap-2">
+                <span class="camp-badge badge-success"><i class="bi bi-check-circle"></i> Low Fire Risk</span>
+                <span class="camp-badge badge-teal"><i class="bi bi-eye"></i> High Milky Way Visibility</span>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="weather-seasons-grid">
+                <div class="season-box">
+                  <strong style="color: var(--accent-primary); display: block; font-size: 0.9rem;">Spring (Apr - May)</strong>
+                  <div style="font-size: 1.25rem; font-weight: 700; margin-block: 0.25rem;">55° - 68°F</div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Alpine wildflowers, waterfall runoff, crisp trail hikes.</span>
+                </div>
+                <div class="season-box recommended">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <strong style="color: var(--accent-primary); font-size: 0.9rem;">Summer (Jun - Aug)</strong>
+                    <span class="badge badge-ember" style="font-size: 0.65rem;">Peak</span>
+                  </div>
+                  <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;">72° - 84°F</div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Swimming, lake kayaking, warm campfire evenings.</span>
+                </div>
+                <div class="season-box">
+                  <strong style="color: var(--accent-primary); display: block; font-size: 0.9rem;">Autumn (Sep - Oct)</strong>
+                  <div style="font-size: 1.25rem; font-weight: 700; margin-block: 0.25rem;">50° - 65°F</div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Golden larch foliage, crisp evenings, harvest cider.</span>
+                </div>
+                <div class="season-box">
+                  <strong style="color: var(--accent-primary); display: block; font-size: 0.9rem;">Winter (Nov - Mar)</strong>
+                  <div style="font-size: 1.25rem; font-weight: 700; margin-block: 0.25rem;">28° - 44°F</div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Heated domes, snowshoeing, pristine silence under snow.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (MOUSE-POINTER INTERACTIVE SCROLL TRACK) -->
+    <section class="section-space" style="background: var(--bg-surface); border-block: 1px solid var(--border-color);">
+      <div class="camp-container position-relative">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-chat-heart"></i> Voices from the Wilderness</span>
+          <h2 class="section-title">Memories Written by Campfire Light</h2>
+          <p class="section-desc">Move your mouse left & right to glide through guest wilderness memories.</p>
+        </div>
+
+        <!-- Mouse-Pointer Interactive Track -->
+        <div class="reviews-interactive-wrapper" id="reviewsInteractiveWrapper" tabindex="0" role="region" aria-label="Guest reviews carousel">
+          <div class="reviews-track" id="reviewsTrack">
+            <!-- Review 1 -->
+            <div class="reviews-slide-item">
+              <div class="testimonial-card">
+                <div class="rating-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="testimonial-quote">"The Geodesic Dome was beyond anything we imagined. Falling asleep watching shooting stars through the skylight, then waking up to hot French press coffee on the deck... Pure magic."</p>
+                <div class="testimonial-author mt-auto">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Sophia Mitchell" class="author-avatar" loading="lazy">
+                  <div>
+                    <strong style="display: block; font-size: 0.95rem;">Sophia & David Mitchell</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Luxury Glamping Dome • Oct 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="reviews-slide-item">
+              <div class="testimonial-card">
+                <div class="rating-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="testimonial-quote">"As an avid backpacker, I usually avoid 'glamping', but Aura Pines balances genuine rugged nature with exquisite details. The ranger-led night trek was unforgettable."</p>
+                <div class="testimonial-author mt-auto">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Liam Hendricks" class="author-avatar" loading="lazy">
+                  <div>
+                    <strong style="display: block; font-size: 0.95rem;">Liam Hendricks</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Alpine Backpacker Pitch • Sep 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="reviews-slide-item">
+              <div class="testimonial-card">
+                <div class="rating-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="testimonial-quote">"We brought our two daughters for their first camping trip. The Cedarwood Cabin was warm, secure, and the staff treated our girls like wilderness explorers. They still talk about the BBQ night!"</p>
+                <div class="testimonial-author mt-auto">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Elena Morales" class="author-avatar" loading="lazy">
+                  <div>
+                    <strong style="display: block; font-size: 0.95rem;">Elena Morales</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Family Cabin Stay • Aug 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="reviews-slide-item">
+              <div class="testimonial-card">
+                <div class="rating-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="testimonial-quote">"The Canopy Treehouse was sheer perfection. Soaking in the open-air cedar tub while evening mist drifted through the pines was so restorative. Can't wait to return for winter."</p>
+                <div class="testimonial-author mt-auto">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Chloe Davenport" class="author-avatar" loading="lazy">
+                  <div>
+                    <strong style="display: block; font-size: 0.95rem;">Chloe Davenport</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Canopy Pine Treehouse • Nov 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 5 -->
+            <div class="reviews-slide-item">
+              <div class="testimonial-card">
+                <div class="rating-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="testimonial-quote">"Falling asleep to the gentle rush of Mirror River was the reset my partner and I needed. The timber deck kept our gear clean and dry, and the private fire ring made dinner magical."</p>
+                <div class="testimonial-author mt-auto">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Julian & Maya" class="author-avatar" loading="lazy">
+                  <div>
+                    <strong style="display: block; font-size: 0.95rem;">Julian & Maya Vance</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Riverside Pitch Deck • Jul 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 6 -->
+            <div class="reviews-slide-item">
+              <div class="testimonial-card">
+                <div class="rating-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="testimonial-quote">"The attention to craft here is astounding. Wool Pendleton blankets, solar lantern lighting that feels like candlelight, and pour-over coffee brought right to your door. A 10/10 stay."</p>
+                <div class="testimonial-author mt-auto">
+                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Oliver Sterling" class="author-avatar" loading="lazy">
+                  <div>
+                    <strong style="display: block; font-size: 0.95rem;">Oliver Sterling</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Safari Canvas Tent • Jun 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Below Reviews Navigation & Scroll Progress Indicator -->
+        <div class="d-flex flex-column align-items-center justify-content-center gap-3 mt-4">
+          <div class="reviews-scrollbar-track">
+            <div class="reviews-scrollbar-thumb" id="reviewsScrollThumb"></div>
+          </div>
+          <div class="reviews-slider-nav d-flex gap-2 align-items-center justify-content-center">
+            <button class="reviews-nav-btn reviews-prev-btn" aria-label="Scroll reviews left" title="Scroll left">
+              <i class="bi bi-arrow-left"></i>
+            </button>
+            <button class="reviews-nav-btn reviews-next-btn" aria-label="Scroll reviews right" title="Scroll right">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECO-POLICY & LEAVE NO TRACE HIGHLIGHTS -->
+    <section class="section-space">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-tree"></i> Our Sacred Pledge</span>
+          <h2 class="section-title">Preserving the Wilderness for Generations</h2>
+          <p class="section-desc">Aura Pines operates on 100% solar micro-grids, zero single-use plastics, and strict Leave No Trace environmental standards. 5% of every reservation is directed directly to alpine watershed restoration.</p>
+        </div>
+
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="d-flex flex-column gap-3">
+              <div class="d-flex align-items-start gap-3">
+                <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--accent-subtle); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="bi bi-sun"></i>
+                </div>
+                <div>
+                  <strong>100% Solar Powered Grid</strong>
+                  <div style="font-size: 0.85rem; color: var(--text-muted);">Quiet battery storage banks power all lighting, heated blankets, and bathhouse water heaters with zero generator noise.</div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-start gap-3">
+                <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--accent-secondary-subtle); color: var(--accent-secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="bi bi-droplet"></i>
+                </div>
+                <div>
+                  <strong>Natural Watershed Protection</strong>
+                  <div style="font-size: 0.85rem; color: var(--text-muted);">All greywater is filtered through sub-surface biological reed beds before returning to the mountain stream.</div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-start gap-3">
+                <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--accent-subtle); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="bi bi-flower1"></i>
+                </div>
+                <div>
+                  <strong>Wildlife Corridor Respect</strong>
+                  <div style="font-size: 0.85rem; color: var(--text-muted);">All trails and tent clusters are positioned strictly outside migratory elk and deer feeding corridors.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="camp-card" style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); background: var(--bg-surface);">
+              <div class="camp-card-media" style="min-height: 280px; max-height: 300px;">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=85" alt="Misty Forest Canopy" width="800" height="500" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="p-3 p-md-4 d-flex justify-content-between align-items-center gap-3" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+                <div style="min-width: 0; flex: 1;">
+                  <strong class="lnt-cert-title" style="color: var(--accent-primary); display: block; font-size: clamp(0.95rem, 2vw, 1.1rem); margin-bottom: 0.25rem; white-space: nowrap;">Leave No Trace Certified</strong>
+                  <span class="lnt-cert-sub" style="font-size: clamp(0.72rem, 1.6vw, 0.85rem); color: var(--text-muted); display: block; white-space: nowrap;">Official Partner of the National Wilderness Trust</span>
+                </div>
+                <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--accent-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="bi bi-award text-warning" style="font-size: 1.5rem;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION -->
+    <section class="section-space" style="background: var(--bg-surface); border-block: 1px solid var(--border-color);">
+      <div class="camp-container" style="max-width: 860px;">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-question-circle"></i> Answers Before You Trek</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">Everything you need to know about weather, packing, parking, campfires, and reservations.</p>
+        </div>
+
+        <div class="camp-accordion">
+          <!-- FAQ 1 -->
+          <div class="camp-accordion-item active">
+            <div class="camp-accordion-header">
+              <span>What is provided inside each tent or dome?</span>
+              <i class="bi bi-chevron-down camp-accordion-icon"></i>
+            </div>
+            <div class="camp-accordion-body">
+              All Luxury Domes and Safari Tents come fully furnished with plush memory-foam mattresses, premium organic cotton linens, goose-down duvets, warm wool blankets, solar lamps, bedside tables, and a private outdoor fire pit with chairs. Domes also include indoor pellet heaters and private ensuite composting washrooms.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="camp-accordion-item">
+            <div class="camp-accordion-header">
+              <span>How do I reach the campsite? Do I need a 4x4 vehicle?</span>
+              <i class="bi bi-chevron-down camp-accordion-icon"></i>
+            </div>
+            <div class="camp-accordion-body">
+              Our base parking lot is accessible by standard 2WD vehicles on well-maintained paved national forest roads. From the parking lot, our solar electric safari shuttles transfer you and your luggage directly to your tent deck. For backpacker pitches, there is a scenic 1.2-mile footpath.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="camp-accordion-item">
+            <div class="camp-accordion-header">
+              <span>Are campfires allowed, and where do I get firewood?</span>
+              <i class="bi bi-chevron-down camp-accordion-icon"></i>
+            </div>
+            <div class="camp-accordion-body">
+              Yes! Each stay includes a designated cast-iron fire ring with a spark arrestor. You can pre-order sustainably sourced, pest-free kiln-dried firewood bundles through our booking flow or guest portal. For environmental preservation, foraging wood from the surrounding living forest is prohibited.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="camp-accordion-item">
+            <div class="camp-accordion-header">
+              <span>What is the cancellation policy?</span>
+              <i class="bi bi-chevron-down camp-accordion-icon"></i>
+            </div>
+            <div class="camp-accordion-body">
+              Reservations cancelled at least 7 days prior to check-in receive a 100% full refund with zero cancellation fee. Cancellations made between 3 to 7 days before arrival receive a 75% refund or a 100% wilderness credit valid for 18 months. You can cancel directly from your Guest Dashboard in one click.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="camp-accordion-item">
+            <div class="camp-accordion-header">
+              <span>Are pets allowed at Aura Pines?</span>
+              <i class="bi bi-chevron-down camp-accordion-icon"></i>
+            </div>
+            <div class="camp-accordion-body">
+              Well-behaved dogs are warmly welcome in our Riverside Pitches, Family Cabins, and select Safari Tents! We provide a dog welcome kit with a collapsible water bowl, organic treats, and a trail map of dog-friendly paths. Please keep pets on a leash in communal camp areas.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="section-space text-center position-relative cta-banner-dark" style="background: linear-gradient(135deg, rgba(26,46,37,0.95), rgba(11,22,18,0.98)), url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1600&q=80') center/cover;">
+      <div class="camp-container">
+        <span class="section-badge text-nowrap" style="background: rgba(210,130,74,0.2); color: #F8C39B; border-color: rgba(210,130,74,0.4);"><i class="bi bi-stars"></i> Limited Wilderness Availability</span>
+        <h2 class="section-title" style="color: #FFFFFF !important;">Your Mountain Sanctuary Awaits</h2>
+        <p class="section-desc" style="color: #E8E2D5 !important; margin-bottom: 2rem;">Disconnect from screens, breathe crisp cedar air, and rediscover the timeless magic of the great outdoors.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="booking.html" class="btn-camp btn-camp-primary btn-lg">
+            <i class="bi bi-calendar-check"></i> Book Your Reservation
+          </a>
+          <a href="contact.html" class="btn-camp btn-camp-secondary btn-lg">
+            <i class="bi bi-chat-dots"></i> Talk to a Camp Ranger
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="camp-footer">
+    <div class="camp-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-fire"></i>
+            </div>
+            <span>AURA PINES</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            A premier wilderness camp and glamping sanctuary dedicated to slow living, outdoor adventure, and eco-restoration.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Explore & Learn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Details</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="bi bi-geo-alt text-warning"></i>
+              <span>Whispering Ridge Rd, Pinecrest, 98214</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone text-success"></i>
+              <a href="tel:+15553822267">+1 (555) 382-CAMP</a>
+            </li>
+            <li>
+              <i class="bi bi-envelope text-info"></i>
+              <a href="mailto:rangers@aurapines.com">rangers@aurapines.com</a>
+            </li>
+            <li>
+              <i class="bi bi-clock text-warning"></i>
+              <span>7:00 AM – 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Wilderness Dispatch</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Receive seasonal campfire stories, stargazing calendars, and private cabin promotions.</p>
+          <form class="newsletter-form">
+            <div class="d-flex gap-2">
+              <input type="email" placeholder="Your email address" required style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-md); padding: 0.5rem 0.85rem; font-size: 0.85rem; width: 100%; outline: none;">
+              <button type="submit" class="btn-camp btn-camp-primary btn-sm" style="flex-shrink: 0;">Join</button>
+            </div>
+          </form>
+          <div class="mt-3" style="font-size: 0.75rem; color: var(--text-dim);">
+            <i class="bi bi-shield-lock me-1"></i> We respect nature and your inbox privacy.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 AURA PINES Wilderness Resort & Campsite. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX COMPONENT -->
+  <div class="camp-lightbox" id="campLightbox" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+    <button class="lightbox-close" aria-label="Close lightbox"><i class="bi bi-x-lg"></i></button>
+    <button class="lightbox-nav-btn lightbox-prev" aria-label="Previous image"><i class="bi bi-chevron-left"></i></button>
+    <div class="lightbox-content">
+      <img src="" alt="Enlarged view" class="lightbox-img">
+      <div class="lightbox-caption"></div>
+    </div>
+    <button class="lightbox-nav-btn lightbox-next" aria-label="Next image"><i class="bi bi-chevron-right"></i></button>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

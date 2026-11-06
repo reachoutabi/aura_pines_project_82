@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost in the Woods? | 404 - AURA PINES</title>
+  <meta name="description" content="You seem to have strayed from the marked trail. Let our camp compass guide you back to safety.">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .error-compass {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 3px solid var(--accent-primary);
+      box-shadow: 0 0 35px var(--accent-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--accent-primary);
+      margin: 0 auto 2rem auto;
+      animation: slowRotate 8s linear infinite;
+    }
+    @keyframes slowRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Main Navbar -->
+  <header class="main-navbar">
+    <div class="camp-container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-logo" aria-label="Aura Pines Home">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- RTL Toggle Button on Nav Bar (Icon Only) -->
+        <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <!-- Theme Toggle Button on Nav Bar -->
+        <button class="icon-btn-toggle theme-toggle-btn" title="Toggle light/dark theme" aria-label="Toggle light or dark theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <!-- Sign In Icon Button (Desktop Only) -->
+        <a href="login.html" class="icon-btn-toggle nav-signin-btn d-none d-md-inline-flex" title="Sign In" aria-label="Sign In">
+          <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+        <!-- Dashboard on Nav Bar -->
+        <a href="dashboard.html" class="btn-camp btn-camp-secondary d-none d-md-inline-flex" style="padding: 0.5rem 0.95rem;" title="Dashboard">
+          <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
+        </a>
+        <a href="index.html" class="btn-camp btn-camp-primary btn-sm d-inline-flex">
+          <i class="bi bi-house me-1"></i> Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="error-hero-animated" style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 5rem 1.5rem; text-align: center; position: relative; overflow: hidden; isolation: isolate;">
+    <div class="hero-bg-animated hero-bg-zoom" style="background-image: url('https://images.unsplash.com/photo-1517824806704-9040b037703b?auto=format&fit=crop&w=2000&q=85');"></div>
+    <div class="hero-overlay"></div>
+    <div class="position-relative" style="max-width: 640px; z-index: 2;">
+      <div class="error-compass">
+        <i class="bi bi-compass"></i>
+      </div>
+      <span class="section-badge mb-2" style="background: rgba(210,130,74,0.22); color: #F8C39B; border-color: rgba(210,130,74,0.45);"><i class="bi bi-tree"></i> Off The Beaten Path</span>
+      <h1 style="font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 3.75rem); margin-bottom: 1rem; color: #FFFFFF; text-shadow: 0 4px 20px rgba(0,0,0,0.7);">Lost in the Woods?</h1>
+      <p style="color: #E8E2D5; font-size: 1.1rem; line-height: 1.7; margin-bottom: 2.25rem; text-shadow: 0 2px 10px rgba(0,0,0,0.7);">
+        Even seasoned mountaineers take a wrong fork along the ridge. The page you are looking for has been reclaimed by the forest. Let our compass guide you back.
+      </p>
+
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="index.html" class="btn-camp btn-camp-primary btn-lg">
+          <i class="bi bi-compass"></i> Return to Camp Home
+        </a>
+        <a href="packages.html" class="btn-camp btn-camp-secondary btn-lg">
+          <i class="bi bi-box2-heart"></i> Explore Packages
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="camp-footer">
+    <div class="camp-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-fire"></i>
+            </div>
+            <span>AURA PINES</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            A premier wilderness camp and glamping sanctuary dedicated to slow living, outdoor adventure, and eco-restoration.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Explore & Learn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Details</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="bi bi-geo-alt text-warning"></i>
+              <span>Whispering Ridge Rd, Pinecrest, 98214</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone text-success"></i>
+              <a href="tel:+15553822267">+1 (555) 382-CAMP</a>
+            </li>
+            <li>
+              <i class="bi bi-envelope text-info"></i>
+              <a href="mailto:rangers@aurapines.com">rangers@aurapines.com</a>
+            </li>
+            <li>
+              <i class="bi bi-clock text-warning"></i>
+              <span>7:00 AM – 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Wilderness Dispatch</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Receive seasonal campfire stories, stargazing calendars, and private cabin promotions.</p>
+          <form class="newsletter-form">
+            <div class="d-flex gap-2">
+              <input type="email" placeholder="Your email address" required style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-md); padding: 0.5rem 0.85rem; font-size: 0.85rem; width: 100%; outline: none;">
+              <button type="submit" class="btn-camp btn-camp-primary btn-sm" style="flex-shrink: 0;">Join</button>
+            </div>
+          </form>
+          <div class="mt-3" style="font-size: 0.75rem; color: var(--text-dim);">
+            <i class="bi bi-shield-lock me-1"></i> We respect nature and your inbox privacy.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 AURA PINES Wilderness Resort & Campsite. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Our Sanctuary & Certified Guides | AURA PINES</title>
+  <meta name="description" content="Discover the origins of Aura Pines, our environmental sanctuary mission, certified mountain guides, and our 100% solar Leave No Trace pledge.">
+  <meta property="og:title" content="About Us - AURA PINES">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+
+  <!-- Main Navbar -->
+  <header class="main-navbar">
+    <div class="camp-container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-logo" aria-label="Aura Pines Home">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-toggle">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li>
+                <a href="index.html" class="nav-dropdown-item">Glamping Sanctuary</a>
+              </li>
+              <li>
+                <a href="index-2.html" class="nav-dropdown-item">Alpine Expeditions</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <!-- RTL Toggle Button on Nav Bar (Icon Only) -->
+        <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <!-- Theme Toggle Button on Nav Bar -->
+        <button class="icon-btn-toggle theme-toggle-btn" title="Toggle light/dark theme" aria-label="Toggle light or dark theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <!-- Sign In Icon Button (Desktop Only; on mobile it is inside the hamburger drawer) -->
+        <a href="login.html" class="icon-btn-toggle nav-signin-btn d-none d-md-inline-flex" title="Sign In" aria-label="Sign In">
+          <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+        <!-- Dashboard on Nav Bar -->
+        <a href="dashboard.html" class="btn-camp btn-camp-secondary d-none d-md-inline-flex" style="padding: 0.5rem 0.95rem;" title="Dashboard">
+          <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
+        </a>
+        <!-- My Trips on Nav Bar -->
+        <a href="dashboard.html#bookings" class="btn-camp btn-camp-secondary d-none d-lg-inline-flex" style="padding: 0.5rem 0.95rem;" title="My Trips">
+          <i class="bi bi-compass"></i> <span>My Trips</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </div>
+      <button class="icon-btn-toggle mobile-drawer-close" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Sign In Button inside Mobile Drawer -->
+    <div class="mobile-drawer-auth mb-3">
+      <a href="login.html" class="btn-camp btn-camp-primary w-100 justify-content-center">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Sign In / Register
+      </a>
+    </div>
+    <ul class="mobile-nav-links">
+      <li>
+        <a href="#" class="mobile-dropdown-btn">
+          <span><i class="bi bi-house-door"></i> Home</span>
+          <i class="bi bi-chevron-down mobile-chevron"></i>
+        </a>
+        <ul class="mobile-dropdown-menu">
+          <li><a href="index.html">Glamping Sanctuary</a></li>
+          <li><a href="index-2.html">Alpine Expeditions</a></li>
+        </ul>
+      </li>
+      <li><a href="packages.html"><i class="bi bi-box2-heart"></i> Packages</a></li>
+      <li><a href="activities.html"><i class="bi bi-compass"></i> Activities</a></li>
+      <li><a href="gallery.html"><i class="bi bi-images"></i> Gallery</a></li>
+      <li><a href="about.html" class="active"><i class="bi bi-tree"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Guest Dashboard</a></li>
+      <li><a href="login.html"><i class="bi bi-person"></i> Guest Login</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex gap-2 justify-content-between align-items-center">
+      <button class="btn-camp btn-camp-secondary btn-sm theme-toggle-btn w-50"><i class="bi bi-moon-stars-fill me-1"></i> Theme</button>
+      <button class="btn-camp btn-camp-secondary btn-sm rtl-toggle-btn w-50"><i class="bi bi-arrow-left-right me-1"></i> <span class="rtl-label">RTL</span></button>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO WITH ANIMATED MOVING BACKGROUND -->
+    <section class="page-hero-animated">
+      <div class="hero-bg-animated hero-bg-zoom" style="background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85');"></div>
+      <div class="hero-overlay"></div>
+      <div class="camp-container position-relative text-center">
+        <nav aria-label="breadcrumb" class="mb-2">
+          <ol class="breadcrumb justify-content-center" style="font-size: 0.8rem;">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">About Us</li>
+          </ol>
+        </nav>
+        <span class="section-badge"><i class="bi bi-tree"></i> Born in the Ancient Canopies</span>
+        <h1 class="section-title">The Aura Pines Story</h1>
+        <p class="section-desc">Founded on the belief that human spirits flourish when reconnected to the quiet majesty of pristine pine forests and starlit night skies.</p>
+      </div>
+    </section>
+
+    <!-- ORIGIN & MISSION -->
+    <section class="section-space">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-feather"></i> Our Heritage</span>
+          <h2 class="section-title">Rooted in Conservation, Crafted for Wonder</h2>
+        </div>
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem;">
+              In 2012, a group of alpine mountaineers, naturalists, and architects set out to create a sanctuary where travellers could experience the unvarnished beauty of the high country without causing an ounce of degradation to its fragile ecosystem.
+            </p>
+            <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.75rem;">
+              Today, Aura Pines encompasses 450 private acres bordering the national wilderness reserve. We designed our shelters using low-impact screw-pile foundations that touch the earth with gentle precision, ensuring not a single mature cedar or Douglas fir was felled during construction.
+            </p>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="p-3 rounded" style="background: var(--bg-surface); border: 1px solid var(--border-color);">
+                  <strong style="color: var(--accent-primary); font-size: 1.5rem; font-family: var(--font-serif); display: block;">100% Off-Grid</strong>
+                  <span style="font-size: 0.85rem; color: var(--text-muted);">Solar micro-grid with zero noisy diesel generators</span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded" style="background: var(--bg-surface); border: 1px solid var(--border-color);">
+                  <strong style="color: var(--accent-secondary); font-size: 1.5rem; font-family: var(--font-serif); display: block;">Zero Waste</strong>
+                  <span style="font-size: 0.85rem; color: var(--text-muted);">Compost systems & complete single-use plastic ban</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div style="border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
+              <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80" alt="Misty Forest Camp" style="width: 100%; height: 440px; object-fit: cover;" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORICAL TIMELINE -->
+    <section class="section-space" style="background: var(--bg-surface); border-block: 1px solid var(--border-color);">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-clock-history"></i> Milestones</span>
+          <h2 class="section-title">The Wilderness Journey</h2>
+        </div>
+
+        <div class="camp-timeline">
+          <div class="timeline-item">
+            <div class="timeline-node">2012</div>
+            <div class="timeline-card">
+              <div class="timeline-time">Whispering Ridge Acquired</div>
+              <h4 style="margin-bottom: 0.25rem;">Land Stewardship Trust Established</h4>
+              <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">450 acres of degraded former timberland placed under perpetual environmental easement to allow forest regeneration.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-node">2016</div>
+            <div class="timeline-card">
+              <div class="timeline-time">First 6 Safari Tents</div>
+              <h4 style="margin-bottom: 0.25rem;">Eco-Glamping Welcomes First Guests</h4>
+              <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Debuted custom weather-sealed canvas tents powered by small off-grid solar arrays and gravity-fed spring water.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-node">2020</div>
+            <div class="timeline-card">
+              <div class="timeline-time">Architectural Innovation</div>
+              <h4 style="margin-bottom: 0.25rem;">Geodesic Stargazing Domes Completed</h4>
+              <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Engineered high-altitude geometric dome shelters featuring insulated thermal skins and crystal panoramic skylights.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-node">2024</div>
+            <div class="timeline-card">
+              <div class="timeline-time">Global Recognition</div>
+              <h4 style="margin-bottom: 0.25rem;">Awarded National Wilderness Excellence</h4>
+              <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Certified by Leave No Trace International and named Best Sustainable Glamping Destination by Eco-Traveler.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOST TEAM & CERTIFIED GUIDES -->
+    <section class="section-space">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-people"></i> Guardians of the Wild</span>
+          <h2 class="section-title">Meet Our Naturalists & Hosts</h2>
+          <p class="section-desc">Our team combines certified mountain rescue expertise with deep culinary passion and wilderness hospitality.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Guide 1 -->
+          <div class="col-lg-3 col-md-6">
+            <div class="camp-card text-center h-100">
+              <div class="camp-card-media team-card-media" data-lightbox-src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=85" data-lightbox-caption="Julian Thorne - Head Ranger & Naturalist">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Julian Thorne" loading="lazy" style="object-position: top center;">
+              </div>
+              <div class="camp-card-body">
+                <h4 style="font-size: 1.15rem; margin-bottom: 0.25rem;">Julian Thorne</h4>
+                <div style="font-size: 0.8rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.75rem;">Head Ranger & Naturalist</div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">18 years leading high-altitude alpine routes. Certified Wilderness EMT and wildlife corridor researcher.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guide 2 -->
+          <div class="col-lg-3 col-md-6">
+            <div class="camp-card text-center h-100">
+              <div class="camp-card-media team-card-media" data-lightbox-src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85" data-lightbox-caption="Elena Rostova - Lead Alpine Expedition Guide">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Elena Rostova" loading="lazy" style="object-position: top center;">
+              </div>
+              <div class="camp-card-body">
+                <h4 style="font-size: 1.15rem; margin-bottom: 0.25rem;">Elena Rostova</h4>
+                <div style="font-size: 0.8rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.75rem;">Lead Alpine Expedition Guide</div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">UIAGM certified mountaineer. Spearheads our multi-day ridge treks and glacial river kayak expeditions.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guide 3 -->
+          <div class="col-lg-3 col-md-6">
+            <div class="camp-card text-center h-100">
+              <div class="camp-card-media team-card-media" data-lightbox-src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=85" data-lightbox-caption="Marcus Vance - Camp Executive Chef">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Marcus Vance" loading="lazy" style="object-position: top center;">
+              </div>
+              <div class="camp-card-body">
+                <h4 style="font-size: 1.15rem; margin-bottom: 0.25rem;">Marcus Vance</h4>
+                <div style="font-size: 0.8rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.75rem;">Camp Executive Chef</div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">Pioneer of hearth-fired foraged cuisine. Master of cast-iron skillet braising, wood smoking, and cedar baking.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guide 4 -->
+          <div class="col-lg-3 col-md-6">
+            <div class="camp-card text-center h-100">
+              <div class="camp-card-media team-card-media" data-lightbox-src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=85" data-lightbox-caption="Dr. Maya Lin - Astrophysicist & Dark Sky Lead">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Dr. Maya Lin" loading="lazy" style="object-position: top center;">
+              </div>
+              <div class="camp-card-body">
+                <h4 style="font-size: 1.15rem; margin-bottom: 0.25rem;">Dr. Maya Lin</h4>
+                <div style="font-size: 0.8rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.75rem;">Astrophysicist & Dark Sky Lead</div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">Directs our observatory telescopes and dark-sky tours. Advocates for international dark-sky sanctuary status.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX COMPONENT -->
+  <div class="camp-lightbox" id="campLightbox" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+    <button class="lightbox-close" aria-label="Close lightbox"><i class="bi bi-x-lg"></i></button>
+    <button class="lightbox-nav-btn lightbox-prev" aria-label="Previous image"><i class="bi bi-chevron-left"></i></button>
+    <div class="lightbox-content">
+      <img src="" alt="Enlarged view" class="lightbox-img">
+      <div class="lightbox-caption"></div>
+    </div>
+    <button class="lightbox-nav-btn lightbox-next" aria-label="Next image"><i class="bi bi-chevron-right"></i></button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="camp-footer">
+    <div class="camp-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-fire"></i>
+            </div>
+            <span>AURA PINES</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            A premier wilderness camp and glamping sanctuary dedicated to slow living, outdoor adventure, and eco-restoration.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Explore & Learn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Details</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="bi bi-geo-alt text-warning"></i>
+              <span>Whispering Ridge Rd, Pinecrest, 98214</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone text-success"></i>
+              <a href="tel:+15553822267">+1 (555) 382-CAMP</a>
+            </li>
+            <li>
+              <i class="bi bi-envelope text-info"></i>
+              <a href="mailto:rangers@aurapines.com">rangers@aurapines.com</a>
+            </li>
+            <li>
+              <i class="bi bi-clock text-warning"></i>
+              <span>7:00 AM – 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Wilderness Dispatch</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Receive seasonal campfire stories, stargazing calendars, and private cabin promotions.</p>
+          <form class="newsletter-form">
+            <div class="d-flex gap-2">
+              <input type="email" placeholder="Your email address" required style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-md); padding: 0.5rem 0.85rem; font-size: 0.85rem; width: 100%; outline: none;">
+              <button type="submit" class="btn-camp btn-camp-primary btn-sm" style="flex-shrink: 0;">Join</button>
+            </div>
+          </form>
+          <div class="mt-3" style="font-size: 0.75rem; color: var(--text-dim);">
+            <i class="bi bi-shield-lock me-1"></i> We respect nature and your inbox privacy.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 AURA PINES Wilderness Resort & Campsite. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

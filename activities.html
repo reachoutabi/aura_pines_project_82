@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outdoor Activities & Guided Expeditions | AURA PINES</title>
+  <meta name="description" content="Discover 12 guided outdoor activities: trekking, kayaking, rock climbing, stargazing, forest yoga, archery, and campfire storytelling nights.">
+  <meta property="og:title" content="Wilderness Activities & Expeditions - AURA PINES">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+
+  <!-- Main Navbar -->
+  <header class="main-navbar">
+    <div class="camp-container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-logo" aria-label="Aura Pines Home">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-toggle">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li>
+                <a href="index.html" class="nav-dropdown-item">Glamping Sanctuary</a>
+              </li>
+              <li>
+                <a href="index-2.html" class="nav-dropdown-item">Alpine Expeditions</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="activities.html" class="active">Activities</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <!-- RTL Toggle Button on Nav Bar (Icon Only) -->
+        <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <!-- Theme Toggle Button on Nav Bar -->
+        <button class="icon-btn-toggle theme-toggle-btn" title="Toggle light/dark theme" aria-label="Toggle light or dark theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <!-- Sign In Icon Button (Desktop Only; on mobile it is inside the hamburger drawer) -->
+        <a href="login.html" class="icon-btn-toggle nav-signin-btn d-none d-md-inline-flex" title="Sign In" aria-label="Sign In">
+          <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+        <!-- Dashboard on Nav Bar -->
+        <a href="dashboard.html" class="btn-camp btn-camp-secondary d-none d-md-inline-flex" style="padding: 0.5rem 0.95rem;" title="Dashboard">
+          <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
+        </a>
+        <!-- My Trips on Nav Bar -->
+        <a href="dashboard.html#bookings" class="btn-camp btn-camp-secondary d-none d-lg-inline-flex" style="padding: 0.5rem 0.95rem;" title="My Trips">
+          <i class="bi bi-compass"></i> <span>My Trips</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </div>
+      <button class="icon-btn-toggle mobile-drawer-close" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Sign In Button inside Mobile Drawer -->
+    <div class="mobile-drawer-auth mb-3">
+      <a href="login.html" class="btn-camp btn-camp-primary w-100 justify-content-center">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Sign In / Register
+      </a>
+    </div>
+    <ul class="mobile-nav-links">
+      <li>
+        <a href="#" class="mobile-dropdown-btn">
+          <span><i class="bi bi-house-door"></i> Home</span>
+          <i class="bi bi-chevron-down mobile-chevron"></i>
+        </a>
+        <ul class="mobile-dropdown-menu">
+          <li><a href="index.html">Glamping Sanctuary</a></li>
+          <li><a href="index-2.html">Alpine Expeditions</a></li>
+        </ul>
+      </li>
+      <li><a href="packages.html"><i class="bi bi-box2-heart"></i> Packages</a></li>
+      <li><a href="activities.html" class="active"><i class="bi bi-compass"></i> Activities</a></li>
+      <li><a href="gallery.html"><i class="bi bi-images"></i> Gallery</a></li>
+      <li><a href="about.html"><i class="bi bi-tree"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Guest Dashboard</a></li>
+      <li><a href="login.html"><i class="bi bi-person"></i> Guest Login</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex gap-2 justify-content-between align-items-center">
+      <button class="btn-camp btn-camp-secondary btn-sm theme-toggle-btn w-50"><i class="bi bi-moon-stars-fill me-1"></i> Theme</button>
+      <button class="btn-camp btn-camp-secondary btn-sm rtl-toggle-btn w-50"><i class="bi bi-arrow-left-right me-1"></i> <span class="rtl-label">RTL</span></button>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO WITH ANIMATED MOVING BACKGROUND -->
+    <section class="page-hero-animated">
+      <div class="hero-bg-animated hero-bg-pan" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=3840&q=90');"></div>
+      <div class="hero-overlay"></div>
+      <div class="camp-container position-relative text-center">
+        <nav aria-label="breadcrumb" class="mb-2">
+          <ol class="breadcrumb justify-content-center" style="font-size: 0.8rem;">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Wilderness Activities</li>
+          </ol>
+        </nav>
+        <span class="section-badge"><i class="bi bi-compass"></i> Adventure & Restoration</span>
+        <h1 class="section-title">Outdoor Activities & Guide Sessions</h1>
+        <p class="section-desc">From heart-racing ridge climbs and glacial river paddles to restorative sunrise forest yoga and dark-sky astronomy.</p>
+      </div>
+    </section>
+
+    <!-- SEARCH & CATEGORY FILTER TABS -->
+    <section class="py-4" style="background: var(--bg-surface); border-bottom: 1px solid var(--border-color);">
+      <div class="camp-container">
+        <div class="row align-items-center g-3">
+          <!-- Category Tabs -->
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap gap-2" id="activityCategoryTabs">
+              <button class="btn-camp btn-camp-primary btn-sm act-filter-btn" data-category="all">All Experiences</button>
+              <button class="btn-camp btn-camp-secondary btn-sm act-filter-btn" data-category="adventure">Adventure</button>
+              <button class="btn-camp btn-camp-secondary btn-sm act-filter-btn" data-category="relaxation">Relaxation</button>
+              <button class="btn-camp btn-camp-secondary btn-sm act-filter-btn" data-category="family">Family</button>
+              <button class="btn-camp btn-camp-secondary btn-sm act-filter-btn" data-category="night">Night & Hearth</button>
+            </div>
+          </div>
+
+          <!-- Search & Difficulty Filter -->
+          <div class="col-lg-5">
+            <div class="d-flex flex-wrap flex-sm-nowrap gap-2">
+              <div class="position-relative flex-grow-1" style="min-width: 160px;">
+                <input type="text" id="activitySearchInput" placeholder="Search activities (e.g., Kayak, Stars, Trek)..." class="search-field-input" style="padding-inline-start: 2.25rem;">
+                <i class="bi bi-search position-absolute text-muted" style="inset-inline-start: 0.85rem; top: 50%; transform: translateY(-50%);"></i>
+              </div>
+              <select id="activityDiffFilter" class="search-field-input" style="width: auto; flex-shrink: 0;">
+                <option value="all">Difficulty: All</option>
+                <option value="Easy">Easy</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Challenging">Challenging</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES CARDS GRID (12 ACTIVITIES) -->
+    <section class="section-space">
+      <div class="camp-container camp-visible">
+        <div class="row g-4" id="activitiesGrid">
+          
+          <!-- 1. Guided Trekking -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="adventure" data-difficulty="Moderate" data-title="Guided Trekking">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2000&q=90" alt="Guided Trekking" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Moderate</span>
+                  <button class="card-wishlist-btn" data-item-id="act-trekking" data-item-title="Guided Trekking" data-item-type="Activity" data-item-price="$45/person" data-item-image="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 3.5 Hours</span>
+                  <span><i class="bi bi-person me-1"></i> Age 10+</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-trekking'); return false;">Guided Ridge Trekking</a></h3>
+                <p class="camp-card-desc">Hike along ancient glacial paths up to Eagle Rock panorama with a naturalist explaining native fauna and flora.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$45</span><span class="price-tag-period">per trekker</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-trekking')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Guided Ridge Trekking', 45)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Campfire & Storytelling Night -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="night family" data-difficulty="Easy" data-title="Campfire & Storytelling Night">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=2000&q=90" alt="Campfire Storytelling" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Easy / All Ages</span>
+                  <button class="card-wishlist-btn" data-item-id="act-campfire" data-item-title="Campfire & Storytelling Night" data-item-type="Activity" data-item-price="Free" data-item-image="https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 2 Hours</span>
+                  <span><i class="bi bi-people me-1"></i> All Ages</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-campfire'); return false;">Campfire & Storytelling Night</a></h3>
+                <p class="camp-card-desc">Gather around the main lodge hearth for regional folklore, acoustic guitar melodies, and hot apple cider with marshmallows.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">Complimentary</span><span class="price-tag-period">for all guests</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-campfire')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Campfire Night', 0)">RSVP Free</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Kayaking & Canoeing -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="adventure relaxation" data-difficulty="Easy" data-title="Kayaking & Canoeing">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2000&q=90" alt="Kayaking" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Easy</span>
+                  <button class="card-wishlist-btn" data-item-id="act-kayak" data-item-title="Kayaking & Canoeing" data-item-type="Activity" data-item-price="$50/boat" data-item-image="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 2.5 Hours</span>
+                  <span><i class="bi bi-person me-1"></i> Age 6+</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-kayak'); return false;">Kayaking & Canoeing</a></h3>
+                <p class="camp-card-desc">Glide across the serene, glassy waters of Mirror Lake. Life vests, paddles, and lightweight stable tandem boats provided.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$50</span><span class="price-tag-period">per canoe / 2 persons</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-kayak')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Mirror Lake Kayak', 50)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Rock Climbing & Rappelling -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="adventure" data-difficulty="Challenging" data-title="Rock Climbing & Rappelling">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=2000&q=90" alt="Rock Climbing" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-danger card-badge-top">Challenging</span>
+                  <button class="card-wishlist-btn" data-item-id="act-climbing" data-item-title="Rock Climbing" data-item-type="Activity" data-item-price="$85/person" data-item-image="https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 3 Hours</span>
+                  <span><i class="bi bi-person me-1"></i> Age 14+</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-climbing'); return false;">Rock Climbing & Rappelling</a></h3>
+                <p class="camp-card-desc">Scale natural granite bluffs under AMGA-certified supervision. Includes harness, climbing shoes, and chalk bag.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$85</span><span class="price-tag-period">per climber</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-climbing')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Rock Climbing Session', 85)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Zip-line & Ropes Course -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="adventure family" data-difficulty="Moderate" data-title="Zip-line & Ropes Course">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1539372786391-0518119e77f5?auto=format&fit=crop&w=2000&q=90" alt="Canopy Zip Line" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Moderate</span>
+                  <button class="card-wishlist-btn" data-item-id="act-zipline" data-item-title="Zip-line Course" data-item-type="Activity" data-item-price="$60/person" data-item-image="https://images.unsplash.com/photo-1539372786391-0518119e77f5?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 2 Hours</span>
+                  <span><i class="bi bi-person me-1"></i> Age 8+</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-zipline'); return false;">Canopy Zip-line & Ropes</a></h3>
+                <p class="camp-card-desc">Soar above pine treetops across 4 progressive zip-lines with stunning mountain canyon views and canopy obstacles.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$60</span><span class="price-tag-period">per person</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-zipline')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Zip-line Course', 60)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Mountain Biking -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="adventure" data-difficulty="Moderate" data-title="Mountain Biking">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1660149109561-b98acecd4238?auto=format&fit=crop&w=2000&q=90" alt="Alpine Mountain Biking" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Moderate</span>
+                  <button class="card-wishlist-btn" data-item-id="act-biking" data-item-title="Mountain Biking" data-item-type="Activity" data-item-price="$55/rental" data-item-image="https://images.unsplash.com/photo-1660149109561-b98acecd4238?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> Half-day / 4 Hours</span>
+                  <span><i class="bi bi-person me-1"></i> Age 12+</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-biking'); return false;">Alpine Mountain Biking</a></h3>
+                <p class="camp-card-desc">Rent premium full-suspension Trek mountain bikes and explore 22 miles of flowing single-track and logging trails.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$55</span><span class="price-tag-period">half-day rental + helmet</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-biking')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Mountain Bike Rental', 55)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Stargazing Session -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="night relaxation" data-difficulty="Easy" data-title="Stargazing Session">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=2000&q=90" alt="Stargazing Session" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Top Rated</span>
+                  <button class="card-wishlist-btn" data-item-id="act-stargazing" data-item-title="Stargazing Session" data-item-type="Activity" data-item-price="$45/person" data-item-image="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 1.5 Hours</span>
+                  <span><i class="bi bi-moon-stars me-1"></i> Zero Light Pollution</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-stargazing'); return false;">Deep-Sky Astronomy Tour</a></h3>
+                <p class="camp-card-desc">Dr. Maya Lin leads an observatory session with 11-inch motorized Schmidt-Cassegrain telescopes to view deep space galaxies.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$45</span><span class="price-tag-period">per person</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-stargazing')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Stargazing Tour', 45)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Fishing -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="relaxation" data-difficulty="Easy" data-title="Fishing">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1505950476988-702d4a1af500?auto=format&fit=crop&w=2000&q=90" alt="Alpine River Fly Fishing" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Easy</span>
+                  <button class="card-wishlist-btn" data-item-id="act-fishing" data-item-title="Fly Fishing" data-item-type="Activity" data-item-price="$40/session" data-item-image="https://images.unsplash.com/photo-1505950476988-702d4a1af500?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 3 Hours</span>
+                  <span><i class="bi bi-droplet me-1"></i> Catch & Release</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-fishing'); return false;">Alpine River Fly Fishing</a></h3>
+                <p class="camp-card-desc">Cast lines for native rainbow trout in crystal mountain streams. Includes premium rods, tied flies, waders, and fishing permits.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$40</span><span class="price-tag-period">gear & permit included</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-fishing')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('River Fly Fishing', 40)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Bird Watching Walk -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="relaxation family" data-difficulty="Easy" data-title="Bird Watching Walk">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=2000&q=90" alt="Bird Watching" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Easy</span>
+                  <button class="card-wishlist-btn" data-item-id="act-bird" data-item-title="Bird Watching Walk" data-item-type="Activity" data-item-price="$25/person" data-item-image="https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 2 Hours</span>
+                  <span><i class="bi bi-sunrise me-1"></i> Early Morning (7 AM)</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-bird'); return false;">Bird Watching & Botany Walk</a></h3>
+                <p class="camp-card-desc">Spot osprey, cedar waxwings, and bald eagles. High-power Zeiss binoculars and illustrated field guidebooks provided.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$25</span><span class="price-tag-period">per person</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-bird')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Bird Watching Walk', 25)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. Yoga & Forest Bathing -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="relaxation" data-difficulty="Easy" data-title="Yoga & Forest Bathing">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=2000&q=90" alt="Forest Yoga" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Restorative</span>
+                  <button class="card-wishlist-btn" data-item-id="act-yoga" data-item-title="Yoga & Forest Bathing" data-item-type="Activity" data-item-price="$30/person" data-item-image="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 75 Mins</span>
+                  <span><i class="bi bi-heart-pulse me-1"></i> Mindfulness</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-yoga'); return false;">Yoga & Shinrin-Yoku (Forest Bathing)</a></h3>
+                <p class="camp-card-desc">Unwind on our open-air cedar platform beneath fragrant pines. Gentle vinyasa flow followed by silent sensory meditation.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$30</span><span class="price-tag-period">mat & tea included</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-yoga')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Forest Yoga', 30)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11. Archery -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="adventure family" data-difficulty="Moderate" data-title="Archery">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1601259501461-9a6b562b2728?auto=format&fit=crop&w=2000&q=90" alt="Traditional Field Archery" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Moderate</span>
+                  <button class="card-wishlist-btn" data-item-id="act-archery" data-item-title="Archery" data-item-type="Activity" data-item-price="$35/person" data-item-image="https://images.unsplash.com/photo-1601259501461-9a6b562b2728?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 1.5 Hours</span>
+                  <span><i class="bi bi-bullseye me-1"></i> Age 10+</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-archery'); return false;">Traditional Field Archery</a></h3>
+                <p class="camp-card-desc">Learn instinctive recurve bow target shooting in our forested archery range with targets set at 10 to 40 yards.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$35</span><span class="price-tag-period">all arrows & bow</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-archery')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Field Archery', 35)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12. Bonfire BBQ Dinner -->
+          <div class="col-lg-4 col-md-6 act-card-wrapper" data-category="night family relaxation" data-difficulty="Easy" data-title="Bonfire BBQ Dinner">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=2000&q=90" alt="Bonfire BBQ Dinner" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Culinary Feast</span>
+                  <button class="card-wishlist-btn" data-item-id="act-bbq" data-item-title="Bonfire BBQ Dinner" data-item-type="Activity" data-item-price="$65/person" data-item-image="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist"><i class="bi bi-heart"></i></button>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 2.5 Hours</span>
+                  <span><i class="bi bi-cup-hot me-1"></i> Artisan Chef</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openActivityDetails('act-bbq'); return false;">Artisan Bonfire BBQ Dinner</a></h3>
+                <p class="camp-card-desc">Cast-iron grilled grass-fed steaks or plant-based smoked delicacies, cedar roasted potatoes, rustic breads, and local draft cider.</p>
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag"><span class="price-tag-value">$65</span><span class="price-tag-period">per person / full buffet</span></div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="openActivityDetails('act-bbq')">View Guide</button>
+                    <button class="btn-camp btn-camp-primary btn-sm" onclick="addToBooking('Bonfire BBQ Dinner', 65)">Add to Stay</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ACTIVITY DETAILS MODAL -->
+  <div class="modal fade" id="activityDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content" style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-xl);">
+        <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
+          <h4 class="modal-title" id="actModalTitle">Activity Guide & Safety</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="actModalBody" style="padding: 1.75rem;">
+          <!-- Dynamically injected -->
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid var(--border-color);">
+          <button type="button" class="btn-camp btn-camp-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="booking.html" class="btn-camp btn-camp-primary" id="actModalBookBtn">Reserve This Activity</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="camp-footer">
+    <div class="camp-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-fire"></i>
+            </div>
+            <span>AURA PINES</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            A premier wilderness camp and glamping sanctuary dedicated to slow living, outdoor adventure, and eco-restoration.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Explore & Learn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Details</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="bi bi-geo-alt text-warning"></i>
+              <span>Whispering Ridge Rd, Pinecrest, 98214</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone text-success"></i>
+              <a href="tel:+15553822267">+1 (555) 382-CAMP</a>
+            </li>
+            <li>
+              <i class="bi bi-envelope text-info"></i>
+              <a href="mailto:rangers@aurapines.com">rangers@aurapines.com</a>
+            </li>
+            <li>
+              <i class="bi bi-clock text-warning"></i>
+              <span>7:00 AM – 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Wilderness Dispatch</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Receive seasonal campfire stories, stargazing calendars, and private cabin promotions.</p>
+          <form class="newsletter-form">
+            <div class="d-flex gap-2">
+              <input type="email" placeholder="Your email address" required style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-md); padding: 0.5rem 0.85rem; font-size: 0.85rem; width: 100%; outline: none;">
+              <button type="submit" class="btn-camp btn-camp-primary btn-sm" style="flex-shrink: 0;">Join</button>
+            </div>
+          </form>
+          <div class="mt-3" style="font-size: 0.75rem; color: var(--text-dim);">
+            <i class="bi bi-shield-lock me-1"></i> We respect nature and your inbox privacy.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 AURA PINES Wilderness Resort & Campsite. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Activity Details Database
+    const ACTIVITY_GUIDE_MAP = {
+      'act-trekking': {
+        title: 'Guided Ridge Trekking',
+        price: '$45',
+        duration: '3.5 Hours',
+        difficulty: 'Moderate',
+        image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2000&q=90',
+        description: 'Traverse 4.5 miles of high alpine ridge overlooking glacial valley lakes. Led by lead naturalist Julian Thorne.',
+        safety: 'Certified Wilderness First Responder on trail, satellite Garmin InReach, bear deterrent equipment.',
+        provided: ['Trekking poles', 'Water purification filter', 'Botanical field guide booklet'],
+        toBring: ['Sturdy hiking shoes or boots with tread', 'Daypack with at least 1.5L water', 'Windbreaker jacket or warm layer']
+      },
+      'act-campfire': {
+        title: 'Campfire & Storytelling Night',
+        price: 'Complimentary',
+        duration: '2 Hours',
+        difficulty: 'Easy / All Ages',
+        image: 'https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=2000&q=90',
+        description: 'Our signature evening community gathering around the main stone hearth. Stories of early mountain explorers and acoustic ballads.',
+        safety: 'Supervised fire circle, spark arrestors, fire marshals on site.',
+        provided: ['Marshmallow roasting sticks', 'Gourmet organic s’mores ingredients', 'Spiced mountain cider'],
+        toBring: ['Warm evening jacket or fleece', 'Camp blanket (optional, also in your tent)']
+      },
+      'act-kayak': {
+        title: 'Mirror Lake Kayaking',
+        price: '$50',
+        duration: '2.5 Hours',
+        difficulty: 'Easy',
+        image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2000&q=90',
+        description: 'Calm water paddling with views of snowy peaks reflecting on the mirror-like surface.',
+        safety: 'Coast Guard approved life vests mandatory, motorized safety boat stationed on lake.',
+        provided: ['Single or tandem fiberglass kayaks', 'Lightweight paddles', 'Waterproof phone dry-bags'],
+        toBring: ['Quick-drying clothing or swimwear', 'Sun hat and polarized sunglasses']
+      },
+      'act-climbing': {
+        title: 'Granite Bluff Rock Climbing',
+        price: '$85',
+        duration: '3 Hours',
+        difficulty: 'Challenging',
+        image: 'https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=2000&q=90',
+        description: 'Top-rope climbing on granite cliffs ranging from beginner 5.6 to exhilarating 5.10 routes.',
+        safety: 'AMGA Certified Rock Guides, redundant anchor systems, dual-check protocol.',
+        provided: ['Black Diamond climbing harness', 'Climbing shoes (all sizes)', 'Climbing helmet & chalk bag'],
+        toBring: ['Comfortable athletic pants', 'Water canteen', 'Hair tied back']
+      },
+      'act-zipline': {
+        title: 'Canopy Zip-line Course',
+        price: '$60',
+        duration: '2 Hours',
+        difficulty: 'Moderate',
+        image: 'https://images.unsplash.com/photo-1539372786391-0518119e77f5?auto=format&fit=crop&w=2000&q=90',
+        description: 'Fly across 4 high lines reaching speeds of up to 35 mph over tree canopies and river canyons.',
+        safety: 'Continuous belay safety system (you cannot detach mid-course), certified cable inspections.',
+        provided: ['Full body safety harness', 'Pulley trolley & braking glove', 'Climbing helmet'],
+        toBring: ['Closed-toe shoes (mandatory)', 'Secure clothing without loose cords']
+      },
+      'act-biking': {
+        title: 'Alpine Mountain Biking',
+        price: '$55',
+        duration: '4 Hours',
+        difficulty: 'Moderate',
+        image: 'https://images.unsplash.com/photo-1660149109561-b98acecd4238?auto=format&fit=crop&w=2000&q=90',
+        description: 'Ride across scenic pine singletrack trails with gentle berms, flow sections, and bridge crossings.',
+        safety: 'GPS trail map app access, repair kit, tire sealant.',
+        provided: ['Full-suspension Trek mountain bike', 'Ventilated mountain helmet', 'Emergency tire pump'],
+        toBring: ['Athletic shoes with grip', 'Sunglasses or trail goggles']
+      },
+      'act-stargazing': {
+        title: 'Deep-Sky Astronomy Tour',
+        price: '$45',
+        duration: '1.5 Hours',
+        difficulty: 'Easy',
+        image: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=2000&q=90',
+        description: 'Explore deep space through 11-inch motorized telescopes with our resident astrophysicist Dr. Maya Lin.',
+        safety: 'Paved observatory deck, red light flashlights only to preserve night vision.',
+        provided: ['Schmidt-Cassegrain telescopes', 'Red-lens headlamps', 'Hot cocoa'],
+        toBring: ['Heavy warm jacket, beanie, and gloves (temperatures drop at night)']
+      },
+      'act-fishing': {
+        title: 'Alpine River Fly Fishing',
+        price: '$40',
+        duration: '3 Hours',
+        difficulty: 'Easy',
+        image: 'https://images.unsplash.com/photo-1505950476988-702d4a1af500?auto=format&fit=crop&w=2000&q=90',
+        description: 'Catch and release native cutthroat and rainbow trout with guidance on fly casting techniques.',
+        safety: 'Non-slip wading boots, river wading safety guidelines.',
+        provided: ['Fly rod and reel', 'Hand-tied local flies', 'Chest waders'],
+        toBring: ['Sunscreen, polarized sunglasses to spot fish in clear pools']
+      },
+      'act-bird': {
+        title: 'Bird Watching & Botany Walk',
+        price: '$25',
+        duration: '2 Hours',
+        difficulty: 'Easy',
+        image: 'https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=2000&q=90',
+        description: 'Quiet morning walk around lake marshes and cedar stands identifying warblers, woodpeckers, and mountain wildflowers.',
+        safety: 'Gentle flat boardwalk trails, ranger guide.',
+        provided: ['Zeiss Terra ED 8x42 binoculars', 'Regional bird checklist'],
+        toBring: ['Comfortable walking shoes, neutral colored clothing']
+      },
+      'act-yoga': {
+        title: 'Yoga & Shinrin-Yoku (Forest Bathing)',
+        price: '$30',
+        duration: '75 Mins',
+        difficulty: 'Easy / Restorative',
+        image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=2000&q=90',
+        description: 'Gentle morning yoga practice under the cedar boughs accompanied by morning birdsong and mountain breeze.',
+        safety: 'Outdoor cedar deck with non-slip organic cork mats.',
+        provided: ['Natural rubber/cork yoga mats', 'Meditation cushions', 'Wild herb tea'],
+        toBring: ['Comfortable, flexible layers']
+      },
+      'act-archery': {
+        title: 'Traditional Field Archery',
+        price: '$35',
+        duration: '1.5 Hours',
+        difficulty: 'Moderate',
+        image: 'https://images.unsplash.com/photo-1601259501461-9a6b562b2728?auto=format&fit=crop&w=2000&q=90',
+        description: 'Practice the ancient art of archery with wooden recurve bows at target ranges secluded in the birch woods.',
+        safety: 'Strict whistle commands, safety netting behind targets, arm guards mandatory.',
+        provided: ['Wooden recurve bows (15-35 lb draw weights)', 'Carbon arrows', 'Leather armguards and finger tabs'],
+        toBring: ['Form-fitting long sleeves, flat sneakers']
+      },
+      'act-bbq': {
+        title: 'Artisan Bonfire BBQ Dinner',
+        price: '$65',
+        duration: '2.5 Hours',
+        difficulty: 'Easy / Culinary',
+        image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=2000&q=90',
+        description: 'A feast cooked over open cedar logs by Camp Executive Chef Marcus Vance. Local meats, foraged greens, and hot fruit cobbler.',
+        safety: 'Dedicated food hygiene prep, allergen conscious stations.',
+        provided: ['Multi-course buffet dinner', 'Draft craft cider & wilderness lemonades', 'Live hearthside seating'],
+        toBring: ['Your appetite and cozy evening wear']
+      }
+    };
+
+    // Filter Logic
+    const categoryButtons = document.querySelectorAll('.act-filter-btn');
+    const searchInput = document.getElementById('activitySearchInput');
+    const diffFilter = document.getElementById('activityDiffFilter');
+    const activityCards = Array.from(document.querySelectorAll('.act-card-wrapper'));
+
+    let activeCategory = 'all';
+
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryButtons.forEach(b => {
+          b.classList.remove('btn-camp-primary');
+          b.classList.add('btn-camp-secondary');
+        });
+        btn.classList.remove('btn-camp-secondary');
+        btn.classList.add('btn-camp-primary');
+        activeCategory = btn.dataset.category;
+        filterActivities();
+      });
+    });
+
+    searchInput.addEventListener('input', filterActivities);
+    diffFilter.addEventListener('change', filterActivities);
+
+    function filterActivities() {
+      const query = searchInput.value.toLowerCase().trim();
+      const diff = diffFilter.value;
+
+      activityCards.forEach(card => {
+        const cat = card.dataset.category || '';
+        const cardDiff = card.dataset.difficulty || '';
+        const title = card.dataset.title.toLowerCase();
+
+        const matchesCat = activeCategory === 'all' || cat.includes(activeCategory);
+        const matchesDiff = diff === 'all' || cardDiff.toLowerCase() === diff.toLowerCase();
+        const matchesQuery = query === '' || title.includes(query);
+
+        if (matchesCat && matchesDiff && matchesQuery) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.querySelector('#activitiesGrid')?.closest('.camp-container')?.classList.add('camp-visible');
+    }
+
+    // Modal Trigger
+    function openActivityDetails(actKey) {
+      const act = ACTIVITY_GUIDE_MAP[actKey];
+      if (!act) return;
+
+      document.getElementById('actModalTitle').textContent = act.title;
+      document.getElementById('actModalBookBtn').onclick = () => {
+        addToBooking(act.title, act.price === 'Complimentary' ? 0 : parseInt(act.price.replace('$', ''), 10));
+        bootstrap.Modal.getInstance(document.getElementById('activityDetailsModal')).hide();
+      };
+
+      const modalBody = document.getElementById('actModalBody');
+      modalBody.innerHTML = `
+        <div style="margin-bottom: 1.5rem;">
+          <div class="act-modal-media-wrap" style="position: relative; width: 100%; height: clamp(260px, 46vw, 420px); border-radius: 14px; overflow: hidden; margin-bottom: 1.25rem; background: var(--bg-elevated); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;">
+            <div style="position: absolute; inset: 0; background-image: url('${act.image}'); background-size: cover; background-position: center; filter: blur(22px) brightness(0.65); transform: scale(1.15); opacity: 0.7; pointer-events: none;"></div>
+            <img src="${act.image}" alt="${act.title}" style="position: relative; z-index: 2; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+            <a href="${act.image}" target="_blank" rel="noopener noreferrer" class="btn-camp btn-camp-secondary btn-sm" style="position: absolute; top: 12px; inset-inline-end: 12px; z-index: 3; padding: 0.35rem 0.65rem; font-size: 0.75rem; background: rgba(18, 34, 27, 0.75); backdrop-filter: blur(8px); color: #FFF; border: 1px solid rgba(255,255,255,0.25);" title="Open original high-res photo"><i class="bi bi-arrows-fullscreen me-1"></i> Full Photo</a>
+          </div>
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+            <h3 style="margin: 0; font-family: var(--font-serif);">${act.title}</h3>
+            <span class="camp-badge badge-ember" style="font-size: 0.95rem;">${act.price} • ${act.duration}</span>
+          </div>
+          <p style="color: var(--text-secondary);">${act.description}</p>
+        </div>
+
+        <div class="mb-3" style="background: var(--bg-elevated); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+          <strong style="color: var(--accent-primary);"><i class="bi bi-shield-check me-1"></i> Safety Protocols:</strong>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0; margin-top: 0.25rem;">${act.safety}</p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <h5 style="color: var(--state-success); font-size: 0.95rem; margin-bottom: 0.5rem;"><i class="bi bi-box-seam me-1"></i> Equipment Provided</h5>
+            <ul style="font-size: 0.85rem; padding-left: 1.25rem; color: var(--text-secondary);">
+              ${act.provided.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h5 style="color: var(--accent-secondary); font-size: 0.95rem; margin-bottom: 0.5rem;"><i class="bi bi-backpack me-1"></i> What You Should Bring</h5>
+            <ul style="font-size: 0.85rem; padding-left: 1.25rem; color: var(--text-secondary);">
+              ${act.toBring.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      `;
+
+      const modal = new bootstrap.Modal(document.getElementById('activityDetailsModal'));
+      modal.show();
+    }
+
+    // Add to Booking helper
+    function addToBooking(name, price) {
+      if (window.showToast) {
+        window.showToast(`"${name}" (${price ? '$' + price : 'Free'}) added to your reservation checklist!`, 'success');
+      }
+      // Save in session storage
+      let selectedActivities = JSON.parse(sessionStorage.getItem('camp_selected_activities') || '[]');
+      selectedActivities.push({ name, price });
+      sessionStorage.setItem('camp_selected_activities', JSON.stringify(selectedActivities));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation | AURA PINES - Camping & Adventure HTML Template</title>
+  
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .docs-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+    .docs-sidebar {
+      width: 280px;
+      background: var(--bg-surface);
+      border-inline-end: 1px solid var(--border-color);
+      padding: 2rem 1.5rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .docs-content {
+      flex: 1;
+      padding: 3rem 4rem;
+      max-width: 1000px;
+      min-width: 0;
+    }
+    @media (max-width: 991px) {
+      .docs-layout {
+        flex-direction: column;
+      }
+      .docs-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-inline-end: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .docs-content {
+        padding: 2rem 1.5rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .docs-sidebar {
+        padding: 1.25rem 1rem;
+      }
+      .docs-content {
+        padding: 1.5rem 0.85rem;
+      }
+      pre code {
+        padding: 0.85rem;
+        font-size: 0.78rem;
+      }
+    }
+    .docs-nav-link {
+      display: block;
+      padding: 0.4rem 0.75rem;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      text-decoration: none;
+    }
+    .docs-nav-link:hover, .docs-nav-link.active {
+      color: var(--accent-primary);
+      background: var(--accent-subtle);
+    }
+    pre code {
+      display: block;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--accent-hover);
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="docs-layout">
+    <!-- DOCS SIDEBAR -->
+    <aside class="docs-sidebar">
+      <div class="d-flex align-items-center gap-2 mb-4">
+        <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1rem;"><i class="bi bi-fire"></i></div>
+        <strong style="font-family: var(--font-serif); font-size: 1.35rem;">AURA PINES</strong>
+      </div>
+      <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem;">Documentation Index</div>
+      <nav>
+        <a href="#overview" class="docs-nav-link active">1. Template Overview</a>
+        <a href="#structure" class="docs-nav-link">2. File & Folder Structure</a>
+        <a href="#tokens" class="docs-nav-link">3. Customizing Colors & Tokens</a>
+        <a href="#images" class="docs-nav-link">4. Centralized Images Config</a>
+        <a href="#storage" class="docs-nav-link">5. LocalStorage Architecture</a>
+        <a href="#rtl" class="docs-nav-link">6. RTL & Multilingual Setup</a>
+        <a href="#browser" class="docs-nav-link">7. Browser Compatibility</a>
+      </nav>
+      <div class="mt-4 pt-3 border-top">
+        <a href="../index.html" class="btn-camp btn-camp-primary btn-sm w-100"><i class="bi bi-arrow-left"></i> Return to Site</a>
+      </div>
+    </aside>
+
+    <!-- DOCS CONTENT -->
+    <main class="docs-content">
+      <span class="section-badge mb-2"><i class="bi bi-book"></i> User Manual & Developer Reference</span>
+      <h1 class="display-title mb-4">Aura Pines HTML5 Template Documentation</h1>
+
+      <!-- 1. OVERVIEW -->
+      <section id="overview" class="mb-5 pb-4 border-bottom">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 1rem;">1. Template Overview</h2>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          <strong>AURA PINES</strong> is a production-ready, ThemeForest and TemplateMonster standard HTML5 template engineered specifically for luxury campgrounds, glamping resorts, trekking base camps, and eco-retreats.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          It features the bespoke <strong>Midnight Pine & Ember</strong> design palette, complete dual Dark and Light modes, GPU-accelerated 60fps Ken Burns moving hero background animations across all pages, native RTL bidirectional layout compatibility, a 5-step interactive frontend booking engine, and a full-featured Guest Portal Dashboard.
+        </p>
+      </section>
+
+      <!-- 2. STRUCTURE -->
+      <section id="structure" class="mb-5 pb-4 border-bottom">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 1rem;">2. File & Folder Structure</h2>
+        <pre><code>nov_82_project/
+├── index.html                   (Homepage 1 - Glamping Sanctuary & Slow Living)
+├── index-2.html                 (Homepage 2 - Alpine Expeditions & Adventure Basecamp)
+├── packages.html                (Curated Packages & Side-by-Side Comparison)
+├── activities.html              (12 Outdoor Activities, Categories & Details Modal)
+├── booking.html                 (5-Step Reservation Engine & Printable Confirmation)
+├── login.html                   (Split-screen Guest Portal Login & Registration)
+├── dashboard.html               (Guest Portal Dashboard & Itinerary/Checklist)
+├── about.html                   (Camp Origins, Guides, Timeline & Eco-Pledge)
+├── gallery.html                 (Filterable Masonry Visual Gallery with Lightbox)
+├── contact.html                 (Inquiry Form, GPS Coordinates & Trailhead Access)
+├── 404.html                     (Lost in the Woods Error Page)
+├── coming-soon.html             (Winter Season Countdown & Early Access Form)
+├── documentation/
+│   ├── index.html               (This documentation guide)
+│   └── README.md
+└── assets/
+    ├── css/
+    │   ├── variables.css        (Midnight Pine & Ember design tokens & typography)
+    │   ├── style.css            (Components, cards, hero, amenities, timeline, toasts)
+    │   └── dashboard.css        (Guest portal sidebar, tables, countdown, checklist)
+    └── js/
+        ├── images-config.js     (Centralized high-resolution Unsplash photo repository)
+        ├── store.js             (LocalStorage state manager & seed data)
+        ├── main.js              (Theme, RTL, drawer, lightbox, toasts, counters)
+        ├── booking.js           (Multi-step booking engine & coupon calculations)
+        └── dashboard.js         (Dashboard tabs, Chart.js integrations & itinerary)</code></pre>
+      </section>
+
+      <!-- 3. DESIGN TOKENS -->
+      <section id="tokens" class="mb-5 pb-4 border-bottom">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 1rem;">3. Customizing Colors & Tokens</h2>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          All colors and design tokens are defined in <code>assets/css/variables.css</code>. You can customize the entire theme by modifying the CSS variables:
+        </p>
+        <pre><code>/* Dark Mode Tokens (assets/css/variables.css) */
+[data-theme="dark"] {
+  --bg-app: #0B1612;               /* Midnight Pine */
+  --bg-surface: #12221B;           /* Deep Spruce */
+  --bg-elevated: #1A2E25;          /* Forest Shadow */
+  --accent-primary: #D2824A;       /* Ember Copper */
+  --accent-hover: #E39A5E;         /* Burnished Amber */
+  --accent-secondary: #4F8F8A;     /* Glacier Teal */
+  --text-primary: #EFE7D6;         /* Moonstone Sand */
+  --text-muted: #A9B8A0;           /* Lichen Sage */
+}
+
+/* Light Mode Tokens */
+[data-theme="light"] {
+  --bg-app: #F6F1E7;               /* Warm Parchment */
+  --bg-surface: #FFFBF3;           /* Linen */
+  --accent-primary: #B9662F;       /* Ember Copper (AA contrast) */
+  --accent-secondary: #2F6F6B;     /* Glacier Teal */
+  --text-primary: #12261D;         /* Deep Pine */
+}</code></pre>
+      </section>
+
+      <!-- 4. IMAGES -->
+      <section id="images" class="mb-5 pb-4 border-bottom">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 1rem;">4. Centralized Images Config</h2>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          To make photo maintenance effortless, all high-resolution photography URLs are organized in <code>assets/js/images-config.js</code>. To replace with your client's local images, simply point the dictionary keys to your local files in <code>assets/images/</code>:
+        </p>
+        <pre><code>const CAMP_IMAGES = {
+  hero: {
+    main: "assets/images/hero-campsite.jpg",
+    secondary: "assets/images/glamping-dome.jpg"
+  },
+  stays: {
+    glampingDome: "assets/images/stays/dome.jpg",
+    safariTent: "assets/images/stays/safari.jpg"
+  }
+};</code></pre>
+      </section>
+
+      <!-- 5. LOCALSTORAGE -->
+      <section id="storage" class="mb-5 pb-4 border-bottom">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 1rem;">5. LocalStorage Architecture</h2>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          <code>assets/js/store.js</code> provides seamless demo persistence across page reloads:
+        </p>
+        <ul>
+          <li><strong>User Profile:</strong> Demo credentials <code>guest@campwild.com</code> / <code>Guest@123</code>.</li>
+          <li><strong>Reservations:</strong> Seeded bookings plus all newly created reservations from <code>booking.html</code>.</li>
+          <li><strong>Wishlist:</strong> Favorited stays and activities saved with live heart icons.</li>
+          <li><strong>Packing Checklist:</strong> Interactive checkboxes synced live.</li>
+          <li><strong>Itinerary:</strong> Drag and re-orderable day schedules.</li>
+          <li><strong>Reset Demo Data:</strong> Available anytime in Settings inside the Guest Dashboard.</li>
+        </ul>
+      </section>
+
+      <!-- 6. RTL -->
+      <section id="rtl" class="mb-5 pb-4 border-bottom">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 1rem;">6. RTL & Multilingual Setup</h2>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          The template uses modern CSS logical properties (<code>margin-inline</code>, <code>padding-inline</code>, <code>inset-inline</code>). Activating RTL layout simply sets <code>dir="rtl"</code> on the root <code>&lt;html&gt;</code> element, which is toggled via the navbar toggle button and saved to LocalStorage.
+        </p>
+      </section>
+
+      <!-- 7. BROWSER -->
+      <section id="browser">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 1rem;">7. Browser Compatibility</h2>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          Compatible with all modern browsers:
+        </p>
+        <div class="d-flex gap-3 flex-wrap">
+          <span class="camp-badge badge-teal"><i class="bi bi-browser-chrome"></i> Google Chrome 90+</span>
+          <span class="camp-badge badge-teal"><i class="bi bi-browser-firefox"></i> Mozilla Firefox 88+</span>
+          <span class="camp-badge badge-teal"><i class="bi bi-browser-safari"></i> Apple Safari 14+</span>
+          <span class="camp-badge badge-teal"><i class="bi bi-browser-edge"></i> Microsoft Edge 90+</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

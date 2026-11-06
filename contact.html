@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Camp Wardens & Trailhead Access | AURA PINES</title>
+  <meta name="description" content="Get in touch with Aura Pines wilderness wardens. GPS coordinates, trailhead directions, 24/7 ranger dispatch, and booking inquiries.">
+  <meta property="og:title" content="Contact Us - AURA PINES">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+
+  <!-- Main Navbar -->
+  <header class="main-navbar">
+    <div class="camp-container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-logo" aria-label="Aura Pines Home">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-toggle">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li>
+                <a href="index.html" class="nav-dropdown-item">Glamping Sanctuary</a>
+              </li>
+              <li>
+                <a href="index-2.html" class="nav-dropdown-item">Alpine Expeditions</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <!-- RTL Toggle Button on Nav Bar (Icon Only) -->
+        <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <!-- Theme Toggle Button on Nav Bar -->
+        <button class="icon-btn-toggle theme-toggle-btn" title="Toggle light/dark theme" aria-label="Toggle light or dark theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <!-- Sign In Icon Button (Desktop Only; on mobile it is inside the hamburger drawer) -->
+        <a href="login.html" class="icon-btn-toggle nav-signin-btn d-none d-md-inline-flex" title="Sign In" aria-label="Sign In">
+          <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+        <!-- Dashboard on Nav Bar -->
+        <a href="dashboard.html" class="btn-camp btn-camp-secondary d-none d-md-inline-flex" style="padding: 0.5rem 0.95rem;" title="Dashboard">
+          <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
+        </a>
+        <!-- My Trips on Nav Bar -->
+        <a href="dashboard.html#bookings" class="btn-camp btn-camp-secondary d-none d-lg-inline-flex" style="padding: 0.5rem 0.95rem;" title="My Trips">
+          <i class="bi bi-compass"></i> <span>My Trips</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </div>
+      <button class="icon-btn-toggle mobile-drawer-close" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Sign In Button inside Mobile Drawer -->
+    <div class="mobile-drawer-auth mb-3">
+      <a href="login.html" class="btn-camp btn-camp-primary w-100 justify-content-center">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Sign In / Register
+      </a>
+    </div>
+    <ul class="mobile-nav-links">
+      <li>
+        <a href="#" class="mobile-dropdown-btn">
+          <span><i class="bi bi-house-door"></i> Home</span>
+          <i class="bi bi-chevron-down mobile-chevron"></i>
+        </a>
+        <ul class="mobile-dropdown-menu">
+          <li><a href="index.html">Glamping Sanctuary</a></li>
+          <li><a href="index-2.html">Alpine Expeditions</a></li>
+        </ul>
+      </li>
+      <li><a href="packages.html"><i class="bi bi-box2-heart"></i> Packages</a></li>
+      <li><a href="activities.html"><i class="bi bi-compass"></i> Activities</a></li>
+      <li><a href="gallery.html"><i class="bi bi-images"></i> Gallery</a></li>
+      <li><a href="about.html"><i class="bi bi-tree"></i> About Us</a></li>
+      <li><a href="contact.html" class="active"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Guest Dashboard</a></li>
+      <li><a href="login.html"><i class="bi bi-person"></i> Guest Login</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex gap-2 justify-content-between align-items-center">
+      <button class="btn-camp btn-camp-secondary btn-sm theme-toggle-btn w-50"><i class="bi bi-moon-stars-fill me-1"></i> Theme</button>
+      <button class="btn-camp btn-camp-secondary btn-sm rtl-toggle-btn w-50"><i class="bi bi-arrow-left-right me-1"></i> <span class="rtl-label">RTL</span></button>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO WITH ANIMATED MOVING BACKGROUND -->
+    <section class="page-hero-animated">
+      <div class="hero-bg-animated hero-bg-zoom" style="background-image: url('https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=2000&q=85');"></div>
+      <div class="hero-overlay"></div>
+      <div class="camp-container position-relative text-center">
+        <nav aria-label="breadcrumb" class="mb-2">
+          <ol class="breadcrumb justify-content-center" style="font-size: 0.8rem;">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact & Location</li>
+          </ol>
+        </nav>
+        <span class="section-badge"><i class="bi bi-geo-alt"></i> Whispering Ridge Wilderness</span>
+        <h1 class="section-title">Reach the Camp Wardens</h1>
+        <p class="section-desc">Have questions about trail road clearance, booking private retreats, or arranging an alpine arrival? We're on standby.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT GRID -->
+    <section class="section-space">
+      <div class="camp-container">
+        <div class="row g-5">
+          
+          <!-- LEFT: FORM -->
+          <div class="col-lg-7">
+            <div class="card p-4 p-md-5 h-100" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+              <h3 style="font-family: var(--font-serif); margin-bottom: 0.5rem;"><i class="bi bi-send me-2 text-warning"></i> Dispatch an Inquiry</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">Our front country office responds within 4 hours during daylight hours.</p>
+
+              <form id="campContactForm" novalidate>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label for="contactName" class="search-field-label mb-1">Your Name</label>
+                    <input type="text" id="contactName" data-type="name" class="search-field-input" placeholder="Julian Vance" pattern="^[a-zA-ZÀ-ÿ\s'\-]{2,50}$" title="Letters and spaces only (no numbers or symbols)" autocomplete="name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="contactEmail" class="search-field-label mb-1">Email Address</label>
+                    <input type="email" id="contactEmail" data-type="email" class="search-field-input" placeholder="julian@example.com" title="Valid email address (e.g. name@example.com)" autocomplete="email" required>
+                  </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label for="contactPhone" class="search-field-label mb-1">Phone Number</label>
+                    <input type="tel" id="contactPhone" data-type="phone" class="search-field-input" placeholder="+1 (555) 000-0000" pattern="^[\d+\s\-()]{7,20}$" title="Digits and phone symbols only (no letters)" autocomplete="tel">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="contactTopic" class="search-field-label mb-1">Inquiry Nature</label>
+                    <select id="contactTopic" class="search-field-input">
+                      <option value="booking">Stay & Dome Reservations</option>
+                      <option value="corporate">Corporate & Large Group Offsites</option>
+                      <option value="activities">Guided Trekking & Expeditions</option>
+                      <option value="directions">Trailhead Driving Access & Weather</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="contactMessage" class="search-field-label mb-1">Message</label>
+                  <textarea id="contactMessage" rows="5" class="search-field-input" placeholder="Tell us how we can assist your journey into the pines..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-camp btn-camp-primary btn-lg w-100">
+                  <i class="bi bi-envelope-paper"></i> Send Message to Camp Ranger
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- RIGHT: DETAILS -->
+          <div class="col-lg-5">
+            
+            <!-- Camp Info Card -->
+            <div class="card p-4 p-md-5 h-100 d-flex flex-column justify-content-between" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+              <div>
+                <h4 style="font-family: var(--font-serif); margin-bottom: 1.5rem;"><i class="bi bi-pin-map text-warning me-2"></i> Basecamp Coordinates</h4>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <i class="bi bi-geo-alt text-warning" style="font-size: 1.35rem; margin-top: 2px;"></i>
+                  <div>
+                    <strong>Wilderness Sanctuary Address:</strong>
+                    <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Whispering Ridge Rd, Pinecrest, 98214</div>
+                    <div style="font-size: 0.82rem; font-family: monospace; color: var(--accent-primary); margin-top: 0.35rem;">GPS: 38°11'47"N 119°59'34"W (Pinecrest Basin)</div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <i class="bi bi-telephone text-success" style="font-size: 1.35rem; margin-top: 2px;"></i>
+                  <div>
+                    <strong>Ranger Headquarters Phone:</strong>
+                    <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">+1 (555) 382-CAMP (2267)</div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <i class="bi bi-envelope text-info" style="font-size: 1.35rem; margin-top: 2px;"></i>
+                  <div>
+                    <strong>Email Inquiries:</strong>
+                    <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">rangers@aurapines.com</div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <i class="bi bi-clock text-warning" style="font-size: 1.35rem; margin-top: 2px;"></i>
+                  <div>
+                    <strong>Gate & Check-in Hours:</strong>
+                    <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">7:00 AM – 10:00 PM Daily<br>Guest Check-in: 3:00 PM – 8:00 PM</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-4 border-top d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-primary);">Social Dispatch:</span>
+                <div class="d-flex gap-2">
+                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                  <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+                  <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- SEPARATE INTERACTIVE MAP CONTAINER -->
+        <div class="mt-5" id="campInteractiveMap">
+          <div class="card p-4 p-md-5" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl); overflow: hidden;">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+              <div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="camp-badge badge-ember"><i class="bi bi-compass me-1"></i> Live Navigation</span>
+                  <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="bi bi-signpost-2 me-1"></i> Paved access via Forest Hwy 12</span>
+                </div>
+                <h3 style="font-family: var(--font-serif); margin-bottom: 0.35rem;">
+                  <i class="bi bi-map text-warning me-2"></i> Interactive Trailhead & Basecamp Map
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0;">
+                  GPS Coordinates: 38°11'47"N 119°59'34"W &bull; Pinecrest Lake Basin, Whispering Ridge Forest Road
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+                <a href="https://maps.google.com/?q=Pinecrest+Campground,+California" target="_blank" rel="noopener noreferrer" class="btn-camp btn-camp-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i> Open in Google Maps
+                </a>
+              </div>
+            </div>
+
+            <!-- Responsive Interactive Map Frame -->
+            <div style="position: relative; width: 100%; height: 480px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); background: #0E1D17;">
+              <iframe
+                title="Aura Pines Trailhead and Basecamp Google Map"
+                src="https://maps.google.com/maps?q=Pinecrest+Campground,+California&amp;t=m&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                width="100%"
+                height="100%"
+                style="border: 0; display: block;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="camp-footer">
+    <div class="camp-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-fire"></i>
+            </div>
+            <span>AURA PINES</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            A premier wilderness camp and glamping sanctuary dedicated to slow living, outdoor adventure, and eco-restoration.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Explore & Learn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Details</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="bi bi-geo-alt text-warning"></i>
+              <span>Whispering Ridge Rd, Pinecrest, 98214</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone text-success"></i>
+              <a href="tel:+15553822267">+1 (555) 382-CAMP</a>
+            </li>
+            <li>
+              <i class="bi bi-envelope text-info"></i>
+              <a href="mailto:rangers@aurapines.com">rangers@aurapines.com</a>
+            </li>
+            <li>
+              <i class="bi bi-clock text-warning"></i>
+              <span>7:00 AM – 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Wilderness Dispatch</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Receive seasonal campfire stories, stargazing calendars, and private cabin promotions.</p>
+          <form class="newsletter-form">
+            <div class="d-flex gap-2">
+              <input type="email" placeholder="Your email address" required style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-md); padding: 0.5rem 0.85rem; font-size: 0.85rem; width: 100%; outline: none;">
+              <button type="submit" class="btn-camp btn-camp-primary btn-sm" style="flex-shrink: 0;">Join</button>
+            </div>
+          </form>
+          <div class="mt-3" style="font-size: 0.75rem; color: var(--text-dim);">
+            <i class="bi bi-shield-lock me-1"></i> We respect nature and your inbox privacy.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 AURA PINES Wilderness Resort & Campsite. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve Your Wilderness Stay | AURA PINES</title>
+  <meta name="description" content="Step-by-step reservation system for luxury glamping domes, safari tents, and wilderness adventure packages at Aura Pines.">
+  <meta property="og:title" content="Book Your Stay - AURA PINES">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .booking-wizard-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .booking-wizard-steps::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      right: 30px;
+      height: 2px;
+      background: var(--border-color);
+      z-index: 1;
+    }
+    .wizard-step-node {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .wizard-node-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all var(--transition-fast);
+    }
+    .wizard-step-node.active .wizard-node-circle {
+      border-color: var(--accent-primary);
+      background: var(--accent-primary);
+      color: #FFF;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+    .wizard-step-node.completed .wizard-node-circle {
+      border-color: var(--state-success);
+      background: var(--state-success);
+      color: #FFF;
+    }
+    .wizard-node-label {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .wizard-step-node.active .wizard-node-label {
+      color: var(--accent-primary);
+    }
+
+    /* Stay Selection Radio Cards */
+    .stay-select-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    .stay-select-card:hover {
+      border-color: rgba(210, 130, 74, 0.5);
+      background: var(--bg-elevated);
+    }
+    .stay-select-card.selected {
+      border-color: var(--accent-primary);
+      background: var(--bg-elevated);
+      box-shadow: 0 0 16px var(--accent-subtle);
+    }
+    .stay-select-radio {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent-primary);
+      cursor: pointer;
+    }
+    .stay-select-img {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    /* Summary Sticky Card Wrapper */
+    .booking-summary-sticky-wrap {
+      position: sticky;
+      top: 95px;
+    }
+    .booking-summary-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Responsive Wizard & Booking Layout */
+    @media (max-width: 991px) {
+      .booking-summary-sticky-wrap {
+        position: static;
+        margin-top: 2rem;
+      }
+      .booking-summary-card {
+        padding: 1.25rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .booking-wizard-steps {
+        margin-bottom: 1.5rem;
+      }
+      .booking-wizard-steps::before {
+        top: 17px;
+        left: 15px;
+        right: 15px;
+      }
+      .wizard-node-circle {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+      }
+      .stay-select-card {
+        padding: 0.85rem;
+        gap: 0.75rem;
+      }
+      .stay-select-img {
+        width: 65px;
+        height: 65px;
+      }
+      .booking-summary-card {
+        padding: 1rem;
+      }
+    }
+    @media (max-width: 375px) {
+      .stay-select-card {
+        flex-wrap: wrap;
+      }
+      .booking-wizard-steps::before {
+        top: 15px;
+        left: 12px;
+        right: 12px;
+      }
+      .wizard-node-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Main Navbar -->
+  <header class="main-navbar">
+    <div class="camp-container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-logo" aria-label="Aura Pines Home">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-toggle">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li>
+                <a href="index.html" class="nav-dropdown-item">Glamping Sanctuary</a>
+              </li>
+              <li>
+                <a href="index-2.html" class="nav-dropdown-item">Alpine Expeditions</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <!-- RTL Toggle Button on Nav Bar (Icon Only) -->
+        <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <!-- Theme Toggle Button on Nav Bar -->
+        <button class="icon-btn-toggle theme-toggle-btn" title="Toggle light/dark theme" aria-label="Toggle light or dark theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <!-- Sign In Icon Button (Desktop Only; on mobile it is inside the hamburger drawer) -->
+        <a href="login.html" class="icon-btn-toggle nav-signin-btn d-none d-md-inline-flex" title="Sign In" aria-label="Sign In">
+          <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+        <!-- Dashboard on Nav Bar -->
+        <a href="dashboard.html" class="btn-camp btn-camp-secondary d-none d-md-inline-flex" style="padding: 0.5rem 0.95rem;" title="Dashboard">
+          <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
+        </a>
+        <!-- My Trips on Nav Bar -->
+        <a href="dashboard.html#bookings" class="btn-camp btn-camp-secondary d-none d-lg-inline-flex" style="padding: 0.5rem 0.95rem;" title="My Trips">
+          <i class="bi bi-compass"></i> <span>My Trips</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </div>
+      <button class="icon-btn-toggle mobile-drawer-close" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Sign In Button inside Mobile Drawer -->
+    <div class="mobile-drawer-auth mb-3">
+      <a href="login.html" class="btn-camp btn-camp-primary w-100 justify-content-center">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Sign In / Register
+      </a>
+    </div>
+    <ul class="mobile-nav-links">
+      <li>
+        <a href="#" class="mobile-dropdown-btn">
+          <span><i class="bi bi-house-door"></i> Home</span>
+          <i class="bi bi-chevron-down mobile-chevron"></i>
+        </a>
+        <ul class="mobile-dropdown-menu">
+          <li><a href="index.html">Glamping Sanctuary</a></li>
+          <li><a href="index-2.html">Alpine Expeditions</a></li>
+        </ul>
+      </li>
+      <li><a href="packages.html"><i class="bi bi-box2-heart"></i> Packages</a></li>
+      <li><a href="activities.html"><i class="bi bi-compass"></i> Activities</a></li>
+      <li><a href="gallery.html"><i class="bi bi-images"></i> Gallery</a></li>
+      <li><a href="about.html"><i class="bi bi-tree"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Guest Dashboard</a></li>
+      <li><a href="login.html"><i class="bi bi-person"></i> Guest Login</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex gap-2 justify-content-between align-items-center">
+      <button class="btn-camp btn-camp-secondary btn-sm theme-toggle-btn w-50"><i class="bi bi-moon-stars-fill me-1"></i> Theme</button>
+      <button class="btn-camp btn-camp-secondary btn-sm rtl-toggle-btn w-50"><i class="bi bi-arrow-left-right me-1"></i> <span class="rtl-label">RTL</span></button>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO WITH ANIMATED MOVING BACKGROUND -->
+    <section class="page-hero-animated" style="min-height: 280px; padding-block: 3.5rem 3rem;">
+      <div class="hero-bg-animated hero-bg-zoom" style="background-image: url('https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=2000&q=85');"></div>
+      <div class="hero-overlay"></div>
+      <div class="camp-container position-relative text-center">
+        <nav aria-label="breadcrumb" class="mb-2">
+          <ol class="breadcrumb justify-content-center" style="font-size: 0.8rem;">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Reservation Engine</li>
+          </ol>
+        </nav>
+        <span class="section-badge"><i class="bi bi-shield-check"></i> Best Rate Guaranteed</span>
+        <h1 class="section-title" style="font-size: clamp(1.85rem, 3.2vw, 2.75rem); margin-bottom: 0.5rem;">Reserve Your Wilderness Sanctuary</h1>
+        <p class="section-desc" style="max-width: 580px; margin-bottom: 0;">Instant confirmation with flexible 7-day cancellation and complimentary gear check.</p>
+      </div>
+    </section>
+
+    <div class="section-space">
+      <div class="camp-container">
+      
+      <!-- Wizard Progress Indicators -->
+      <div class="booking-wizard-steps">
+        <div class="wizard-step-node active" data-step="1">
+          <div class="wizard-node-circle">1</div>
+          <span class="wizard-node-label d-none d-sm-block">Dates & Guests</span>
+        </div>
+        <div class="wizard-step-node" data-step="2">
+          <div class="wizard-node-circle">2</div>
+          <span class="wizard-node-label d-none d-sm-block">Stay Selection</span>
+        </div>
+        <div class="wizard-step-node" data-step="3">
+          <div class="wizard-node-circle">3</div>
+          <span class="wizard-node-label d-none d-sm-block">Camp Add-ons</span>
+        </div>
+        <div class="wizard-step-node" data-step="4">
+          <div class="wizard-node-circle">4</div>
+          <span class="wizard-node-label d-none d-sm-block">Guest Details</span>
+        </div>
+        <div class="wizard-step-node" data-step="5">
+          <div class="wizard-node-circle">5</div>
+          <span class="wizard-node-label d-none d-sm-block">Review & Pay</span>
+        </div>
+      </div>
+
+      <!-- MAIN BOOKING LAYOUT -->
+      <div class="row g-4">
+        
+        <!-- LEFT: STEP VIEWS -->
+        <div class="col-lg-8">
+          
+          <!-- STEP 1: DATES & GUESTS -->
+          <div class="booking-step-content" id="stepView1">
+            <div class="card p-4" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+              <h3 style="font-family: var(--font-serif); margin-bottom: 0.5rem;"><i class="bi bi-calendar3 me-2 text-warning"></i> Choose Your Wilderness Window</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.75rem;">Check-in begins at 3:00 PM. Check-out is 11:00 AM (late checkout available for glamping domes).</p>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label for="bCheckIn" class="search-field-label mb-1">Check-In Date</label>
+                  <input type="date" id="bCheckIn" data-type="date" class="search-field-input" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="bCheckOut" class="search-field-label mb-1">Check-Out Date</label>
+                  <input type="date" id="bCheckOut" data-type="date" class="search-field-input" required>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label for="bAdults" class="search-field-label mb-1">Adults (Age 13+)</label>
+                  <select id="bAdults" class="search-field-input">
+                    <option value="1">1 Adult</option>
+                    <option value="2" selected>2 Adults</option>
+                    <option value="3">3 Adults</option>
+                    <option value="4">4 Adults</option>
+                    <option value="6">6 Adults</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="bChildren" class="search-field-label mb-1">Children (Ages 3-12)</label>
+                  <select id="bChildren" class="search-field-input">
+                    <option value="0" selected>0 Children</option>
+                    <option value="1">1 Child</option>
+                    <option value="2">2 Children</option>
+                    <option value="3">3 Children</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-camp btn-camp-primary btn-next-step">
+                  Select Accommodation <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: STAY SELECTION -->
+          <div class="booking-step-content" id="stepView2" style="display: none;">
+            <div class="card p-4" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+              <h3 style="font-family: var(--font-serif); margin-bottom: 0.5rem;"><i class="bi bi-tent me-2 text-warning"></i> Select Your Stay</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">All shelters include solar illumination, fire pit access, and mountain spring water.</p>
+
+              <!-- Option 1 -->
+              <div class="stay-select-card selected" data-stay-id="glamping-dome">
+                <input type="radio" name="stayRadio" class="stay-select-radio" checked>
+                <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=300&q=80" alt="Glamping Dome" class="stay-select-img">
+                <div style="flex-grow: 1;">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 style="margin: 0;">Luxury Glamping Dome</h5>
+                    <span class="camp-badge badge-ember">Available</span>
+                  </div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-block: 0.2rem;">Clear ceiling for starry nights • King memory foam bed • Pellet stove</div>
+                  <strong style="color: var(--accent-primary);">$280 / night</strong>
+                </div>
+              </div>
+
+              <!-- Option 2 -->
+              <div class="stay-select-card" data-stay-id="safari-tent">
+                <input type="radio" name="stayRadio" class="stay-select-radio">
+                <img src="https://images.unsplash.com/photo-1496545672447-f699b503d270?auto=format&fit=crop&w=300&q=80" alt="Safari Tent" class="stay-select-img">
+                <div style="flex-grow: 1;">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 style="margin: 0;">Safari Canvas Tent</h5>
+                    <span class="camp-badge badge-teal">Available</span>
+                  </div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-block: 0.2rem;">Elevated wooden deck • Handcrafted furnishings • Queen bed</div>
+                  <strong style="color: var(--accent-primary);">$175 / night</strong>
+                </div>
+              </div>
+
+              <!-- Option 3 -->
+              <div class="stay-select-card" data-stay-id="treehouse">
+                <input type="radio" name="stayRadio" class="stay-select-radio">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=300&q=80" alt="Treehouse" class="stay-select-img">
+                <div style="flex-grow: 1;">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 style="margin: 0;">Canopy Pine Treehouse</h5>
+                    <span class="camp-badge badge-warning">2 Left</span>
+                  </div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-block: 0.2rem;">22 ft elevation • Wraparound balcony • Cedar soak tub</div>
+                  <strong style="color: var(--accent-primary);">$380 / night</strong>
+                </div>
+              </div>
+
+              <!-- Option 4 -->
+              <div class="stay-select-card" data-stay-id="family-cabin">
+                <input type="radio" name="stayRadio" class="stay-select-radio">
+                <img src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=300&q=80" alt="Family Cabin" class="stay-select-img">
+                <div style="flex-grow: 1;">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 style="margin: 0;">Cedarwood Family Cabin</h5>
+                    <span class="camp-badge badge-teal">Available</span>
+                  </div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-block: 0.2rem;">Sleeps up to 6 • 2 bedrooms • Stone hearth fireplace & kitchen</div>
+                  <strong style="color: var(--accent-primary);">$340 / night</strong>
+                </div>
+              </div>
+
+              <!-- Option 5 -->
+              <div class="stay-select-card" data-stay-id="riverside-pitch">
+                <input type="radio" name="stayRadio" class="stay-select-radio">
+                <img src="https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=300&q=80" alt="Riverside Pitch" class="stay-select-img">
+                <div style="flex-grow: 1;">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 style="margin: 0;">Riverside Pitch Deck</h5>
+                    <span class="camp-badge badge-teal">Available</span>
+                  </div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-block: 0.2rem;">Timber deck overlooking rapids • Private fire ring • Bring your tent</div>
+                  <strong style="color: var(--accent-primary);">$95 / night</strong>
+                </div>
+              </div>
+
+              <!-- Option 6 -->
+              <div class="stay-select-card" data-stay-id="backpacker-pitch">
+                <input type="radio" name="stayRadio" class="stay-select-radio">
+                <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?auto=format&fit=crop&w=300&q=80" alt="Backpacker Pitch" class="stay-select-img">
+                <div style="flex-grow: 1;">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 style="margin: 0;">Alpine Backpacker Pitch</h5>
+                    <span class="camp-badge badge-teal">Available</span>
+                  </div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-block: 0.2rem;">Secluded alpine pitch • Spring water access • Trailhead proximity</div>
+                  <strong style="color: var(--accent-primary);">$55 / night</strong>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn-camp btn-camp-secondary btn-prev-step"><i class="bi bi-arrow-left"></i> Back</button>
+                <button type="button" class="btn-camp btn-camp-primary btn-next-step">Continue to Add-ons <i class="bi bi-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: ADDONS -->
+          <div class="booking-step-content" id="stepView3" style="display: none;">
+            <div class="card p-4" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+              <h3 style="font-family: var(--font-serif); margin-bottom: 0.5rem;"><i class="bi bi-gift me-2 text-warning"></i> Enhance Your Camp Experience</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Selected provisions and adventures will be scheduled directly into your trip itinerary.</p>
+
+              <!-- Addon 1 -->
+              <div class="p-3 mb-3 rounded d-flex justify-content-between align-items-center" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="checkbox" class="addon-checkbox" value="bbq-basket" checked style="width: 20px; height: 20px; accent-color: var(--accent-primary); cursor: pointer;">
+                  <div>
+                    <strong style="display: block;">Gourmet Artisan BBQ Basket</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Steaks or portobello caps, organic potatoes, herb butter, cast-iron skewers</span>
+                  </div>
+                </div>
+                <strong style="color: var(--accent-primary); font-size: 1.1rem;">+$65</strong>
+              </div>
+
+              <!-- Addon 2 -->
+              <div class="p-3 mb-3 rounded d-flex justify-content-between align-items-center" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="checkbox" class="addon-checkbox" value="stargazing" style="width: 20px; height: 20px; accent-color: var(--accent-primary); cursor: pointer;">
+                  <div>
+                    <strong style="display: block;">Guided Stargazing & Telescope Tour</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">90-minute observatory session with astrophysicist Dr. Maya Lin</span>
+                  </div>
+                </div>
+                <strong style="color: var(--accent-primary); font-size: 1.1rem;">+$45</strong>
+              </div>
+
+              <!-- Addon 3 -->
+              <div class="p-3 mb-3 rounded d-flex justify-content-between align-items-center" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="checkbox" class="addon-checkbox" value="kayak-rental" style="width: 20px; height: 20px; accent-color: var(--accent-primary); cursor: pointer;">
+                  <div>
+                    <strong style="display: block;">Half-Day Lake Kayak Rental</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Tandem kayak, paddles, dry-bags, and safety vests for Mirror Lake</span>
+                  </div>
+                </div>
+                <strong style="color: var(--accent-primary); font-size: 1.1rem;">+$50</strong>
+              </div>
+
+              <!-- Addon 4 -->
+              <div class="p-3 mb-3 rounded d-flex justify-content-between align-items-center" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="checkbox" class="addon-checkbox" value="firewood-bundle" style="width: 20px; height: 20px; accent-color: var(--accent-primary); cursor: pointer;">
+                  <div>
+                    <strong style="display: block;">Cedar Firewood & Kindling Pack</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Kiln-dried seasoned cedar logs, birch bark firestarter, natural matches</span>
+                  </div>
+                </div>
+                <strong style="color: var(--accent-primary); font-size: 1.1rem;">+$20</strong>
+              </div>
+
+              <!-- Addon 5 -->
+              <div class="p-3 mb-3 rounded d-flex justify-content-between align-items-center" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="checkbox" class="addon-checkbox" value="morning-yoga" style="width: 20px; height: 20px; accent-color: var(--accent-primary); cursor: pointer;">
+                  <div>
+                    <strong style="display: block;">Forest Sunrise Yoga Session</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Open-air cedar platform class with herbal tea blend afterwards</span>
+                  </div>
+                </div>
+                <strong style="color: var(--accent-primary); font-size: 1.1rem;">+$30</strong>
+              </div>
+
+              <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn-camp btn-camp-secondary btn-prev-step"><i class="bi bi-arrow-left"></i> Back</button>
+                <button type="button" class="btn-camp btn-camp-primary btn-next-step">Guest Details <i class="bi bi-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: GUEST DETAILS & REQUESTS -->
+          <div class="booking-step-content" id="stepView4" style="display: none;">
+            <div class="card p-4" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+              <h3 style="font-family: var(--font-serif); margin-bottom: 0.5rem;"><i class="bi bi-person-badge me-2 text-warning"></i> Primary Guest Information</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Your booking confirmation and digital wilderness gate-code will be delivered here.</p>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label for="bGuestName" class="search-field-label mb-1">Full Legal Name</label>
+                  <input type="text" id="bGuestName" data-type="name" class="search-field-input" placeholder="e.g. Julian Vance" pattern="^[a-zA-ZÀ-ÿ\s'\-]{2,50}$" title="Letters and spaces only (no numbers or symbols)" autocomplete="name" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="bGuestEmail" class="search-field-label mb-1">Email Address</label>
+                  <input type="email" id="bGuestEmail" data-type="email" class="search-field-input" placeholder="e.g. guest@campwild.com" title="Valid email address (e.g. name@example.com)" autocomplete="email" required>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label for="bGuestPhone" class="search-field-label mb-1">Mobile Phone (for Ranger SMS)</label>
+                  <input type="tel" id="bGuestPhone" data-type="phone" class="search-field-input" placeholder="+1 (555) 000-0000" pattern="^[\d+\s\-()]{7,20}$" title="Digits and phone symbols only (no letters)" autocomplete="tel" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="bArrivalTime" class="search-field-label mb-1">Estimated Arrival Time</label>
+                  <select id="bArrivalTime" class="search-field-input">
+                    <option value="15:00">3:00 PM (Standard check-in)</option>
+                    <option value="17:00">5:00 PM</option>
+                    <option value="19:00">7:00 PM (Sunset arrival)</option>
+                    <option value="21:00">Late Arrival (After 9:00 PM)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="bDietary" class="search-field-label mb-1">Dietary Preferences or Allergies</label>
+                <input type="text" id="bDietary" data-type="dietary" class="search-field-input" placeholder="e.g. Vegan, Gluten-Free, Nut Allergies" title="Dietary terms only (letters, spaces, hyphens, commas)">
+              </div>
+
+              <div class="mb-4">
+                <label for="bSpecialRequests" class="search-field-label mb-1">Special Requests or Accessibility Needs</label>
+                <textarea id="bSpecialRequests" rows="3" class="search-field-input" placeholder="Let us know if you are celebrating an anniversary, require shuttle assistance from parking, etc."></textarea>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn-camp btn-camp-secondary btn-prev-step"><i class="bi bi-arrow-left"></i> Back</button>
+                <button type="button" class="btn-camp btn-camp-primary btn-next-step">Review & Payment <i class="bi bi-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: REVIEW, PROMO CODE & DEMO PAYMENT -->
+          <div class="booking-step-content" id="stepView5" style="display: none;">
+            <div class="card p-4" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+              <h3 style="font-family: var(--font-serif); margin-bottom: 0.5rem;"><i class="bi bi-credit-card me-2 text-warning"></i> Review & Secure Reservation</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Verify your itinerary summary and select your payment method.</p>
+
+              <!-- Review Summary Box -->
+              <div class="p-3 mb-4 rounded" style="background: var(--bg-elevated); border: 1px solid var(--border-color); font-size: 0.9rem;">
+                <div class="d-flex justify-content-between py-1 border-bottom">
+                  <span class="text-muted">Selected Accommodation:</span>
+                  <strong id="revStayTitle">Luxury Glamping Dome</strong>
+                </div>
+                <div class="d-flex justify-content-between py-1 border-bottom">
+                  <span class="text-muted">Duration & Dates:</span>
+                  <strong id="revNights">2 Nights</strong>
+                </div>
+                <div class="d-flex justify-content-between py-1 border-bottom">
+                  <span class="text-muted">Guests:</span>
+                  <strong id="revGuests">2 Adults</strong>
+                </div>
+                <div class="d-flex justify-content-between py-1 border-bottom">
+                  <span class="text-muted">Primary Guest:</span>
+                  <strong id="revGuestContact">Julian Vance</strong>
+                </div>
+                <div class="py-2">
+                  <span class="text-muted d-block mb-1">Selected Enhancements:</span>
+                  <ul id="revAddonsList" style="padding-left: 1.25rem; margin-bottom: 0;"></ul>
+                </div>
+              </div>
+
+              <!-- Promo Code Box -->
+              <div class="mb-4">
+                <label for="couponCodeInput" class="search-field-label mb-1">Wilderness Promo Code</label>
+                <div class="d-flex gap-2">
+                  <input type="text" id="couponCodeInput" data-type="coupon" class="search-field-input text-uppercase" placeholder="Try code: EMBER10" pattern="^[a-zA-Z0-9]{3,15}$" maxlength="15" title="Promo code must be 3-15 alphanumeric characters" style="max-width: 250px;">
+                  <button type="button" id="btnApplyCoupon" class="btn-camp btn-camp-secondary">Apply Code</button>
+                </div>
+              </div>
+
+              <!-- Payment Method UI -->
+              <h5 style="font-size: 1rem; margin-bottom: 0.75rem;"><i class="bi bi-shield-lock me-1 text-success"></i> Payment Method (Demo)</h5>
+              <div class="d-flex flex-column gap-2 mb-3">
+                <label class="d-flex align-items-center gap-3 p-3 rounded" style="background: var(--bg-elevated); border: 1px solid var(--border-color); cursor: pointer;">
+                  <input type="radio" name="payMethod" value="Credit Card" checked style="accent-color: var(--accent-primary);">
+                  <div>
+                    <strong style="display: block;">Credit or Debit Card</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="bi bi-credit-card me-1"></i> Visa / Mastercard / Amex (Instant simulated confirmation)</span>
+                  </div>
+                </label>
+                <label class="d-flex align-items-center gap-3 p-3 rounded" style="background: var(--bg-elevated); border: 1px solid var(--border-color); cursor: pointer;">
+                  <input type="radio" name="payMethod" value="Apple Pay" style="accent-color: var(--accent-primary);">
+                  <div>
+                    <strong style="display: block;">Apple Pay / Google Pay</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">One-touch wilderness check-out</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Dedicated Payment Card Details Form -->
+              <div id="creditCardDetails" class="p-3 mb-4 rounded" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+                <div class="mb-3">
+                  <label for="bCardName" class="search-field-label mb-1">Cardholder Name</label>
+                  <input type="text" id="bCardName" class="search-field-input" placeholder="Julian Vance" data-type="name" pattern="^[a-zA-ZÀ-ÿ\s'\-]{2,50}$" title="Letters and spaces only (no numbers)" autocomplete="cc-name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="bCardNumber" class="search-field-label mb-1">Card Number (16 Digits)</label>
+                  <div class="position-relative">
+                    <input type="text" id="bCardNumber" class="search-field-input pe-5" placeholder="4242 4242 4242 4242" data-type="card" pattern="^[\d\s]{15,19}$" title="15 or 16 digit card number (numbers only)" inputmode="numeric" maxlength="19" autocomplete="cc-number" required>
+                    <i class="bi bi-credit-card position-absolute top-50 translate-middle-y text-muted" style="inset-inline-end: 14px; font-size: 1.15rem; pointer-events: none;"></i>
+                  </div>
+                </div>
+                <div class="row g-3">
+                  <div class="col-6">
+                    <label for="bCardExpiry" class="search-field-label mb-1">Expiration (MM/YY)</label>
+                    <input type="text" id="bCardExpiry" class="search-field-input" placeholder="08/28" data-type="expiry" pattern="^(0[1-9]|1[0-2])\/[0-9]{2}$" title="Expiration date as MM/YY (e.g. 08/28)" inputmode="numeric" maxlength="5" autocomplete="cc-exp" required>
+                  </div>
+                  <div class="col-6">
+                    <label for="bCardCvv" class="search-field-label mb-1">Security Code (CVV)</label>
+                    <div class="position-relative">
+                      <input type="password" id="bCardCvv" class="search-field-input pe-5" placeholder="CVC" data-type="cvv" pattern="^[0-9]{3,4}$" title="3 or 4 digit security code (numbers only)" inputmode="numeric" maxlength="4" autocomplete="cc-csc" required>
+                      <i class="bi bi-shield-lock position-absolute top-50 translate-middle-y text-muted" style="inset-inline-end: 14px; font-size: 1.1rem; pointer-events: none;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn-camp btn-camp-secondary btn-prev-step"><i class="bi bi-arrow-left"></i> Back</button>
+                <button type="button" id="btnConfirmReservation" class="btn-camp btn-camp-primary btn-lg">
+                  <i class="bi bi-check2-circle"></i> Confirm & Pay Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONFIRMATION SCREEN (STEP 6) -->
+          <div id="bookingConfirmationScreen" style="display: none;">
+            <div class="card p-5 text-center" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+              <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--state-success-bg); color: var(--state-success); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 1.5rem auto;">
+                <i class="bi bi-check-lg"></i>
+              </div>
+              <span class="section-badge mb-2"><i class="bi bi-shield-check"></i> Reservation Secured</span>
+              <h2 style="font-family: var(--font-serif); margin-bottom: 0.5rem;">See You in the Pines!</h2>
+              <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem auto;">
+                Your stay has been confirmed and saved to your Guest Portal. We have sent a detailed trailhead map and gate code to your email.
+              </p>
+
+              <!-- Confirmed Details Ticket -->
+              <div class="p-4 mb-4 mx-auto text-start rounded" style="max-width: 550px; background: var(--bg-elevated); border: 1px dashed var(--accent-primary);">
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
+                  <span class="text-muted">Booking Reference:</span>
+                  <strong id="confBookingId" style="font-family: monospace; font-size: 1.25rem; color: var(--accent-primary);">AP-98124</strong>
+                </div>
+                <div class="d-flex justify-content-between py-1">
+                  <span class="text-muted">Accommodation:</span>
+                  <strong id="confStayName">Luxury Glamping Dome</strong>
+                </div>
+                <div class="d-flex justify-content-between py-1">
+                  <span class="text-muted">Reserved Dates:</span>
+                  <strong id="confDates">Nov 18 - Nov 21</strong>
+                </div>
+                <div class="d-flex justify-content-between py-1">
+                  <span class="text-muted">Primary Guest:</span>
+                  <strong id="confGuest">Julian Vance</strong>
+                </div>
+                <div class="d-flex justify-content-between py-1 border-top mt-2 pt-2">
+                  <span class="text-muted">Total Paid (Demo):</span>
+                  <strong id="confTotal" style="font-size: 1.15rem; color: var(--state-success);">$840</strong>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <button type="button" class="btn-camp btn-camp-secondary" onclick="window.print()">
+                  <i class="bi bi-printer"></i> Print / Download Invoice
+                </button>
+                <a href="dashboard.html" class="btn-camp btn-camp-primary">
+                  <i class="bi bi-speedometer2"></i> Open Guest Dashboard
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: LIVE PRICING SUMMARY STICKY -->
+        <div class="col-lg-4">
+          <div class="booking-summary-sticky-wrap">
+            <div class="booking-summary-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+              <h4 style="font-family: var(--font-serif); margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+                <i class="bi bi-receipt me-1 text-warning"></i> Reservation Summary
+              </h4>
+
+              <div class="d-flex flex-column gap-2 mb-3" style="font-size: 0.9rem;">
+                <div>
+                  <span class="text-muted d-block" style="font-size: 0.75rem; text-transform: uppercase;">Accommodation</span>
+                  <strong id="summaryStayName">Luxury Glamping Dome</strong>
+                </div>
+                <div>
+                  <span class="text-muted d-block" style="font-size: 0.75rem; text-transform: uppercase;">Dates & Duration</span>
+                  <span id="summaryDates">2 Nights</span>
+                </div>
+                <div>
+                  <span class="text-muted d-block" style="font-size: 0.75rem; text-transform: uppercase;">Party Size</span>
+                  <span id="summaryGuests">2 Adults</span>
+                </div>
+              </div>
+
+              <hr style="border-color: var(--border-color); margin-block: 1rem;">
+
+              <div class="d-flex flex-column gap-2" style="font-size: 0.9rem;">
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Lodging Base:</span>
+                  <strong id="summaryStayTotal">$560</strong>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Add-ons & Provisions:</span>
+                  <strong id="summaryAddonsTotal">$65</strong>
+                </div>
+                <div class="d-flex justify-content-between" style="color: var(--state-success);">
+                  <span>Discount / Promo:</span>
+                  <strong id="summaryDiscount">-$0</strong>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Park Eco & Conservation Tax (8%):</span>
+                  <strong id="summaryTaxes">$50</strong>
+                </div>
+              </div>
+
+              <hr style="border-color: var(--border-color); margin-block: 1rem;">
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <strong style="font-size: 1.1rem; display: block;">Total Due</strong>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Taxes & park fees included</span>
+                </div>
+                <span id="summaryGrandTotal" style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; color: var(--accent-primary);">$675</span>
+              </div>
+            </div>
+
+            <!-- 100% Risk-Free Guarantee placed below the summary card div -->
+            <div id="bookingRiskFreeBanner" class="mt-3 p-3 rounded" style="background: var(--bg-elevated); border: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted);">
+              <i class="bi bi-shield-check text-success me-1"></i> 100% Risk-Free: Cancel up to 7 days before arrival for a complete refund.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="camp-footer">
+    <div class="camp-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-fire"></i>
+            </div>
+            <span>AURA PINES</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            A premier wilderness camp and glamping sanctuary dedicated to slow living, outdoor adventure, and eco-restoration.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Explore & Learn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Details</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="bi bi-geo-alt text-warning"></i>
+              <span>Whispering Ridge Rd, Pinecrest, 98214</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone text-success"></i>
+              <a href="tel:+15553822267">+1 (555) 382-CAMP</a>
+            </li>
+            <li>
+              <i class="bi bi-envelope text-info"></i>
+              <a href="mailto:rangers@aurapines.com">rangers@aurapines.com</a>
+            </li>
+            <li>
+              <i class="bi bi-clock text-warning"></i>
+              <span>7:00 AM – 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Wilderness Dispatch</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Receive seasonal campfire stories, stargazing calendars, and private cabin promotions.</p>
+          <form class="newsletter-form">
+            <div class="d-flex gap-2">
+              <input type="email" placeholder="Your email address" required style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-md); padding: 0.5rem 0.85rem; font-size: 0.85rem; width: 100%; outline: none;">
+              <button type="submit" class="btn-camp btn-camp-primary btn-sm" style="flex-shrink: 0;">Join</button>
+            </div>
+          </form>
+          <div class="mt-3" style="font-size: 0.75rem; color: var(--text-dim);">
+            <i class="bi bi-shield-lock me-1"></i> We respect nature and your inbox privacy.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 AURA PINES Wilderness Resort & Campsite. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
+</body>
+</html>

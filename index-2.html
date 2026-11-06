@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA PINES | High Alpine Expeditions & Adventure Basecamp (Homepage 2)</title>
+  <meta name="description" content="Conquer the high country with Aura Pines alpine expeditions, ridge ascents, glacial river rafting, and rugged mountain basecamps.">
+  <meta property="og:title" content="AURA PINES - Alpine Expeditions & Adventure Basecamp">
+  <meta property="og:description" content="Technical ridge scrambles, glacial waters, and alpine camps for daring wilderness explorers.">
+  <meta property="og:type" content="website">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .hero-expedition {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding-block: 6rem 6.5rem;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .trail-stat-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .booking-summary-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-xl);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .booking-summary-card h3 {
+      color: var(--text-primary);
+    }
+    .booking-summary-card p {
+      color: var(--text-muted);
+    }
+    .booking-summary-card .search-field-label {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    .booking-summary-card .search-field-input {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+    }
+    .trail-stat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--accent-subtle);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .elevation-chart-bar {
+      height: 60px;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      padding: 8px;
+      background: var(--bg-elevated);
+      border-radius: var(--radius-md);
+      margin-block: 0.75rem;
+    }
+    .elevation-bar {
+      flex: 1;
+      background: var(--accent-primary);
+      border-radius: 3px 3px 0 0;
+      opacity: 0.8;
+      transition: all var(--transition-fast);
+    }
+    .elevation-bar:hover {
+      opacity: 1;
+      background: var(--accent-hover);
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Main Navbar -->
+  <header class="main-navbar">
+    <div class="camp-container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-logo" aria-label="Aura Pines Home">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </a>
+
+      <!-- Desktop Navigation with Dropdown on Home -->
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-toggle active">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li>
+                <a href="index.html" class="nav-dropdown-item">Glamping Sanctuary</a>
+              </li>
+              <li>
+                <a href="index-2.html" class="nav-dropdown-item active">Alpine Expeditions</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <!-- RTL Toggle Button on Nav Bar (Icon Only) -->
+        <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <!-- Theme Toggle Button on Nav Bar -->
+        <button class="icon-btn-toggle theme-toggle-btn" title="Toggle light/dark theme" aria-label="Toggle light or dark theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <!-- Sign In Icon Button (Desktop Only; on mobile it is inside the hamburger drawer) -->
+        <a href="login.html" class="icon-btn-toggle nav-signin-btn d-none d-md-inline-flex" title="Sign In" aria-label="Sign In">
+          <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+        <!-- Dashboard on Nav Bar -->
+        <a href="dashboard.html" class="btn-camp btn-camp-secondary d-none d-md-inline-flex" style="padding: 0.5rem 0.95rem;" title="Dashboard">
+          <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
+        </a>
+        <!-- My Trips on Nav Bar -->
+        <a href="dashboard.html#bookings" class="btn-camp btn-camp-secondary d-none d-lg-inline-flex" style="padding: 0.5rem 0.95rem;" title="My Trips">
+          <i class="bi bi-compass"></i> <span>My Trips</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </div>
+      <button class="icon-btn-toggle mobile-drawer-close" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Sign In Button inside Mobile Drawer -->
+    <div class="mobile-drawer-auth mb-3">
+      <a href="login.html" class="btn-camp btn-camp-primary w-100 justify-content-center">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Sign In / Register
+      </a>
+    </div>
+    <ul class="mobile-nav-links">
+      <li>
+        <a href="#" class="mobile-dropdown-btn">
+          <span><i class="bi bi-house-door"></i> Home</span>
+          <i class="bi bi-chevron-down mobile-chevron"></i>
+        </a>
+        <ul class="mobile-dropdown-menu show">
+          <li><a href="index.html">Glamping Sanctuary</a></li>
+          <li><a href="index-2.html" class="active">Alpine Expeditions</a></li>
+        </ul>
+      </li>
+      <li><a href="packages.html"><i class="bi bi-box2-heart"></i> Packages</a></li>
+      <li><a href="activities.html"><i class="bi bi-compass"></i> Activities</a></li>
+      <li><a href="gallery.html"><i class="bi bi-images"></i> Gallery</a></li>
+      <li><a href="about.html"><i class="bi bi-tree"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Guest Dashboard</a></li>
+      <li><a href="login.html"><i class="bi bi-person"></i> Guest Login</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex gap-2 justify-content-between align-items-center">
+      <button class="btn-camp btn-camp-secondary btn-sm theme-toggle-btn w-50"><i class="bi bi-moon-stars-fill me-1"></i> Theme</button>
+      <button class="btn-camp btn-camp-secondary btn-sm rtl-toggle-btn w-50"><i class="bi bi-arrow-left-right me-1"></i> <span class="rtl-label">RTL</span></button>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION (HOMEPAGE 2: EXPEDITION EDITION WITH MOVING BACKGROUND) -->
+    <section class="hero-expedition">
+      <div class="hero-bg-animated hero-bg-pan" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85');"></div>
+      <div class="hero-overlay"></div>
+      <div class="camp-container position-relative">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <span class="section-badge text-nowrap">
+              <i class="bi bi-flag"></i> High-Altitude Wilderness Expeditions
+            </span>
+            <h1 class="hero-headline" style="font-size: clamp(2.5rem, 5.2vw, 4.25rem);">
+              Conquer the Peaks.<br>Camp Beyond the Horizon.
+            </h1>
+            <p class="hero-lead">
+              High-altitude guided ascents, glacial river rafting, backcountry survival skills, and rugged ridge camps designed for daring souls.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <a href="packages.html?category=expedition" class="btn-camp btn-camp-primary btn-lg">
+                <i class="bi bi-compass"></i> Explore Expeditions
+              </a>
+              <a href="#trailFinder" class="btn-camp btn-camp-secondary btn-lg">
+                <i class="bi bi-map"></i> Trail Finder Tool
+              </a>
+            </div>
+
+            <!-- Expedition Stat Strip -->
+            <div class="d-flex flex-wrap gap-3">
+              <div class="trail-stat-pill">
+                <div class="trail-stat-icon"><i class="bi bi-trophy"></i></div>
+                <div>
+                  <strong style="font-size: 1.15rem; display: block;">7,850 FT</strong>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Highest Summit Route</span>
+                </div>
+              </div>
+              <div class="trail-stat-pill">
+                <div class="trail-stat-icon" style="background: var(--accent-secondary-subtle); color: var(--accent-secondary);"><i class="bi bi-shield-check"></i></div>
+                <div>
+                  <strong style="font-size: 1.15rem; display: block;">100% UIAGM</strong>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Certified Mountain Guides</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Expedition Booking Card -->
+          <div class="col-lg-5">
+            <div class="booking-summary-card" style="position: static; margin-top: 0;">
+              <span class="camp-badge badge-ember mb-2"><i class="bi bi-calendar-check"></i> 2026/2027 Season</span>
+              <h3 style="font-family: var(--font-serif); margin-bottom: 0.5rem;">Join a Guided Trek</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Select your technical skill level and dates to reserve your expedition slot.</p>
+
+              <form id="expeditionSearchForm" action="booking.html" method="GET" novalidate>
+                <div class="mb-3">
+                  <label for="expeditionSelect" class="search-field-label mb-1">Target Expedition</label>
+                  <select id="expeditionSelect" name="stayType" class="search-field-input">
+                    <option value="backpacker-pitch">Whispering Peak 4-Day Ridge Ascent ($850)</option>
+                    <option value="safari-tent">Glacial Gorge Whitewater & Trek 3-Day ($650)</option>
+                    <option value="treehouse">Canopy Basecamp & Climbing Intensive ($1,150)</option>
+                    <option value="glamping-dome">Astronomy & High Camp Retreat ($840)</option>
+                  </select>
+                </div>
+
+                <div class="row g-2 mb-3">
+                  <div class="col-6">
+                    <label for="expCheckIn" class="search-field-label mb-1">Departure</label>
+                    <input type="date" id="expCheckIn" name="checkIn" data-type="date" class="search-field-input" title="Departure date (cannot be in the past)" required>
+                  </div>
+                  <div class="col-6">
+                    <label for="expGuests" class="search-field-label mb-1">Trekker Party</label>
+                    <select id="expGuests" name="guests" class="search-field-input">
+                      <option value="1 Adult">Solo Trekker</option>
+                      <option value="2 Adults" selected>2 Trekkers</option>
+                      <option value="4+ Adults Group">Small Team (3-6)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn-camp btn-camp-primary w-100 btn-lg">
+                  <i class="bi bi-arrow-right-circle"></i> Reserve Expedition Slot
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE MOUNTAIN TELEMETRY BAR -->
+    <section class="py-3" style="background: var(--bg-surface); border-bottom: 1px solid var(--border-color); font-size: 0.85rem;">
+      <div class="camp-container">
+        <div class="d-flex justify-content-center align-items-center flex-wrap gap-3 gap-lg-4 text-center">
+          <div class="d-flex align-items-center justify-content-center gap-2">
+            <span class="badge bg-danger text-uppercase" style="font-size: 0.7rem; letter-spacing: 0.05em;">Live Telemetry</span>
+            <strong style="color: var(--text-primary);">Basecamp Whispering Ridge (Elev 4,120 ft)</strong>
+          </div>
+          <div class="d-flex align-items-center justify-content-center flex-wrap gap-3 gap-md-4 text-muted">
+            <span><i class="bi bi-thermometer-half text-warning me-1"></i> Summit Temp: <strong style="color: var(--text-primary);">48°F</strong></span>
+            <span><i class="bi bi-wind text-info me-1"></i> Ridge Winds: <strong style="color: var(--text-primary);">11 mph NW</strong></span>
+            <span><i class="bi bi-eye text-success me-1"></i> Horizon Visibility: <strong style="color: var(--text-primary);">25+ Miles</strong></span>
+            <span><i class="bi bi-activity text-warning me-1"></i> Seismic & Trail Status: <strong style="color: var(--text-primary);">Green / Optimal</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE TRAIL FINDER & DIFFICULTY CALCULATOR -->
+    <section class="section-space" id="trailFinder">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-map"></i> Trailhead Intelligence</span>
+          <h2 class="section-title">Find Your Perfect Ascent</h2>
+          <p class="section-desc">Select your mountaineering fitness and desired elevation gain to calculate matching trails.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="card p-4 mb-4" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-xl);">
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4">
+              <label for="tfDifficulty" class="search-field-label mb-1">Your Technical Skill Level</label>
+              <select id="tfDifficulty" class="search-field-input">
+                <option value="all">All Difficulty Grades</option>
+                <option value="Moderate">Moderate (Grade II - Trail hiking)</option>
+                <option value="Challenging">Challenging (Grade III - Ridge scrambles)</option>
+                <option value="Technical">Technical (Grade IV - Ropes & glacier)</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="tfDuration" class="search-field-label mb-1">Expedition Duration</label>
+              <select id="tfDuration" class="search-field-input">
+                <option value="all">Any Duration</option>
+                <option value="Single Day">Single Day Ascents</option>
+                <option value="Multi-Day">Multi-Day High Camps</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="tfElevation" class="search-field-label mb-1">Target Elevation Gain</label>
+              <select id="tfElevation" class="search-field-input">
+                <option value="all">Any Elevation Gain</option>
+                <option value="low">Under 2,000 ft Gain</option>
+                <option value="high">2,500+ ft Summit Ascent</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trail Results Cards -->
+        <div class="row g-4" id="trailFinderResults">
+          
+          <!-- Route 1 -->
+          <div class="col-lg-4 col-md-6 trail-card-item" data-diff="Challenging" data-dur="Multi-Day" data-elev="high">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Whispering Peak" loading="lazy">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Grade III • Summit</span>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 4 Days / 3 Nights</span>
+                  <span><i class="bi bi-arrow-up-right me-1"></i> +3,800 ft Gain</span>
+                </div>
+                <h3 class="camp-card-title">Whispering Peak Summit Ridge</h3>
+                <p class="camp-card-desc">Traverse high knife-edge granite ridges to reach the 7,850 ft summit. Overnight high camps under celestial starfields.</p>
+                
+                <div class="elevation-chart-bar" title="Elevation profile preview">
+                  <div class="elevation-bar" style="height: 30%;"></div>
+                  <div class="elevation-bar" style="height: 55%;"></div>
+                  <div class="elevation-bar" style="height: 85%;"></div>
+                  <div class="elevation-bar" style="height: 100%;"></div>
+                  <div class="elevation-bar" style="height: 60%;"></div>
+                </div>
+
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag d-flex flex-row align-items-baseline" style="gap: 0.45rem; white-space: nowrap;">
+                    <span class="price-tag-value">$850</span>
+                    <span class="price-tag-period">all meals & gear</span>
+                  </div>
+                  <a href="packages.html" class="btn-camp btn-camp-primary btn-sm w-100">View Route</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Route 2 -->
+          <div class="col-lg-4 col-md-6 trail-card-item" data-diff="Moderate" data-dur="Multi-Day" data-elev="low">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Glacial Gorge" loading="lazy">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Grade II • River & Canyon</span>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 3 Days / 2 Nights</span>
+                  <span><i class="bi bi-arrow-up-right me-1"></i> +1,600 ft Gain</span>
+                </div>
+                <h3 class="camp-card-title">Glacial Gorge Whitewater & Trek</h3>
+                <p class="camp-card-desc">Combine class III river rafting with gentle pine valley treks and riverside timber deck campfires.</p>
+                
+                <div class="elevation-chart-bar" title="Elevation profile preview">
+                  <div class="elevation-bar" style="height: 40%;"></div>
+                  <div class="elevation-bar" style="height: 45%;"></div>
+                  <div class="elevation-bar" style="height: 50%;"></div>
+                  <div class="elevation-bar" style="height: 35%;"></div>
+                  <div class="elevation-bar" style="height: 25%;"></div>
+                </div>
+
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag d-flex flex-row align-items-baseline" style="gap: 0.45rem; white-space: nowrap;">
+                    <span class="price-tag-value">$650</span>
+                    <span class="price-tag-period">all-inclusive</span>
+                  </div>
+                  <a href="packages.html" class="btn-camp btn-camp-primary btn-sm w-100">View Route</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Route 3 -->
+          <div class="col-lg-4 col-md-6 trail-card-item" data-diff="Technical" data-dur="Multi-Day" data-elev="high">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=800&q=80" alt="Granite Wall" loading="lazy">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-danger card-badge-top">Grade IV • Technical</span>
+                </div>
+                <div class="camp-card-meta">
+                  <span><i class="bi bi-clock me-1"></i> 4 Days / 3 Nights</span>
+                  <span><i class="bi bi-arrow-up-right me-1"></i> +4,200 ft Gain</span>
+                </div>
+                <h3 class="camp-card-title">Sentinel Granite Multi-Pitch Camp</h3>
+                <p class="camp-card-desc">Technical climbing clinic with portaledge hanging camps and multi-pitch granite face ascents with AMGA guides.</p>
+                
+                <div class="elevation-chart-bar" title="Elevation profile preview">
+                  <div class="elevation-bar" style="height: 20%;"></div>
+                  <div class="elevation-bar" style="height: 60%;"></div>
+                  <div class="elevation-bar" style="height: 90%;"></div>
+                  <div class="elevation-bar" style="height: 95%;"></div>
+                  <div class="elevation-bar" style="height: 80%;"></div>
+                </div>
+
+                <div class="camp-card-footer mt-auto">
+                  <div class="price-tag d-flex flex-row align-items-baseline" style="gap: 0.45rem; white-space: nowrap;">
+                    <span class="price-tag-value">$1,150</span>
+                    <span class="price-tag-period">technical gear included</span>
+                  </div>
+                  <a href="packages.html" class="btn-camp btn-camp-primary btn-sm w-100">View Route</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MOUNTAINEERING & SURVIVAL ACADEMY -->
+    <section class="section-space" style="background: var(--bg-surface); border-block: 1px solid var(--border-color);">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-mortarboard"></i> Field Skills</span>
+          <h2 class="section-title">The Wilderness Survival & Alpine Academy</h2>
+          <p class="section-desc">
+            True confidence in the backcountry begins with real knowledge. Aura Pines hosts daily field workshops for all guests wishing to hone survival, rope, and navigation skills.
+          </p>
+        </div>
+
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="d-flex flex-column gap-3">
+              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+                <div style="width: 40px; height: 40px; border-radius: 8px; background: var(--accent-subtle); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="bi bi-compass"></i>
+                </div>
+                <div>
+                  <strong style="display: block;">Topographic Map & Compass Orienteering</strong>
+                  <span style="font-size: 0.85rem; color: var(--text-muted);">Master triangulation, declination adjustments, and route scouting without digital reliance.</span>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+                <div style="width: 40px; height: 40px; border-radius: 8px; background: var(--accent-secondary-subtle); color: var(--accent-secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="bi bi-fire"></i>
+                </div>
+                <div>
+                  <strong style="display: block;">Primitive & Wet-Weather Fire Craft</strong>
+                  <span style="font-size: 0.85rem; color: var(--text-muted);">Learn friction fire techniques, birch resin preparation, and emergency shelter construction.</span>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background: var(--bg-elevated); border: 1px solid var(--border-color);">
+                <div style="width: 40px; height: 40px; border-radius: 8px; background: var(--accent-subtle); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="bi bi-heart-pulse"></i>
+                </div>
+                <div>
+                  <strong style="display: block;">Wilderness Emergency First Response</strong>
+                  <span style="font-size: 0.85rem; color: var(--text-muted);">Field splinting, hypothermia management, and satellite emergency rescue signaling protocols.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="camp-card" style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); background: var(--bg-surface);">
+              <div class="camp-card-media" style="min-height: 280px; max-height: 300px;">
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80" alt="Mountaineer with Map" width="800" height="500" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="p-3 p-md-4 d-flex flex-column align-items-stretch gap-3" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+                <div>
+                  <strong class="academy-card-title" style="color: var(--text-primary); display: block; font-size: clamp(1rem, 2vw, 1.15rem); margin-bottom: 0.25rem; white-space: nowrap;">Complimentary Field Workshops</strong>
+                  <span class="academy-card-sub" style="font-size: clamp(0.78rem, 1.6vw, 0.88rem); color: var(--text-muted); display: block; white-space: nowrap;">Held daily at 10:00 AM at the Main Timber Hearth</span>
+                </div>
+                <a href="activities.html" class="btn-camp btn-camp-primary btn-sm w-100 text-center justify-content-center">Join Academy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPEDITION GEAR LOCKER & RENTAL DEMO -->
+    <section class="section-space">
+      <div class="camp-container">
+        <div class="text-center mb-5">
+          <span class="section-badge"><i class="bi bi-backpack"></i> Basecamp Outfitter</span>
+          <h2 class="section-title">Tested in the Elements</h2>
+          <p class="section-desc">Don't travel heavy. Our gear locker provides top-tier mountaineering gear curated by our lead guides.</p>
+        </div>
+
+        <div class="row g-4 text-center">
+          <div class="col-lg-3 col-sm-6">
+            <div class="p-4 rounded h-100" style="background: var(--bg-surface); border: 1px solid var(--border-color);">
+              <i class="bi bi-compass text-warning" style="font-size: 2.5rem; display: block; margin-bottom: 0.75rem;"></i>
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.35rem;">Garmin InReach GPS</h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Two-way satellite messaging & SOS coverage throughout the reserve.</p>
+              <span class="camp-badge badge-teal">Included on Treks</span>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6">
+            <div class="p-4 rounded h-100" style="background: var(--bg-surface); border: 1px solid var(--border-color);">
+              <i class="bi bi-shield-shaded text-info" style="font-size: 2.5rem; display: block; margin-bottom: 0.75rem;"></i>
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.35rem;">4-Season Geodesics</h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">High-wind certified mountaineering domes for extreme alpine weather.</p>
+              <span class="camp-badge badge-ember">Heavy Duty</span>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6">
+            <div class="p-4 rounded h-100" style="background: var(--bg-surface); border: 1px solid var(--border-color);">
+              <i class="bi bi-droplet-half text-primary" style="font-size: 2.5rem; display: block; margin-bottom: 0.75rem;"></i>
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.35rem;">MSR Water Filters</h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Ceramic micro-filtration removing 99.99% of biological impurities.</p>
+              <span class="camp-badge badge-teal">Pure Spring</span>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6">
+            <div class="p-4 rounded h-100" style="background: var(--bg-surface); border: 1px solid var(--border-color);">
+              <i class="bi bi-fire text-warning" style="font-size: 2.5rem; display: block; margin-bottom: 0.75rem;"></i>
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.35rem;">Backcountry Skillets</h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Titanium cook sets and camp chef provisions for wilderness feasts.</p>
+              <span class="camp-badge badge-ember">Artisan Fuel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOM EXPEDITION CTA -->
+    <section class="section-space text-center position-relative cta-banner-dark" style="background: linear-gradient(135deg, rgba(26,46,37,0.96), rgba(11,22,18,0.98)), url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1600&q=80') center/cover;">
+      <div class="camp-container">
+        <span class="section-badge" style="background: rgba(210,130,74,0.2); color: #F8C39B; border-color: rgba(210,130,74,0.4);"><i class="bi bi-flag"></i> Custom Alpine Route</span>
+        <h2 class="section-title" style="color: #FFFFFF !important;">Design a Bespoke Wilderness Expedition</h2>
+        <p class="section-desc" style="color: #E8E2D5 !important; margin-bottom: 2rem;">Planning a corporate summit ascent, mountaineering club traverse, or private family ridge trek? Our rangers will build a custom itinerary with full logistics.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="contact.html?inquiry=expedition" class="btn-camp btn-camp-primary btn-lg">
+            <i class="bi bi-envelope-paper"></i> Consult a Lead Ranger
+          </a>
+          <a href="packages.html" class="btn-camp btn-camp-secondary btn-lg">
+            <i class="bi bi-compass"></i> View All Packages
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="camp-footer">
+    <div class="camp-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-fire"></i>
+            </div>
+            <span>AURA PINES</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            A premier wilderness camp and glamping sanctuary dedicated to slow living, outdoor adventure, and eco-restoration.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Explore & Learn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Details</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="bi bi-geo-alt text-warning"></i>
+              <span>Whispering Ridge Rd, Pinecrest, 98214</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone text-success"></i>
+              <a href="tel:+15553822267">+1 (555) 382-CAMP</a>
+            </li>
+            <li>
+              <i class="bi bi-envelope text-info"></i>
+              <a href="mailto:rangers@aurapines.com">rangers@aurapines.com</a>
+            </li>
+            <li>
+              <i class="bi bi-clock text-warning"></i>
+              <span>7:00 AM – 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Wilderness Dispatch</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Receive seasonal campfire stories, stargazing calendars, and private cabin promotions.</p>
+          <form class="newsletter-form">
+            <div class="d-flex gap-2">
+              <input type="email" placeholder="Your email address" required style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-md); padding: 0.5rem 0.85rem; font-size: 0.85rem; width: 100%; outline: none;">
+              <button type="submit" class="btn-camp btn-camp-primary btn-sm" style="flex-shrink: 0;">Join</button>
+            </div>
+          </form>
+          <div class="mt-3" style="font-size: 0.75rem; color: var(--text-dim);">
+            <i class="bi bi-shield-lock me-1"></i> We respect nature and your inbox privacy.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 AURA PINES Wilderness Resort & Campsite. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Trail Finder Filter Logic
+    const tfDiff = document.getElementById('tfDifficulty');
+    const tfDur = document.getElementById('tfDuration');
+    const tfElev = document.getElementById('tfElevation');
+    const trailCards = document.querySelectorAll('.trail-card-item');
+
+    function filterTrails() {
+      const diffVal = tfDiff.value;
+      const durVal = tfDur.value;
+      const elevVal = tfElev.value;
+
+      trailCards.forEach(card => {
+        const matchesDiff = diffVal === 'all' || card.dataset.diff === diffVal;
+        const matchesDur = durVal === 'all' || card.dataset.dur === durVal;
+        const matchesElev = elevVal === 'all' || card.dataset.elev === elevVal;
+
+        if (matchesDiff && matchesDur && matchesElev) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    [tfDiff, tfDur, tfElev].forEach(el => el.addEventListener('change', filterTrails));
+  </script>
+</body>
+</html>

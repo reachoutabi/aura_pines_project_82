@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Portal Login & Registration | AURA PINES</title>
+  <meta name="description" content="Access your Aura Pines guest portal to view upcoming wilderness bookings, customize trip itineraries, and access offline trailhead maps.">
+  <meta property="og:title" content="Guest Portal - AURA PINES">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .auth-split-wrapper {
+      min-height: 100vh;
+      display: flex;
+    }
+    .auth-image-col {
+      flex: 1.1;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3rem;
+      color: #FFF;
+    }
+    .auth-form-col {
+      flex: 0.9;
+      background: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3.5rem;
+      position: relative;
+    }
+    @media (max-width: 991px) {
+      .auth-split-wrapper {
+        flex-direction: column;
+      }
+      .auth-image-col {
+        min-height: 280px;
+        flex: none;
+        padding: 2rem;
+      }
+      .auth-form-col {
+        flex: none;
+        padding: 2rem 1.5rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .auth-image-col {
+        min-height: 220px;
+        padding: 1.5rem 1rem;
+      }
+      .auth-form-col {
+        padding: 1.5rem 1rem;
+      }
+      .auth-tab-btn {
+        font-size: 0.95rem;
+      }
+    }
+    @media (max-width: 360px) {
+      .auth-form-col {
+        padding: 1.25rem 0.75rem;
+      }
+      .auth-tab-btn {
+        font-size: 0.85rem;
+      }
+    }
+    .auth-tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .auth-tab-btn.active {
+      color: var(--accent-primary);
+      border-bottom-color: var(--accent-primary);
+    }
+    .btn-social-auth {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.68rem 1rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+      text-decoration: none;
+      gap: 0.5rem;
+    }
+    .btn-social-auth:hover {
+      background: var(--accent-subtle);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    .btn-social-auth:active {
+      transform: translateY(1px) scale(0.98);
+    }
+    .btn-social-auth svg {
+      flex-shrink: 0;
+    }
+    .auth-image-col h2,
+    .auth-image-col strong {
+      color: #FFFFFF !important;
+    }
+    .auth-image-col p {
+      color: #E8E2D5 !important;
+    }
+    .auth-image-col .text-muted,
+    .auth-image-col span {
+      color: #C5D4C2 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-split-wrapper">
+    <!-- LEFT: OUTDOORSY SCENIC VISUAL WITH MOVING BACKGROUND -->
+    <div class="auth-image-col">
+      <div class="hero-bg-animated hero-bg-zoom" style="background-image: url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1400&q=85');"></div>
+      <div class="hero-overlay"></div>
+      <div style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
+        <div>
+          <a href="index.html" class="brand-logo" style="color: #FFF;">
+            <div class="brand-icon"><i class="bi bi-fire"></i></div>
+            <span>AURA PINES</span>
+          </a>
+        </div>
+
+        <div>
+          <span class="section-badge mb-2"><i class="bi bi-stars"></i> Guest Wilderness Sanctuary</span>
+          <h2 style="font-family: var(--font-serif); font-size: 2.25rem; line-height: 1.2; margin-bottom: 1rem; color: #FFF;">
+            "The clearest way into the Universe is through a forest wilderness."
+          </h2>
+          <p style="color: #E8E2D5 !important; max-width: 480px; font-size: 0.95rem;">
+            Access your private reservations, download offline trail GPS tracks, order fireside hampers, and coordinate directly with our camp rangers.
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center text-muted" style="font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.25rem;">
+          <span><i class="bi bi-shield-check text-success me-1"></i> 256-Bit SSL Encrypted Portal</span>
+          <span>Elevation 4,120 ft</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: INTERACTIVE AUTH FORM -->
+    <div class="auth-form-col">
+      
+      <!-- Top Quick Controls -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <a href="index.html" style="font-size: 0.85rem; color: var(--text-muted);"><i class="bi bi-arrow-left me-1"></i> Return Home</a>
+        <div class="d-flex gap-2">
+          <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction" style="width: 30px; height: 30px; font-size: 0.85rem;">
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+          <button class="icon-btn-toggle theme-toggle-btn" title="Toggle theme" aria-label="Toggle light or dark theme" style="width: 30px; height: 30px; font-size: 0.85rem;">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- LOGIN VIEW (Default Active View) -->
+      <div id="authViewLogin">
+        <!-- Direct Login Heading -->
+        <div class="mb-4">
+          <span class="camp-badge badge-ember mb-2" style="font-size: 0.72rem;"><i class="bi bi-shield-lock-fill me-1"></i> Guest Portal Access</span>
+          <h2 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 0.35rem; color: var(--text-primary);">Guest Login</h2>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0;">Sign in to access your wilderness reservations, offline maps, and permits.</p>
+        </div>
+
+        <!-- Social Logins (Google & Microsoft) -->
+        <div class="row g-2 mb-3">
+          <div class="col-6">
+            <button type="button" class="btn-social-auth" id="btnGoogleAuth" onclick="loginWithProvider('Google')">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              <span>Google</span>
+            </button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn-social-auth" id="btnMicrosoftAuth" onclick="loginWithProvider('Microsoft')">
+              <svg width="18" height="18" viewBox="0 0 23 23" aria-hidden="true">
+                <path fill="#f35325" d="M1 1h10v10H1z"/>
+                <path fill="#81bc06" d="M12 1h10v10H12z"/>
+                <path fill="#05a6f0" d="M1 12h10v10H1z"/>
+                <path fill="#ffba08" d="M12 12h10v10H12z"/>
+              </svg>
+              <span>Microsoft</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="d-flex align-items-center my-3" style="color: var(--text-muted); font-size: 0.8rem;">
+          <hr class="flex-grow-1 my-0" style="opacity: 0.2; border-color: var(--border-color);">
+          <span class="px-2" style="font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.72rem;">or continue with email</span>
+          <hr class="flex-grow-1 my-0" style="opacity: 0.2; border-color: var(--border-color);">
+        </div>
+
+        <form id="formLogin" novalidate>
+          <div class="mb-3">
+            <label for="loginEmail" class="search-field-label mb-1">Email Address</label>
+            <input type="email" id="loginEmail" data-type="email" class="search-field-input" value="demo@pine.com" placeholder="demo@pine.com" autocomplete="email" required>
+          </div>
+
+          <div class="mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <label for="loginPassword" class="search-field-label mb-0">Password</label>
+              <a href="#" onclick="switchAuthView('forgot'); return false;" style="font-size: 0.8rem; color: var(--accent-primary);">Forgot Password?</a>
+            </div>
+            <div class="position-relative">
+              <input type="password" id="loginPassword" class="search-field-input" value="1234" placeholder="••••••••" autocomplete="current-password" required>
+              <button type="button" class="btn-toggle-pwd" onclick="togglePasswordVisibility('loginPassword', this)">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <label class="d-flex align-items-center gap-2" style="font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">
+              <input type="checkbox" id="rememberMe" checked style="accent-color: var(--accent-primary);"> Remember me
+            </label>
+          </div>
+
+          <button type="submit" class="btn-camp btn-camp-primary w-100 btn-lg mb-3">
+            <i class="bi bi-door-open"></i> Log In to Guest Portal
+          </button>
+
+          <!-- Register link below login -->
+          <div class="text-center pt-3 border-top" style="border-color: var(--border-color) !important;">
+            <p class="mb-0" style="font-size: 0.88rem; color: var(--text-muted);">
+              Don't have an account? 
+              <a href="#" id="linkToRegister" onclick="switchAuthView('register'); return false;" style="color: var(--accent-primary); font-weight: 600; text-decoration: underline;">Register New Account</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="authViewRegister" style="display: none;">
+        <div class="mb-3">
+          <span class="camp-badge badge-forest mb-2" style="font-size: 0.72rem;"><i class="bi bi-person-badge me-1"></i> New Guest</span>
+          <h2 style="font-family: var(--font-serif); font-size: 1.85rem; margin-bottom: 0.35rem; color: var(--text-primary);">Create Guest Account</h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Register to unlock member perks, trail permits, and fireside hampers.</p>
+        </div>
+        <form id="formRegister" novalidate>
+          <div class="row g-2 mb-3">
+            <div class="col-md-6">
+              <label for="regFirstName" class="search-field-label mb-1">First Name</label>
+              <input type="text" id="regFirstName" data-type="name" class="search-field-input" placeholder="Julian" pattern="^[a-zA-ZÀ-ÿ\s'\-]{2,30}$" title="Letters and spaces only (no numbers or symbols)" autocomplete="given-name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="regLastName" class="search-field-label mb-1">Last Name</label>
+              <input type="text" id="regLastName" data-type="name" class="search-field-input" placeholder="Vance" pattern="^[a-zA-ZÀ-ÿ\s'\-]{2,30}$" title="Letters and spaces only (no numbers or symbols)" autocomplete="family-name" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="regEmail" class="search-field-label mb-1">Email Address</label>
+            <input type="email" id="regEmail" data-type="email" class="search-field-input" placeholder="julian@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="regPassword" class="search-field-label mb-1">Create Password</label>
+            <div class="position-relative">
+              <input type="password" id="regPassword" class="search-field-input" placeholder="Minimum 8 characters" required minlength="8" autocomplete="new-password">
+              <button type="button" class="btn-toggle-pwd" onclick="togglePasswordVisibility('regPassword', this)">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="d-flex align-items-center gap-2" style="font-size: 0.8rem; color: var(--text-muted); cursor: pointer;">
+              <input type="checkbox" required style="accent-color: var(--accent-primary);"> I agree to the Camp Wildlife Safety & Park Rules
+            </label>
+          </div>
+
+          <button type="submit" class="btn-camp btn-camp-primary w-100 btn-lg mb-3">
+            <i class="bi bi-person-plus"></i> Create Guest Account
+          </button>
+
+          <div class="text-center pt-3 border-top" style="border-color: var(--border-color) !important;">
+            <p class="mb-0" style="font-size: 0.88rem; color: var(--text-muted);">
+              Already have an account? 
+              <a href="#" onclick="switchAuthView('login'); return false;" style="color: var(--accent-primary); font-weight: 600; text-decoration: underline;">Log In here</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- FORGOT PASSWORD FORM -->
+      <div id="authViewForgot" style="display: none;">
+        <h4 style="margin-bottom: 0.5rem;">Reset Guest Password</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Enter the email associated with your reservations and we'll send a password reset code.</p>
+        <form id="formForgot" novalidate>
+          <div class="mb-4">
+            <label for="forgotEmail" class="search-field-label mb-1">Your Email</label>
+            <input type="email" id="forgotEmail" data-type="email" class="search-field-input" placeholder="guest@campwild.com" autocomplete="email" required>
+          </div>
+          <button type="submit" class="btn-camp btn-camp-primary w-100 btn-lg mb-3">
+            Send Reset Instructions
+          </button>
+          <div class="text-center">
+            <button type="button" class="btn-camp btn-camp-ghost btn-sm" onclick="switchAuthView('login')">
+              <i class="bi bi-arrow-left"></i> Back to Login
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    function switchAuthView(view) {
+      document.getElementById('authViewLogin').style.display = view === 'login' ? 'block' : 'none';
+      document.getElementById('authViewRegister').style.display = view === 'register' ? 'block' : 'none';
+      document.getElementById('authViewForgot').style.display = view === 'forgot' ? 'block' : 'none';
+
+      if (typeof window.setupFormDataTypeRestrictions === 'function') {
+        window.setupFormDataTypeRestrictions(document);
+      }
+    }
+
+    function togglePasswordVisibility(fieldId, btn) {
+      const input = document.getElementById(fieldId);
+      if (!input) return;
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+      btn.innerHTML = isPassword ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
+    }
+
+    // Social Provider Login (Google & Microsoft) -> redirects to home page (index.html)
+    function loginWithProvider(provider) {
+      const providerUser = provider === 'Google'
+        ? { name: 'Google Guest', email: 'demo@pine.com' }
+        : { name: 'Microsoft Guest', email: 'demo@pine.com' };
+
+      if (window.CampStore) {
+        window.CampStore.updateUser({
+          name: providerUser.name,
+          email: providerUser.email,
+          isLoggedIn: true
+        });
+      }
+
+      showToast(`Signed in with ${provider}! Redirecting to home page...`, 'success');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 650);
+    }
+
+    // Login Submission
+    document.getElementById('formLogin').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('loginEmail');
+      const pwdInput = document.getElementById('loginPassword');
+
+      if (window.validateFieldDataType && !window.validateFieldDataType(emailInput, true)) {
+        return;
+      }
+      if (!pwdInput.value) {
+        if (window.showFieldError) window.showFieldError(pwdInput, 'Please enter your password.');
+        return;
+      }
+
+      const email = emailInput.value.trim();
+      const pwd = pwdInput.value;
+
+      // Allow demo credentials (demo@pine.com / 1234) or any registered user
+      if (email === 'demo@pine.com' && pwd !== '1234') {
+        if (window.showFieldError) {
+          window.showFieldError(pwdInput, 'Invalid password. Default demo password is 1234.');
+        } else {
+          showToast('Invalid password. Default demo password is 1234.', 'error');
+        }
+        return;
+      }
+
+      if (window.CampStore) {
+        window.CampStore.login(email, pwd);
+      }
+
+      showToast('Login successful! Redirecting to home page...', 'success');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 650);
+    });
+
+    // Register Submission
+    document.getElementById('formRegister').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = document.getElementById('formRegister');
+      if (window.validateFormDataType && !window.validateFormDataType(form)) {
+        return;
+      }
+
+      const fname = document.getElementById('regFirstName').value.trim();
+      const lname = document.getElementById('regLastName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+
+      if (window.CampStore) {
+        window.CampStore.updateUser({
+          name: `${fname} ${lname}`,
+          email: email,
+          isLoggedIn: true
+        });
+      }
+
+      showToast(`Welcome to the wilderness, ${fname}! Redirecting to home page...`, 'success');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 650);
+    });
+
+    // Forgot Password Submission
+    document.getElementById('formForgot').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const forgotEmailInput = document.getElementById('forgotEmail');
+      if (window.validateFieldDataType && !window.validateFieldDataType(forgotEmailInput, true)) {
+        return;
+      }
+      showToast('A demo reset link has been dispatched to your email!', 'info');
+      switchAuthView('login');
+    });
+  </script>
+</body>
+</html>

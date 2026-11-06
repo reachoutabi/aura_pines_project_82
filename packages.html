@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curated Wilderness Packages | AURA PINES</title>
+  <meta name="description" content="All-inclusive wilderness retreats, family camps, romantic escapes, and trekking expeditions with luxury accommodations and guided outdoor activities.">
+  <meta property="og:title" content="Curated Wilderness Packages - AURA PINES">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .comparison-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-height: 85vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      background: var(--bg-surface);
+      border-top: 2px solid var(--accent-primary);
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+      z-index: 1045;
+      transform: translateY(100%);
+      transition: transform var(--transition-normal);
+      padding: 1.25rem 0;
+    }
+    .comparison-drawer.active {
+      transform: translateY(0);
+    }
+    @media (max-width: 576px) {
+      .comparison-drawer {
+        padding: 0.85rem 0;
+        max-height: 80vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Main Navbar -->
+  <header class="main-navbar">
+    <div class="camp-container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-logo" aria-label="Aura Pines Home">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-toggle">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li>
+                <a href="index.html" class="nav-dropdown-item">Glamping Sanctuary</a>
+              </li>
+              <li>
+                <a href="index-2.html" class="nav-dropdown-item">Alpine Expeditions</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="packages.html" class="active">Packages</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- RTL Toggle Button on Nav Bar (Icon Only) -->
+        <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <!-- Theme Toggle Button on Nav Bar -->
+        <button class="icon-btn-toggle theme-toggle-btn" title="Toggle light/dark theme" aria-label="Toggle light or dark theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <!-- Sign In Icon Button (Desktop Only; on mobile it is inside the hamburger drawer) -->
+        <a href="login.html" class="icon-btn-toggle nav-signin-btn d-none d-md-inline-flex" title="Sign In" aria-label="Sign In">
+          <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+        <!-- Dashboard on Nav Bar -->
+        <a href="dashboard.html" class="btn-camp btn-camp-secondary d-none d-md-inline-flex" style="padding: 0.5rem 0.95rem;" title="Dashboard">
+          <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
+        </a>
+        <!-- My Trips on Nav Bar -->
+        <a href="dashboard.html#bookings" class="btn-camp btn-camp-secondary d-none d-lg-inline-flex" style="padding: 0.5rem 0.95rem;" title="My Trips">
+          <i class="bi bi-compass"></i> <span>My Trips</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </div>
+      <button class="icon-btn-toggle mobile-drawer-close" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Sign In Button inside Mobile Drawer -->
+    <div class="mobile-drawer-auth mb-3">
+      <a href="login.html" class="btn-camp btn-camp-primary w-100 justify-content-center">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Sign In / Register
+      </a>
+    </div>
+    <ul class="mobile-nav-links">
+      <li>
+        <a href="#" class="mobile-dropdown-btn">
+          <span><i class="bi bi-house-door"></i> Home</span>
+          <i class="bi bi-chevron-down mobile-chevron"></i>
+        </a>
+        <ul class="mobile-dropdown-menu">
+          <li><a href="index.html">Glamping Sanctuary</a></li>
+          <li><a href="index-2.html">Alpine Expeditions</a></li>
+        </ul>
+      </li>
+      <li><a href="packages.html" class="active"><i class="bi bi-box2-heart"></i> Packages</a></li>
+      <li><a href="activities.html"><i class="bi bi-compass"></i> Activities</a></li>
+      <li><a href="gallery.html"><i class="bi bi-images"></i> Gallery</a></li>
+      <li><a href="about.html"><i class="bi bi-tree"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Guest Dashboard</a></li>
+      <li><a href="login.html"><i class="bi bi-person"></i> Guest Login</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex gap-2 justify-content-between align-items-center">
+      <button class="btn-camp btn-camp-secondary btn-sm theme-toggle-btn w-50"><i class="bi bi-moon-stars-fill me-1"></i> Theme</button>
+      <button class="btn-camp btn-camp-secondary btn-sm rtl-toggle-btn w-50"><i class="bi bi-arrow-left-right me-1"></i> <span class="rtl-label">RTL</span></button>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO WITH ANIMATED MOVING BACKGROUND -->
+    <section class="page-hero-animated">
+      <div class="hero-bg-animated" style="background-image: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=3840&q=90');"></div>
+      <div class="hero-overlay"></div>
+      <div class="camp-container position-relative text-center">
+        <nav aria-label="breadcrumb" class="mb-2">
+          <ol class="breadcrumb justify-content-center" style="font-size: 0.8rem;">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Curated Packages</li>
+          </ol>
+        </nav>
+        <span class="section-badge"><i class="bi bi-award"></i> All-Inclusive Retreats</span>
+        <h1 class="section-title">Immersive Wilderness Packages</h1>
+        <p class="section-desc">Carefully tailored experiences combining premium shelter, wilderness excursions, culinary campfires, and equipment.</p>
+      </div>
+    </section>
+
+    <!-- FILTER & SORT CONTROLS BAR -->
+    <section class="py-4 packages-filter-section" style="background: var(--bg-surface); border-bottom: 1px solid var(--border-color);">
+      <div class="camp-container">
+        <div class="packages-filter-bar">
+          <!-- Filters Group -->
+          <div class="packages-filter-group">
+            <div class="filter-select-wrap">
+              <select id="filterDuration" class="search-field-input package-filter-select" aria-label="Filter by Duration">
+                <option value="all">Duration: All</option>
+                <option value="2-days">2 Days / 1 Night</option>
+                <option value="3-days">3 Days / 2 Nights</option>
+                <option value="4-days">4+ Days Expeditions</option>
+              </select>
+            </div>
+            <div class="filter-select-wrap">
+              <select id="filterGroup" class="search-field-input package-filter-select" aria-label="Filter by Group Type">
+                <option value="all">Group: All Types</option>
+                <option value="couples">Couples</option>
+                <option value="families">Families</option>
+                <option value="adventurers">Adventurers / Trekkers</option>
+                <option value="corporate">Corporate & Teams</option>
+              </select>
+            </div>
+            <div class="filter-select-wrap">
+              <select id="filterSeason" class="search-field-input package-filter-select" aria-label="Filter by Season">
+                <option value="all">Season: All-Year</option>
+                <option value="summer">Summer Waters</option>
+                <option value="autumn">Autumn Gold</option>
+                <option value="winter">Winter Frost</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Sort & Comparison Group -->
+          <div class="packages-sort-group">
+            <div class="filter-select-wrap sort-select-wrap">
+              <label for="sortPackages" class="visually-hidden">Sort Packages</label>
+              <select id="sortPackages" class="search-field-input package-filter-select" aria-label="Sort Packages">
+                <option value="popular">Sort: Most Popular</option>
+                <option value="price-low">Sort: Price (Low to High)</option>
+                <option value="price-high">Sort: Price (High to Low)</option>
+                <option value="duration">Sort: Longest Duration</option>
+              </select>
+            </div>
+            <button id="btnToggleComparison" class="btn-camp btn-camp-secondary btn-sm compare-btn">
+              <i class="bi bi-columns-gap me-1"></i>Compare (<span id="compareCount">0</span>)
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES GRID -->
+    <section class="section-space">
+      <div class="camp-container camp-visible">
+        <div class="row g-4" id="packagesGrid">
+          
+          <!-- Package 1: Weekend Escape -->
+          <div class="col-lg-4 col-md-6 package-item" data-id="pkg-weekend" data-duration="2-days" data-group="couples" data-season="summer" data-price="390" data-days="2">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1525811902-f2342640856e?auto=format&fit=crop&w=2000&q=90" alt="Weekend Escape" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Quick Getaway</span>
+                  <button class="card-wishlist-btn" data-item-id="pkg-weekend" data-item-title="Weekend Escape" data-item-type="Package" data-item-price="$390/pp" data-item-image="https://images.unsplash.com/photo-1525811902-f2342640856e?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span class="text-nowrap"><i class="bi bi-clock me-1"></i> 2 Days / 1 Night</span>
+                  <span class="text-nowrap"><i class="bi bi-people me-1"></i> Ideal for Couples / Solos</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openPackageDetails('pkg-weekend'); return false;">Weekend Escape</a></h3>
+                <p class="camp-card-desc">Recharge with 48 hours of pure forest air. Includes cozy Safari Tent accommodation, guided sunset ridge hike, and fireside BBQ.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Safari Tent Stay</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> BBQ Dinner & Cider</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Guided Sunset Hike</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$390</span>
+                    <span class="price-tag-period">per person / all-inclusive</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="togglePackageCompare('pkg-weekend')">Compare</button>
+                    <a href="booking.html?stayType=safari-tent" class="btn-camp btn-camp-primary btn-sm">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Package 2: Family Adventure -->
+          <div class="col-lg-4 col-md-6 package-item" data-id="pkg-family" data-duration="3-days" data-group="families" data-season="summer" data-price="780" data-days="3">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=2000&q=90" alt="Family Adventure" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Top Family Pick</span>
+                  <button class="card-wishlist-btn" data-item-id="pkg-family" data-item-title="Family Adventure" data-item-type="Package" data-item-price="$780/total" data-item-image="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span class="text-nowrap"><i class="bi bi-clock me-1"></i> 3 Days / 2 Nights</span>
+                  <span class="text-nowrap"><i class="bi bi-people me-1"></i> 2 Adults + 2 Kids</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openPackageDetails('pkg-family'); return false;">Family Adventure</a></h3>
+                <p class="camp-card-desc">An enriching wilderness camp tailored for all ages in our spacious Family Cabin. Scavenger hunts, beginner archery, and junior ranger badges.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Family Cabin Stay</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Junior Ranger Kits</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Lake Kayak Rental</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$780</span>
+                    <span class="price-tag-period">family package total</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="togglePackageCompare('pkg-family')">Compare</button>
+                    <a href="booking.html?stayType=family-cabin" class="btn-camp btn-camp-primary btn-sm">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Package 3: Couple’s Romantic Retreat -->
+          <div class="col-lg-4 col-md-6 package-item" data-id="pkg-romantic" data-duration="3-days" data-group="couples" data-season="autumn" data-price="690" data-days="3">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=2000&q=90" alt="Couple's Romantic Retreat" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Most Popular</span>
+                  <button class="card-wishlist-btn" data-item-id="pkg-romantic" data-item-title="Couple’s Romantic Retreat" data-item-type="Package" data-item-price="$690/couple" data-item-image="https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span class="text-nowrap"><i class="bi bi-clock me-1"></i> 3 Days / 2 Nights</span>
+                  <span class="text-nowrap"><i class="bi bi-people me-1"></i> 2 Adults</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openPackageDetails('pkg-romantic'); return false;">Couple’s Romantic Retreat</a></h3>
+                <p class="camp-card-desc">Total seclusion in our Luxury Glamping Dome. Champagne upon arrival, private cedar hot tub soak, and private telescope viewing.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Starlit Dome Stay</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Private Soak Tub</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Artisan Wine Basket</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$690</span>
+                    <span class="price-tag-period">per couple / total</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="togglePackageCompare('pkg-romantic')">Compare</button>
+                    <a href="booking.html?stayType=glamping-dome" class="btn-camp btn-camp-primary btn-sm">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Package 4: Trekking Expedition -->
+          <div class="col-lg-4 col-md-6 package-item" data-id="pkg-trekking" data-duration="4-days" data-group="adventurers" data-season="autumn" data-price="850" data-days="4">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=90" alt="Trekking Expedition" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">High Altitude</span>
+                  <button class="card-wishlist-btn" data-item-id="pkg-trekking" data-item-title="Trekking Expedition" data-item-type="Package" data-item-price="$850/pp" data-item-image="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span class="text-nowrap"><i class="bi bi-clock me-1"></i> 4 Days / 3 Nights</span>
+                  <span class="text-nowrap"><i class="bi bi-people me-1"></i> Solo or Small Groups</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openPackageDetails('pkg-trekking'); return false;">Trekking Expedition</a></h3>
+                <p class="camp-card-desc">Traverse high glacial passes, camp on alpine ridges, and learn survival navigation with UIAGM-certified mountain guides.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Alpine High Pitches</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Full Trail Meals</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Satellite Nav GPS</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$850</span>
+                    <span class="price-tag-period">per person / all gear</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="togglePackageCompare('pkg-trekking')">Compare</button>
+                    <a href="booking.html?stayType=backpacker-pitch" class="btn-camp btn-camp-primary btn-sm">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Package 5: Corporate Team Outing -->
+          <div class="col-lg-4 col-md-6 package-item" data-id="pkg-corporate" data-duration="3-days" data-group="corporate" data-season="summer" data-price="1250" data-days="3">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=2000&q=90" alt="Corporate Team Outing" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-teal card-badge-top">Team Offsite</span>
+                  <button class="card-wishlist-btn" data-item-id="pkg-corporate" data-item-title="Corporate Team Outing" data-item-type="Package" data-item-price="$1,250/pp" data-item-image="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span class="text-nowrap"><i class="bi bi-clock me-1"></i> 3 Days / 2 Nights</span>
+                  <span class="text-nowrap"><i class="bi bi-people me-1"></i> 8 to 30 Participants</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openPackageDetails('pkg-corporate'); return false;">Corporate Team Outing</a></h3>
+                <p class="camp-card-desc">Disconnect from laptops and build genuine team resilience. Includes team raft building, ropes course, private lodge meeting space, and gourmet dining.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Private Cabin Village</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Faciliated Teambuilding</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Outdoor Catering</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$1,250</span>
+                    <span class="price-tag-period">per person / team rate</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="togglePackageCompare('pkg-corporate')">Compare</button>
+                    <a href="contact.html?inquiry=corporate" class="btn-camp btn-camp-primary btn-sm">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Package 6: Luxury Glamping Experience -->
+          <div class="col-lg-4 col-md-6 package-item" data-id="pkg-luxury" data-duration="4-days" data-group="couples" data-season="summer" data-price="1450" data-days="4">
+            <div class="camp-card">
+              <div class="camp-card-media">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=2000&q=90" alt="Luxury Glamping Experience" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="camp-card-body">
+                <div class="camp-card-top-bar">
+                  <span class="camp-badge badge-ember card-badge-top">Signature VIP</span>
+                  <button class="card-wishlist-btn" data-item-id="pkg-luxury" data-item-title="Luxury Glamping Experience" data-item-type="Package" data-item-price="$1,450/total" data-item-image="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=2000&q=90" aria-label="Add to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+                <div class="camp-card-meta">
+                  <span class="text-nowrap"><i class="bi bi-clock me-1"></i> 4 Days / 3 Nights</span>
+                  <span class="text-nowrap"><i class="bi bi-people me-1"></i> 2 to 4 Guests</span>
+                </div>
+                <h3 class="camp-card-title"><a href="#" onclick="openPackageDetails('pkg-luxury'); return false;">Luxury Glamping Experience</a></h3>
+                <p class="camp-card-desc">The ultimate pinnacle of outdoor luxury. Stay in the Canopy Treehouse with private butler service, daily forest massage, and private chef dinners.</p>
+                <div class="camp-card-features">
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Canopy Treehouse</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Private Camp Chef</span>
+                  <span class="feature-pill"><i class="bi bi-check2"></i> Forest Spa Treatments</span>
+                </div>
+                <div class="camp-card-footer">
+                  <div class="price-tag">
+                    <span class="price-tag-value">$1,450</span>
+                    <span class="price-tag-period">total retreat package</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn-camp btn-camp-secondary btn-sm" onclick="togglePackageCompare('pkg-luxury')">Compare</button>
+                    <a href="booking.html?stayType=treehouse" class="btn-camp btn-camp-primary btn-sm">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- COMPARISON DRAWER -->
+  <div class="comparison-drawer" id="comparisonDrawer">
+    <div class="camp-container">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 style="margin: 0; font-size: 1.15rem;"><i class="bi bi-columns-gap text-warning me-2"></i> Compare Packages Side-by-Side</h4>
+        <button class="btn-camp btn-camp-ghost btn-sm" onclick="clearComparison()"><i class="bi bi-x-circle"></i> Clear Selection</button>
+      </div>
+      <div class="row g-3" id="comparisonContent">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGE DETAILS MODAL -->
+  <div class="modal fade" id="packageDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content" style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-xl);">
+        <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
+          <h4 class="modal-title" id="pModalTitle">Package Details</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="pModalBody" style="padding: 1.75rem;">
+          <!-- Dynamically populated -->
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid var(--border-color);">
+          <button type="button" class="btn-camp btn-camp-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="booking.html" class="btn-camp btn-camp-primary" id="pModalBookBtn">Proceed to Reservation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="camp-footer">
+    <div class="camp-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-fire"></i>
+            </div>
+            <span>AURA PINES</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            A premier wilderness camp and glamping sanctuary dedicated to slow living, outdoor adventure, and eco-restoration.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Explore & Learn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Details</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="bi bi-geo-alt text-warning"></i>
+              <span>Whispering Ridge Rd, Pinecrest, 98214</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone text-success"></i>
+              <a href="tel:+15553822267">+1 (555) 382-CAMP</a>
+            </li>
+            <li>
+              <i class="bi bi-envelope text-info"></i>
+              <a href="mailto:rangers@aurapines.com">rangers@aurapines.com</a>
+            </li>
+            <li>
+              <i class="bi bi-clock text-warning"></i>
+              <span>7:00 AM – 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Wilderness Dispatch</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Receive seasonal campfire stories, stargazing calendars, and private cabin promotions.</p>
+          <form class="newsletter-form">
+            <div class="d-flex gap-2">
+              <input type="email" placeholder="Your email address" required style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-md); padding: 0.5rem 0.85rem; font-size: 0.85rem; width: 100%; outline: none;">
+              <button type="submit" class="btn-camp btn-camp-primary btn-sm" style="flex-shrink: 0;">Join</button>
+            </div>
+          </form>
+          <div class="mt-3" style="font-size: 0.75rem; color: var(--text-dim);">
+            <i class="bi bi-shield-lock me-1"></i> We respect nature and your inbox privacy.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 AURA PINES Wilderness Resort & Campsite. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Package Data Details Store
+    const PACKAGE_DETAILS_MAP = {
+      'pkg-weekend': {
+        title: 'Weekend Escape',
+        price: '$390 / person',
+        duration: '2 Days / 1 Night',
+        image: 'https://images.unsplash.com/photo-1525811902-f2342640856e?auto=format&fit=crop&w=3840&q=90',
+        stayType: 'safari-tent',
+        overview: 'Escape the city and breathe pure mountain air. This package is ideal for couples, friends, or solo adventurers who want a frictionless 48-hour wilderness experience.',
+        itinerary: [
+          { day: 'Day 1: Arrival & Firelight', desc: '1:00 PM Check-in at Safari Tent • 3:30 PM Guided Sunset Trail to Eagle Rock • 7:00 PM Cast-iron barbecue dinner with hot apple cider by the hearth.' },
+          { day: 'Day 2: Morning Mist & Departure', desc: '7:30 AM Sunrise pour-over coffee & breakfast basket • 9:30 AM Self-guided river walk • 12:00 PM Check-out & departure gift.' }
+        ],
+        inclusions: ['1 night in luxury Safari Canvas Tent', 'Dinner BBQ & breakfast basket', 'Guided sunset trail hike with ranger', 'All park entrance & conservation permits', 'Firewood bundle and campfire gear'],
+        exclusions: ['Alcoholic beverages beyond cider', 'Specialty gear rentals (kayaks, telescopes)']
+      },
+      'pkg-family': {
+        title: 'Family Adventure',
+        price: '$780 / family total',
+        duration: '3 Days / 2 Nights',
+        image: 'https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=3840&q=90',
+        stayType: 'family-cabin',
+        overview: 'Give your children the gift of real outdoor discovery. Filled with safe, supervised nature activities, junior ranger awards, and cozy cabin comfort.',
+        itinerary: [
+          { day: 'Day 1: Basecamp Settling', desc: 'Settle into Cedarwood Family Cabin • Fire-starting workshop for kids • S’mores party at central hearth.' },
+          { day: 'Day 2: Lake & Forest Trails', desc: 'Family canoeing on Mirror Lake • Animal tracking workshop • Campfire pizza making in our outdoor wood-fired oven.' },
+          { day: 'Day 3: Ranger Graduation', desc: 'Morning bird watching walk • Junior Ranger badge ceremony • Farewell photos & departure.' }
+        ],
+        inclusions: ['2 nights in Cedarwood Family Cabin (sleeps up to 6)', 'All meals for 2 adults and 2 children', 'Junior Ranger activity kits & tracking guides', '2-hour lake canoe rental with life vests', 'Free marshmallows & hot chocolate nightly'],
+        exclusions: ['Personal clothing & hiking boots']
+      },
+      'pkg-romantic': {
+        title: "Couple’s Romantic Retreat",
+        price: '$690 / couple total',
+        duration: '3 Days / 2 Nights',
+        image: 'https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=3840&q=90',
+        stayType: 'glamping-dome',
+        overview: 'Intimate seclusion beneath the stars. Cozy up in a geodesic dome with an expansive clear ceiling looking straight into the Milky Way galaxy.',
+        itinerary: [
+          { day: 'Day 1: Chilled Bubbly & Sunset', desc: 'Arrive to complimentary sparkling wine and artisan cheeses • Relax on your private deck • Star viewing through skylight roof.' },
+          { day: 'Day 2: Forest Bathing & Cedar Tub', desc: 'Guided forest bathing mindfulness walk • Sunset soak in private cedar hot tub • 3-course fireside dinner delivered to your dome.' },
+          { day: 'Day 3: Late Check-Out & Brunch', desc: 'Skillet gourmet brunch delivered to bed • Leisurely 2:00 PM late check-out.' }
+        ],
+        inclusions: ['2 nights in Luxury Glamping Dome', 'Artisan wine & cheese hamper', 'Private outdoor hot tub access', 'All gourmet breakfasts & 1 private chef dinner', 'Late check-out guaranteed'],
+        exclusions: ['Helicopter scenic flights']
+      },
+      'pkg-trekking': {
+        title: 'Trekking Expedition',
+        price: '$850 / person',
+        duration: '4 Days / 3 Nights',
+        image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=3840&q=90',
+        stayType: 'backpacker-pitch',
+        overview: 'For hearty souls seeking physical challenge and untamed wilderness panoramas. Over 35 miles of alpine ridges, high mountain cols, and pristine glacier views.',
+        itinerary: [
+          { day: 'Day 1: Basecamp Prep & Ridge 1', desc: 'Gear inspection with lead mountaineer • Trek to Timberline Ridge Camp (8 miles).' },
+          { day: 'Day 2: Alpine Pass Scramble', desc: 'Summit Whispering Peak (Elev. 7,800 ft) • High camp under the stars with dehydrated gourmet meals (12 miles).' },
+          { day: 'Day 3: Glacial Valley Descent', desc: 'Descend along glacial riverbanks • Survival skills & fire craft workshop (10 miles).' },
+          { day: 'Day 4: Return to Main Lodge', desc: 'Final 5-mile trek to Aura Pines Lodge • Hot sauna recovery & celebratory feast.' }
+        ],
+        inclusions: ['Certified mountain guide escort', 'High-altitude lightweight tent accommodation', 'All trail nutrition and hydration tablets', 'Satellite communication beacon per trekker', 'Post-trek sauna recovery pass'],
+        exclusions: ['Personal broken-in hiking boots', 'Sleeping bag (rentals available for $25)']
+      },
+      'pkg-corporate': {
+        title: 'Corporate Team Outing',
+        price: '$1,250 / person',
+        duration: '3 Days / 2 Nights',
+        image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=3840&q=90',
+        stayType: 'family-cabin',
+        overview: 'Re-energize company culture with structured teambuilding, outdoor challenge courses, and starlit strategy sessions without distraction.',
+        itinerary: [
+          { day: 'Day 1: Arrival & Team Fire', desc: 'Group shuttle from airport • Keynote kickoff in open-air timber lodge • Welcome roast pig or vegan banquet.' },
+          { day: 'Day 2: Ropes Course & Raft Regatta', desc: 'High-ropes leadership course • Raft construction challenge on Mirror Lake • Fireside acoustic debrief.' },
+          { day: 'Day 3: Strategy & Departure', desc: 'Morning strategic alignment breakfast • Trail walk reflection • Departure.' }
+        ],
+        inclusions: ['Dedicated cabin cluster for the team', 'Professional corporate facilitator', 'High-speed Starlink Wi-Fi for work sessions', 'Full buffet catering and open campfire beverage bar'],
+        exclusions: ['Custom company branded outdoor gear (available on request)']
+      },
+      'pkg-luxury': {
+        title: 'Luxury Glamping Experience',
+        price: '$1,450 / package total',
+        duration: '4 Days / 3 Nights',
+        image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=3840&q=90',
+        stayType: 'treehouse',
+        overview: 'The definitive luxury immersion. Perched in our elevated Canopy Treehouse with 360-degree pine panoramas, dedicated camp concierge, and custom menus.',
+        itinerary: [
+          { day: 'Day 1: VIP Welcoming', desc: 'Electric cart escort to Treehouse • Champagne Sabering • Private candlelit deck dinner.' },
+          { day: 'Day 2: Private Lake Charter & Massage', desc: 'Private wooden boat lake tour • In-treehouse aromatherapy massage • Private observatory telescope tour.' },
+          { day: 'Day 3: Gourmet Outdoor Feast', desc: 'Foraging walk with Executive Chef • 5-course wood-fired wine-paired tasting menu.' },
+          { day: 'Day 4: Depart in Style', desc: 'Champagne brunch on treehouse veranda • Commemorative bespoke gift package.' }
+        ],
+        inclusions: ['3 nights in luxury Canopy Treehouse', 'Dedicated camp concierge & butler', 'All gourmet dining, vintage wines, and snacks', 'Two 60-minute outdoor forest massages', 'Unrestricted equipment and guided tour access'],
+        exclusions: ['Gratuities for staff']
+      }
+    };
+
+    // Filter & Sort Logic
+    const filterDuration = document.getElementById('filterDuration');
+    const filterGroup = document.getElementById('filterGroup');
+    const filterSeason = document.getElementById('filterSeason');
+    const sortPackages = document.getElementById('sortPackages');
+    const packageItems = Array.from(document.querySelectorAll('.package-item'));
+
+    function applyFilters() {
+      const durVal = filterDuration.value;
+      const grpVal = filterGroup.value;
+      const seaVal = filterSeason.value;
+
+      packageItems.forEach(item => {
+        const matchesDur = durVal === 'all' || item.dataset.duration === durVal;
+        const matchesGrp = grpVal === 'all' || item.dataset.group === grpVal;
+        const matchesSea = seaVal === 'all' || item.dataset.season === seaVal;
+
+        if (matchesDur && matchesGrp && matchesSea) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      applySorting();
+    }
+
+    function applySorting() {
+      const grid = document.getElementById('packagesGrid');
+      const sortVal = sortPackages.value;
+
+      const visibleItems = packageItems.filter(item => item.style.display !== 'none');
+
+      visibleItems.sort((a, b) => {
+        const priceA = parseFloat(a.dataset.price);
+        const priceB = parseFloat(b.dataset.price);
+        const daysA = parseInt(a.dataset.days, 10);
+        const daysB = parseInt(b.dataset.days, 10);
+
+        if (sortVal === 'price-low') return priceA - priceB;
+        if (sortVal === 'price-high') return priceB - priceA;
+        if (sortVal === 'duration') return daysB - daysA;
+        return 0; // default order
+      });
+
+      visibleItems.forEach(item => grid.appendChild(item));
+    }
+
+    [filterDuration, filterGroup, filterSeason].forEach(el => el.addEventListener('change', applyFilters));
+    sortPackages.addEventListener('change', applySorting);
+
+    // Package Comparison Logic
+    let comparedPackageIds = [];
+    const comparisonDrawer = document.getElementById('comparisonDrawer');
+    const compareCountSpan = document.getElementById('compareCount');
+    const comparisonContent = document.getElementById('comparisonContent');
+
+    function togglePackageCompare(pkgId) {
+      if (comparedPackageIds.includes(pkgId)) {
+        comparedPackageIds = comparedPackageIds.filter(id => id !== pkgId);
+        showToast('Removed from comparison', 'info');
+      } else {
+        if (comparedPackageIds.length >= 3) {
+          showToast('You can compare up to 3 packages simultaneously.', 'warning');
+          return;
+        }
+        comparedPackageIds.push(pkgId);
+        showToast('Added to comparison drawer', 'success');
+      }
+      updateComparisonUI();
+    }
+
+    function updateComparisonUI() {
+      compareCountSpan.textContent = comparedPackageIds.length;
+      if (comparedPackageIds.length > 0) {
+        compareCountSpan.classList.add('badge-pop');
+        setTimeout(() => compareCountSpan.classList.remove('badge-pop'), 450);
+        comparisonDrawer.classList.add('active');
+        renderComparisonCards();
+      } else {
+        comparisonDrawer.classList.remove('active');
+      }
+
+      // Update Compare buttons state on cards
+      document.querySelectorAll('.package-item').forEach(card => {
+        const id = card.getAttribute('data-id');
+        const compareBtn = card.querySelector('.camp-card-footer button');
+        if (!compareBtn) return;
+        if (comparedPackageIds.includes(id)) {
+          compareBtn.classList.add('btn-compared-active');
+          compareBtn.innerHTML = '<i class="bi bi-check2-circle me-1"></i> Compared';
+        } else {
+          compareBtn.classList.remove('btn-compared-active');
+          compareBtn.innerHTML = 'Compare';
+        }
+      });
+    }
+
+    function renderComparisonCards() {
+      comparisonContent.innerHTML = comparedPackageIds.map(id => {
+        const p = PACKAGE_DETAILS_MAP[id];
+        return `
+          <div class="col-md-${12 / Math.max(comparedPackageIds.length, 1)} col-12">
+            <div style="background: var(--bg-elevated); border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem; position: relative;">
+              <button onclick="togglePackageCompare('${id}')" style="position: absolute; top: 8px; right: 8px; background: none; border: none; color: var(--text-muted); cursor: pointer;" title="Remove"><i class="bi bi-x-lg"></i></button>
+              <h5 style="margin-bottom: 0.25rem; font-size: 1.05rem;">${p.title}</h5>
+              <div style="color: var(--accent-primary); font-weight: 700; margin-bottom: 0.5rem;">${p.price} • ${p.duration}</div>
+              <ul style="font-size: 0.8rem; padding-left: 1.15rem; margin-bottom: 0.75rem; color: var(--text-secondary);">
+                ${p.inclusions.slice(0, 3).map(inc => `<li>${inc}</li>`).join('')}
+              </ul>
+              <a href="booking.html?stayType=${p.stayType}" class="btn-camp btn-camp-primary btn-sm w-100">Book This Package</a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function clearComparison() {
+      comparedPackageIds = [];
+      updateComparisonUI();
+    }
+
+    document.getElementById('btnToggleComparison').addEventListener('click', () => {
+      if (comparedPackageIds.length === 0) {
+        showToast('Click "Compare" on 2 or 3 packages to view them side-by-side.', 'info');
+      } else {
+        comparisonDrawer.classList.toggle('active');
+      }
+    });
+
+    // Package Details Modal
+    function openPackageDetails(pkgId) {
+      const p = PACKAGE_DETAILS_MAP[pkgId];
+      if (!p) return;
+
+      document.getElementById('pModalTitle').textContent = p.title;
+      document.getElementById('pModalBookBtn').href = `booking.html?stayType=${p.stayType}`;
+
+      const modalBody = document.getElementById('pModalBody');
+      modalBody.innerHTML = `
+        <div style="margin-bottom: 1.5rem;">
+          <div class="pkg-modal-media-wrap" style="position: relative; width: 100%; height: clamp(260px, 46vw, 420px); border-radius: 14px; overflow: hidden; margin-bottom: 1.25rem; background: var(--bg-elevated); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;">
+            <div style="position: absolute; inset: 0; background-image: url('${p.image}'); background-size: cover; background-position: center; filter: blur(22px) brightness(0.65); transform: scale(1.15); opacity: 0.7; pointer-events: none;"></div>
+            <img src="${p.image}" alt="${p.title}" style="position: relative; z-index: 2; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+            <a href="${p.image}" target="_blank" rel="noopener noreferrer" class="btn-camp btn-camp-secondary btn-sm" style="position: absolute; top: 12px; inset-inline-end: 12px; z-index: 3; padding: 0.35rem 0.65rem; font-size: 0.75rem; background: rgba(18, 34, 27, 0.75); backdrop-filter: blur(8px); color: #FFF; border: 1px solid rgba(255,255,255,0.25);" title="Open original high-res photo"><i class="bi bi-arrows-fullscreen me-1"></i> Full Photo</a>
+          </div>
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+            <h3 style="margin: 0; font-family: var(--font-serif);">${p.title}</h3>
+            <span class="camp-badge badge-ember" style="font-size: 0.9rem;">${p.price}</span>
+          </div>
+          <p style="color: var(--text-secondary);">${p.overview}</p>
+        </div>
+
+        <h5 style="color: var(--accent-primary); margin-bottom: 0.75rem;"><i class="bi bi-clock-history me-1"></i> Itinerary Preview</h5>
+        <div class="d-flex flex-column gap-2 mb-4">
+          ${p.itinerary.map(it => `
+            <div style="background: var(--bg-elevated); padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+              <strong style="color: var(--text-primary); font-size: 0.9rem; display: block;">${it.day}</strong>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">${it.desc}</div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <h5 style="color: var(--state-success); font-size: 0.95rem; margin-bottom: 0.5rem;"><i class="bi bi-check-circle me-1"></i> What's Included</h5>
+            <ul style="font-size: 0.85rem; padding-left: 1.25rem; color: var(--text-secondary);">
+              ${p.inclusions.map(inc => `<li>${inc}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h5 style="color: var(--state-danger); font-size: 0.95rem; margin-bottom: 0.5rem;"><i class="bi bi-x-circle me-1"></i> Not Included</h5>
+            <ul style="font-size: 0.85rem; padding-left: 1.25rem; color: var(--text-muted);">
+              ${p.exclusions.map(exc => `<li>${exc}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      `;
+
+      const modal = new bootstrap.Modal(document.getElementById('packageDetailsModal'));
+      modal.show();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1163 @@
+/**
+ * AURA PINES - Guest Dashboard Stylesheet
+ * Guest Portal, Interactive Sidebar, Data Tables, Charts, Modals, Timeline
+ */
+
+@import url('./variables.css');
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-app);
+}
+
+/* ============================================================
+   SIDEBAR NAVIGATION
+   ============================================================ */
+.dashboard-sidebar {
+  width: 270px;
+  background-color: var(--sidebar-bg);
+  border-inline-end: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  z-index: 1020;
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1), transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s ease;
+}
+
+.dashboard-sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-header {
+  padding: 1.25rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  min-height: 76px;
+  box-sizing: border-box;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sidebar-toggle-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-toggle-btn:hover {
+  background: var(--accent-subtle);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: scale(1.05);
+}
+
+.sidebar-nav {
+  padding: 1.15rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.nav-category-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  padding: 0.75rem 0.75rem 0.35rem 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+}
+
+.sidebar-link i {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom Tent Icon Extension for Bootstrap Icons */
+.bi-tent,
+i.bi-tent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.bi-tent::before,
+i.bi-tent::before {
+  content: "";
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.15em;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 20 10 4 1 20h18Z'/%3E%3Cpath d='m14 20-5-8.5-5 8.5'/%3E%3Cpath d='M4 20h16'/%3E%3Cpath d='m19 20 4-7'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 20 10 4 1 20h18Z'/%3E%3Cpath d='m14 20-5-8.5-5 8.5'/%3E%3Cpath d='M4 20h16'/%3E%3Cpath d='m19 20 4-7'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.sidebar-link:hover {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.sidebar-link.active {
+  background-color: var(--sidebar-active);
+  color: var(--accent-primary);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--accent-primary);
+}
+
+[dir="rtl"] .sidebar-link.active {
+  box-shadow: inset -3px 0 0 var(--accent-primary);
+}
+
+.sidebar-footer {
+  padding: 1rem 1.15rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ============================================================
+   COLLAPSED STATE: PERFECT CENTERING & UNCLIPPED ASSETS
+   ============================================================ */
+.dashboard-sidebar.collapsed .sidebar-header {
+  padding: 0.85rem 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-sidebar.collapsed .sidebar-brand {
+  justify-content: center;
+  width: 100%;
+  overflow: visible;
+}
+
+.dashboard-sidebar.collapsed .sidebar-brand span {
+  display: none;
+}
+
+.dashboard-sidebar.collapsed .brand-icon {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.dashboard-sidebar.collapsed .sidebar-toggle-btn {
+  margin: 0 auto;
+}
+
+.dashboard-sidebar.collapsed .nav-category-label {
+  display: none;
+}
+
+.dashboard-sidebar.collapsed .sidebar-link {
+  justify-content: center;
+  padding: 0.75rem 0;
+}
+
+.dashboard-sidebar.collapsed .sidebar-link span {
+  display: none;
+}
+
+.dashboard-sidebar.collapsed .sidebar-link i {
+  margin: 0 auto;
+}
+
+.dashboard-sidebar.collapsed .sidebar-link.active {
+  box-shadow: none;
+  background-color: var(--accent-subtle);
+  border: 1px solid var(--accent-primary);
+}
+
+.dashboard-sidebar.collapsed .sidebar-footer {
+  padding: 0.85rem 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Floating Tooltip in Collapsed State */
+.dashboard-sidebar.collapsed .sidebar-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  inset-inline-start: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  z-index: 1060;
+}
+
+.dashboard-sidebar.collapsed .sidebar-link:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Auto-Reveal Hover Expansion (Desktop Mini-Variant Peek) */
+@media (min-width: 992px) {
+  .dashboard-sidebar.collapsed:hover {
+    width: 270px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+    z-index: 1050;
+  }
+
+  .dashboard-sidebar.collapsed:hover .sidebar-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.25rem 1.15rem;
+  }
+
+  .dashboard-sidebar.collapsed:hover .sidebar-brand {
+    justify-content: flex-start;
+  }
+
+  .dashboard-sidebar.collapsed:hover .sidebar-brand span {
+    display: inline;
+  }
+
+  .dashboard-sidebar.collapsed:hover .nav-category-label {
+    display: block;
+  }
+
+  .dashboard-sidebar.collapsed:hover .sidebar-link {
+    justify-content: flex-start;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .dashboard-sidebar.collapsed:hover .sidebar-link span {
+    display: inline;
+  }
+
+  .dashboard-sidebar.collapsed:hover .sidebar-link::after {
+    display: none;
+  }
+
+  .dashboard-sidebar.collapsed:hover .sidebar-footer {
+    padding: 1rem 1.15rem;
+    justify-content: flex-start;
+  }
+}
+
+/* Mobile Backdrop */
+.sidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1055;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.sidebar-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================================
+   MAIN CONTENT AREA & TOPBAR
+   ============================================================ */
+.dashboard-main {
+  flex-grow: 1;
+  margin-inline-start: 270px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: margin var(--transition-normal);
+}
+
+.dashboard-sidebar.collapsed ~ .dashboard-main {
+  margin-inline-start: 80px;
+}
+
+@media (max-width: 991px) {
+  .dashboard-sidebar {
+    transform: translateX(-100%);
+  }
+  [dir="rtl"] .dashboard-sidebar {
+    transform: translateX(100%);
+  }
+  .dashboard-sidebar.mobile-open {
+    transform: translateX(0);
+    width: 270px !important;
+  }
+  .dashboard-main {
+    margin-inline-start: 0 !important;
+  }
+}
+
+.dashboard-topbar {
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.85rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1010;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.topbar-search {
+  position: relative;
+  max-width: 340px;
+  width: 100%;
+}
+
+.topbar-search input {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  font-size: var(--fs-sm);
+  width: 100%;
+  outline: none;
+}
+
+[dir="rtl"] .topbar-search input {
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+}
+
+.topbar-search i {
+  position: absolute;
+  inset-inline-start: 0.95rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* ============================================================
+   TOPBAR NOTIFICATIONS DROPDOWN POPOVER
+   ============================================================ */
+.topbar-notif-wrapper {
+  position: relative;
+}
+
+.topbar-notif-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  inset-inline-end: 0;
+  width: 360px;
+  max-width: calc(100vw - 2rem);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1060;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top right;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.2s ease;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+[dir="rtl"] .topbar-notif-dropdown {
+  transform-origin: top left;
+}
+
+.topbar-notif-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.topbar-notif-header {
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-surface);
+}
+
+.topbar-notif-header strong {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+.topbar-notif-mark-read-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.topbar-notif-mark-read-btn:hover {
+  background: var(--bg-card-hover, rgba(184, 91, 53, 0.08));
+  color: var(--accent-hover);
+}
+
+.topbar-notif-body {
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.topbar-notif-item {
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-card, rgba(0, 0, 0, 0.02));
+  border: 1px solid var(--border-color);
+  transition: background 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+}
+
+.topbar-notif-item:hover {
+  background: var(--bg-card-hover, rgba(0, 0, 0, 0.04));
+  border-color: var(--accent-primary);
+}
+
+.topbar-notif-item.unread {
+  border-inline-start: 3px solid var(--accent-primary);
+  background: rgba(184, 91, 53, 0.04);
+}
+
+[data-theme="dark"] .topbar-notif-item.unread {
+  background: rgba(224, 122, 95, 0.07);
+}
+
+.topbar-notif-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.topbar-notif-time {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.topbar-notif-msg {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-top: 0.25rem;
+}
+
+.topbar-notif-footer {
+  padding: 0.65rem 1rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  text-align: center;
+}
+
+.topbar-notif-view-all {
+  color: var(--accent-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease, color 0.15s ease;
+}
+
+.topbar-notif-view-all:hover {
+  color: var(--accent-hover);
+  gap: 9px;
+}
+
+@media (max-width: 576px) {
+  .topbar-notif-dropdown {
+    position: fixed;
+    top: 65px;
+    inset-inline-start: 12px;
+    inset-inline-end: 12px;
+    width: auto;
+    max-width: none;
+    transform-origin: top center;
+  }
+}
+
+.user-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+}
+
+.user-profile-badge img {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.dashboard-content-body {
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .dashboard-topbar {
+    padding: 0.75rem 1rem;
+  }
+  .dashboard-content-body {
+    padding: 1.25rem 1rem;
+  }
+}
+
+/* ============================================================
+   OVERVIEW TRIP CARD WITH LIVE COUNTDOWN
+   ============================================================ */
+.trip-countdown-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+}
+
+.trip-countdown-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(11, 22, 18, 0.88) 0%, rgba(11, 22, 18, 0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.trip-countdown-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.countdown-timer-units {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.countdown-box {
+  background: rgba(18, 34, 27, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(210, 130, 74, 0.35);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  min-width: 70px;
+}
+
+.countdown-box .val {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  line-height: 1;
+}
+
+.countdown-box .unit {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #B5C3B0 !important;
+  letter-spacing: 0.05em;
+}
+
+.trip-countdown-card h2,
+.trip-countdown-card strong,
+.trip-countdown-card .val {
+  color: #FFFFFF !important;
+}
+
+.trip-countdown-card #upcomingTripDates,
+.trip-countdown-card p,
+.trip-countdown-card .text-secondary {
+  color: #E8E2D5 !important;
+}
+
+.trip-countdown-card .text-muted {
+  color: #B5C3B0 !important;
+}
+
+/* ============================================================
+   DATA TABLES & BOOKINGS LIST
+   ============================================================ */
+.camp-table-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.camp-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.camp-data-table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  text-align: start;
+}
+
+.camp-data-table th {
+  background: var(--bg-elevated);
+  padding: 1rem 1.25rem;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.camp-data-table td {
+  padding: 1.15rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+#tab-bookings .camp-data-table th:nth-child(2),
+#tab-bookings .camp-data-table td:nth-child(2) {
+  min-width: 220px;
+  white-space: normal;
+}
+
+#tab-bookings .camp-data-table th:nth-child(3),
+#tab-bookings .camp-data-table td:nth-child(3) {
+  min-width: 140px;
+}
+
+#tab-payments .camp-data-table th:nth-child(2),
+#tab-payments .camp-data-table td:nth-child(2) {
+  min-width: 110px;
+}
+
+#tab-payments .camp-data-table th:nth-child(3),
+#tab-payments .camp-data-table td:nth-child(3) {
+  min-width: 200px;
+  white-space: normal;
+}
+
+.camp-data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.camp-data-table tr:hover td {
+  background-color: var(--bg-elevated);
+}
+
+/* ============================================================
+   PACKING CHECKLIST
+   ============================================================ */
+.checklist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.5rem;
+  transition: all var(--transition-fast);
+}
+
+.checklist-item:hover {
+  border-color: var(--accent-primary);
+}
+
+.checklist-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checklist-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-elevated);
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-content: center;
+  transition: all var(--transition-fast);
+}
+
+.checklist-checkbox:checked {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.checklist-checkbox:checked::after {
+  content: '✓';
+  color: #FFF;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.checklist-item.checked span {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+/* ============================================================
+   ITINERARY DAY TIMELINE BUILDER
+   ============================================================ */
+.itinerary-day-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.itinerary-day-header {
+  background: var(--bg-elevated);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.itinerary-event-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.itinerary-event-row:last-child {
+  border-bottom: none;
+}
+
+.itinerary-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.itinerary-move-btn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.itinerary-move-btn:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+/* ============================================================
+   RESPONSIVE DASHBOARD SYSTEM (1440px -> 320px)
+   ============================================================ */
+
+/* Large Tablets & Small Laptops (992px to 1199px) */
+@media (max-width: 1199px) {
+  .dashboard-content-body {
+    padding: 1.5rem;
+  }
+  .trip-countdown-card {
+    padding: 1.75rem;
+  }
+}
+
+/* Medium Tablets & Below (<= 991px) */
+@media (max-width: 991px) {
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    inset-inline-start: 0;
+    width: 280px !important;
+    max-width: 85vw;
+    z-index: 1060;
+    transform: translateX(-100%);
+    box-shadow: none;
+    transition: transform var(--transition-normal);
+  }
+  [dir="rtl"] .dashboard-sidebar {
+    transform: translateX(100%);
+  }
+  .dashboard-sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+  }
+  .dashboard-main {
+    margin-inline-start: 0 !important;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Tablets (<= 768px) */
+@media (max-width: 768px) {
+  .dashboard-topbar {
+    padding: 0.65rem 1rem;
+    gap: 0.65rem;
+  }
+  .dashboard-content-body {
+    padding: 1.25rem 0.85rem;
+  }
+  .trip-countdown-card {
+    padding: 1.5rem 1.15rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.5rem;
+  }
+  .trip-countdown-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .countdown-timer-units {
+    gap: 0.65rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .countdown-box {
+    padding: 0.6rem 0.85rem;
+    min-width: 68px;
+  }
+  .countdown-box .val {
+    font-size: 1.65rem;
+  }
+  .camp-table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .camp-data-table {
+    min-width: 780px;
+  }
+}
+
+/* Small Devices & Phones (<= 576px) */
+@media (max-width: 576px) {
+  .dashboard-topbar {
+    padding: 0.5rem 0.75rem;
+  }
+  .topbar-actions {
+    gap: 0.4rem;
+  }
+  .icon-btn-toggle {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+  .topbar-actions .rtl-toggle-btn {
+    height: 34px;
+    padding-inline: 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+  .topbar-actions .btn-camp {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8rem;
+  }
+  .user-profile-badge {
+    padding: 0.2rem 0.45rem;
+    gap: 0.35rem;
+  }
+  .user-profile-badge img {
+    width: 28px;
+    height: 28px;
+  }
+  .dashboard-content-body {
+    padding: 1rem 0.65rem;
+  }
+  .trip-countdown-card {
+    padding: 1.15rem 0.85rem;
+  }
+  .trip-countdown-card h2 {
+    font-size: 1.5rem !important;
+  }
+  .countdown-timer-units {
+    gap: 0.45rem;
+    justify-content: space-between;
+  }
+  .countdown-box {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0.5rem 0.35rem;
+  }
+  .countdown-box .val {
+    font-size: 1.35rem;
+  }
+  .countdown-box .unit {
+    font-size: 0.65rem;
+  }
+  #addChecklistForm {
+    flex-wrap: wrap;
+  }
+  #addChecklistForm #newChecklistInput {
+    width: 100%;
+    margin-bottom: 0.35rem;
+  }
+  #addChecklistForm #newChecklistCat {
+    flex: 1 1 auto;
+  }
+  .itinerary-day-header,
+  .itinerary-event-row {
+    padding: 0.75rem 0.85rem;
+  }
+  .itinerary-event-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+  .itinerary-controls {
+    align-self: flex-end;
+  }
+}
+
+/* Extra-Narrow Phones (320px to 375px) */
+@media (max-width: 375px) {
+  .dashboard-topbar {
+    padding: 0.45rem 0.5rem;
+    gap: 0.35rem;
+  }
+  .topbar-actions {
+    gap: 0.25rem;
+  }
+  .topbar-actions .icon-btn-toggle,
+  .topbar-actions .theme-toggle-btn {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 0.75rem !important;
+  }
+  .topbar-actions .rtl-toggle-btn {
+    height: 30px !important;
+    padding-inline: 0.35rem !important;
+    font-size: 0.7rem !important;
+  }
+  .dashboard-sidebar {
+    width: 260px !important;
+  }
+  .dashboard-content-body {
+    padding: 0.85rem 0.5rem;
+  }
+  .trip-countdown-card {
+    padding: 1rem 0.65rem;
+  }
+  .countdown-box .val {
+    font-size: 1.2rem;
+  }
+  .camp-data-table th,
+  .camp-data-table td {
+    padding: 0.75rem 0.85rem;
+  }
+}
+
+/* Dashboard Chart Container Scaler */
+.dashboard-content-body div[style*="height: 260px"] {
+  height: clamp(190px, 35vw, 260px) !important;
+}
+
+/* Dashboard Modals Mobile Fitting */
+.modal-dialog {
+  max-width: min(600px, calc(100vw - 1.5rem)) !important;
+  margin-inline: auto !important;
+}
+
+/* ============================================================
+   RANGER SUPPORT CARD MOBILE ADAPTATION
+   ============================================================ */
+.ranger-support-card {
+  transition: border-color var(--transition-fast);
+}
+
+@media (max-width: 576px) {
+  .ranger-support-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+  }
+  .ranger-support-actions {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+  }
+  .ranger-support-actions .btn-camp {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 0.55rem 1rem !important;
+  }
+}
+
+/* ============================================================
+   DASHBOARD CARD FOOTER: 2-LINE LAYOUT
+   (Line 1: Price + Period in one line, Line 2: Instant Book button)
+   ============================================================ */
+.dashboard-content-body .camp-card-footer,
+#tab-book-stay .camp-card-footer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 0.75rem !important;
+  min-height: auto !important;
+  margin-top: auto !important;
+  padding-top: 0.5rem !important;
+}
+
+.dashboard-content-body .camp-card-footer .price-tag,
+#tab-book-stay .camp-card-footer .price-tag {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  justify-content: flex-start !important;
+  gap: 0.45rem !important;
+  width: 100% !important;
+  margin-bottom: 0 !important;
+}
+
+.dashboard-content-body .camp-card-footer .price-tag-value,
+#tab-book-stay .camp-card-footer .price-tag-value {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.dashboard-content-body .camp-card-footer .price-tag-period,
+#tab-book-stay .camp-card-footer .price-tag-period {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.dashboard-content-body .camp-card-footer .btn-camp,
+#tab-book-stay .camp-card-footer .btn-camp {
+  width: 100% !important;
+  text-align: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  padding: 0.55rem 1rem !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+

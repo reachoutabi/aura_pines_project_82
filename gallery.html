@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wilderness Visual Gallery | AURA PINES</title>
+  <meta name="description" content="Explore high-resolution photography of our glamping domes, canopy treehouses, campfire gatherings, alpine sunrises, and lake kayaking expeditions.">
+  <meta property="og:title" content="Photo Gallery - AURA PINES">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .gallery-masonry-item {
+      cursor: pointer;
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    }
+    .gallery-masonry-item:hover {
+      transform: translateY(-5px) translateZ(0);
+      -webkit-transform: translateY(-5px) translateZ(0);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      border-color: var(--accent-primary);
+    }
+    .gallery-item-image {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      height: auto;
+      min-height: 240px;
+      max-height: 280px;
+      background: var(--bg-elevated);
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      contain: layout paint;
+    }
+    .gallery-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      transition: transform var(--transition-smooth);
+    }
+    .gallery-masonry-item:hover .gallery-item-image img {
+      transform: scale3d(1.05, 1.05, 1);
+      -webkit-transform: scale3d(1.05, 1.05, 1);
+    }
+    .gallery-item-content {
+      padding: 1.25rem;
+      background: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .gallery-item-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0;
+      line-height: 1.35;
+      transition: color var(--transition-fast);
+    }
+    .gallery-masonry-item:hover .gallery-item-title {
+      color: var(--accent-primary);
+    }
+    .gallery-expand-hint {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+    .gallery-masonry-item:hover .gallery-expand-hint {
+      color: var(--accent-primary);
+      transform: scale(1.15);
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Main Navbar -->
+  <header class="main-navbar">
+    <div class="camp-container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-logo" aria-label="Aura Pines Home">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links-desktop">
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-dropdown-toggle">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="nav-dropdown-menu">
+              <li>
+                <a href="index.html" class="nav-dropdown-item">Glamping Sanctuary</a>
+              </li>
+              <li>
+                <a href="index-2.html" class="nav-dropdown-item">Alpine Expeditions</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <!-- RTL Toggle Button on Nav Bar (Icon Only) -->
+        <button class="icon-btn-toggle rtl-toggle-btn" title="Toggle RTL layout" aria-label="Toggle text direction">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <!-- Theme Toggle Button on Nav Bar -->
+        <button class="icon-btn-toggle theme-toggle-btn" title="Toggle light/dark theme" aria-label="Toggle light or dark theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <!-- Sign In Icon Button (Desktop Only; on mobile it is inside the hamburger drawer) -->
+        <a href="login.html" class="icon-btn-toggle nav-signin-btn d-none d-md-inline-flex" title="Sign In" aria-label="Sign In">
+          <i class="bi bi-box-arrow-in-right"></i>
+        </a>
+        <!-- Dashboard on Nav Bar -->
+        <a href="dashboard.html" class="btn-camp btn-camp-secondary d-none d-md-inline-flex" style="padding: 0.5rem 0.95rem;" title="Dashboard">
+          <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
+        </a>
+        <!-- My Trips on Nav Bar -->
+        <a href="dashboard.html#bookings" class="btn-camp btn-camp-secondary d-none d-lg-inline-flex" style="padding: 0.5rem 0.95rem;" title="My Trips">
+          <i class="bi bi-compass"></i> <span>My Trips</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Open mobile menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon"><i class="bi bi-fire"></i></div>
+        <span>AURA PINES</span>
+      </div>
+      <button class="icon-btn-toggle mobile-drawer-close" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Sign In Button inside Mobile Drawer -->
+    <div class="mobile-drawer-auth mb-3">
+      <a href="login.html" class="btn-camp btn-camp-primary w-100 justify-content-center">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Sign In / Register
+      </a>
+    </div>
+    <ul class="mobile-nav-links">
+      <li>
+        <a href="#" class="mobile-dropdown-btn">
+          <span><i class="bi bi-house-door"></i> Home</span>
+          <i class="bi bi-chevron-down mobile-chevron"></i>
+        </a>
+        <ul class="mobile-dropdown-menu">
+          <li><a href="index.html">Glamping Sanctuary</a></li>
+          <li><a href="index-2.html">Alpine Expeditions</a></li>
+        </ul>
+      </li>
+      <li><a href="packages.html"><i class="bi bi-box2-heart"></i> Packages</a></li>
+      <li><a href="activities.html"><i class="bi bi-compass"></i> Activities</a></li>
+      <li><a href="gallery.html" class="active"><i class="bi bi-images"></i> Gallery</a></li>
+      <li><a href="about.html"><i class="bi bi-tree"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Guest Dashboard</a></li>
+      <li><a href="login.html"><i class="bi bi-person"></i> Guest Login</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex gap-2 justify-content-between align-items-center">
+      <button class="btn-camp btn-camp-secondary btn-sm theme-toggle-btn w-50"><i class="bi bi-moon-stars-fill me-1"></i> Theme</button>
+      <button class="btn-camp btn-camp-secondary btn-sm rtl-toggle-btn w-50"><i class="bi bi-arrow-left-right me-1"></i> <span class="rtl-label">RTL</span></button>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO WITH ANIMATED MOVING BACKGROUND -->
+    <section class="page-hero-animated">
+      <div class="hero-bg-animated hero-bg-pan" style="background-image: url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=3840&q=90');"></div>
+      <div class="hero-overlay"></div>
+      <div class="camp-container position-relative text-center">
+        <nav aria-label="breadcrumb" class="mb-2">
+          <ol class="breadcrumb justify-content-center" style="font-size: 0.8rem;">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Visual Gallery</li>
+          </ol>
+        </nav>
+        <span class="section-badge"><i class="bi bi-camera"></i> Captured Light</span>
+        <h1 class="section-title">Wilderness Visual Gallery</h1>
+        <p class="section-desc">Gaze upon our shelters, alpine vistas, fireside feasts, and mountain adventures through the lenses of resident rangers and guests.</p>
+      </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <section class="py-4" style="background: var(--bg-surface); border-bottom: 1px solid var(--border-color);">
+      <div class="camp-container text-center">
+        <div class="d-inline-flex flex-wrap gap-2 justify-content-center" id="galleryFilterTabs">
+          <button class="btn-camp btn-camp-primary btn-sm gallery-filter-btn" data-category="all">All Photos</button>
+          <button class="btn-camp btn-camp-secondary btn-sm gallery-filter-btn" data-category="stays">Stays & Domes</button>
+          <button class="btn-camp btn-camp-secondary btn-sm gallery-filter-btn" data-category="landscapes">Mountain Landscapes</button>
+          <button class="btn-camp btn-camp-secondary btn-sm gallery-filter-btn" data-category="adventures">Expeditions & Kayak</button>
+          <button class="btn-camp btn-camp-secondary btn-sm gallery-filter-btn" data-category="campfire">Campfire & Nights</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY GRID -->
+    <section class="section-space">
+      <div class="camp-container camp-visible">
+        <div class="row g-4" id="galleryGridContainer">
+          
+          <!-- Image 1 -->
+          <div class="col-lg-4 col-md-6 gallery-item-wrap" data-category="landscapes">
+            <div class="gallery-masonry-item" data-lightbox-src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Alpine Dawn Over Misty Valley">
+              <div class="gallery-item-image">
+                <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=2000&q=90" alt="Alpine Dawn" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-item-content">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="camp-badge badge-teal">Landscapes</span>
+                  <span class="gallery-expand-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+                <h3 class="gallery-item-title">Alpine Dawn Over Misty Valley</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 2 -->
+          <div class="col-lg-4 col-md-6 gallery-item-wrap" data-category="stays">
+            <div class="gallery-masonry-item" data-lightbox-src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Cedar Geodesic Dome at Twilight">
+              <div class="gallery-item-image">
+                <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=2000&q=90" alt="Geodesic Dome" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-item-content">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="camp-badge badge-ember">Stays</span>
+                  <span class="gallery-expand-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+                <h3 class="gallery-item-title">Cedar Geodesic Dome at Twilight</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 3 -->
+          <div class="col-lg-4 col-md-6 gallery-item-wrap" data-category="campfire">
+            <div class="gallery-masonry-item" data-lightbox-src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Campfire Stories Under Aurora & Stars">
+              <div class="gallery-item-image">
+                <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=2000&q=90" alt="Campfire Under Stars" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-item-content">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="camp-badge badge-ember">Campfire Nights</span>
+                  <span class="gallery-expand-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+                <h3 class="gallery-item-title">Campfire Stories Under the Stars</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 4 -->
+          <div class="col-lg-4 col-md-6 gallery-item-wrap" data-category="adventures">
+            <div class="gallery-masonry-item" data-lightbox-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Kayaking Glacial Lake Mirror">
+              <div class="gallery-item-image">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2000&q=90" alt="Kayaking" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-item-content">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="camp-badge badge-teal">Adventures</span>
+                  <span class="gallery-expand-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+                <h3 class="gallery-item-title">Kayaking Glacial Lake Mirror</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 5 -->
+          <div class="col-lg-4 col-md-6 gallery-item-wrap" data-category="stays">
+            <div class="gallery-masonry-item" data-lightbox-src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Elevated Pine Treehouse Deck">
+              <div class="gallery-item-image">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=2000&q=90" alt="Treehouse Deck" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-item-content">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="camp-badge badge-ember">Stays</span>
+                  <span class="gallery-expand-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+                <h3 class="gallery-item-title">Elevated Pine Treehouse Deck</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 6 -->
+          <div class="col-lg-4 col-md-6 gallery-item-wrap" data-category="adventures">
+            <div class="gallery-masonry-item" data-lightbox-src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Summit Trek Ridge at Sunrise">
+              <div class="gallery-item-image">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=90" alt="Trek Ridge" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-item-content">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="camp-badge badge-teal">Adventures</span>
+                  <span class="gallery-expand-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+                <h3 class="gallery-item-title">Summit Trek Ridge at Sunrise</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 7 -->
+          <div class="col-lg-4 col-md-6 gallery-item-wrap" data-category="campfire">
+            <div class="gallery-masonry-item" data-lightbox-src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Rustic Artisan Barbecue Gathering">
+              <div class="gallery-item-image">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=2000&q=90" alt="Barbecue Gathering" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-item-content">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="camp-badge badge-ember">Campfire Nights</span>
+                  <span class="gallery-expand-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+                <h3 class="gallery-item-title">Rustic Artisan Barbecue Feast</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 8 -->
+          <div class="col-lg-4 col-md-6 gallery-item-wrap" data-category="stays">
+            <div class="gallery-masonry-item" data-lightbox-src="https://images.unsplash.com/photo-1496545672447-f699b503d270?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Riverside Canvas Tent at Dusk">
+              <div class="gallery-item-image">
+                <img src="https://images.unsplash.com/photo-1496545672447-f699b503d270?auto=format&fit=crop&w=2000&q=90" alt="Safari Tent" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-item-content">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="camp-badge badge-ember">Stays</span>
+                  <span class="gallery-expand-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+                <h3 class="gallery-item-title">Riverside Canvas Tent at Dusk</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 9 -->
+          <div class="col-lg-4 col-md-6 gallery-item-wrap" data-category="landscapes">
+            <div class="gallery-masonry-item" data-lightbox-src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=3840&q=90" data-lightbox-caption="Forest Canopy Morning Mist">
+              <div class="gallery-item-image">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=90" alt="Forest Mist" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+              <div class="gallery-item-content">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="camp-badge badge-teal">Landscapes</span>
+                  <span class="gallery-expand-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+                </div>
+                <h3 class="gallery-item-title">Forest Canopy Morning Mist</h3>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="camp-lightbox" id="campLightbox" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+    <button class="lightbox-close" aria-label="Close lightbox"><i class="bi bi-x-lg"></i></button>
+    <button class="lightbox-nav-btn lightbox-prev" aria-label="Previous image"><i class="bi bi-chevron-left"></i></button>
+    <div class="lightbox-content">
+      <img src="" alt="Enlarged view" class="lightbox-img">
+      <div class="lightbox-caption"></div>
+    </div>
+    <button class="lightbox-nav-btn lightbox-next" aria-label="Next image"><i class="bi bi-chevron-right"></i></button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="camp-footer">
+    <div class="camp-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="brand-logo mb-3">
+            <div class="brand-icon">
+              <i class="bi bi-fire"></i>
+            </div>
+            <span>AURA PINES</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            A premier wilderness camp and glamping sanctuary dedicated to slow living, outdoor adventure, and eco-restoration.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Instagram" title="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Facebook" title="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="Twitter X" title="Follow us on X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="YouTube" title="Watch on YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="icon-btn-toggle" aria-label="TripAdvisor" title="Find us on TripAdvisor"><i class="bi bi-compass"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Explore & Learn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Details</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="bi bi-geo-alt text-warning"></i>
+              <span>Whispering Ridge Rd, Pinecrest, 98214</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone text-success"></i>
+              <a href="tel:+15553822267">+1 (555) 382-CAMP</a>
+            </li>
+            <li>
+              <i class="bi bi-envelope text-info"></i>
+              <a href="mailto:rangers@aurapines.com">rangers@aurapines.com</a>
+            </li>
+            <li>
+              <i class="bi bi-clock text-warning"></i>
+              <span>7:00 AM – 10:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Wilderness Dispatch</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Receive seasonal campfire stories, stargazing calendars, and private cabin promotions.</p>
+          <form class="newsletter-form">
+            <div class="d-flex gap-2">
+              <input type="email" placeholder="Your email address" required style="background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-md); padding: 0.5rem 0.85rem; font-size: 0.85rem; width: 100%; outline: none;">
+              <button type="submit" class="btn-camp btn-camp-primary btn-sm" style="flex-shrink: 0;">Join</button>
+            </div>
+          </form>
+          <div class="mt-3" style="font-size: 0.75rem; color: var(--text-dim);">
+            <i class="bi bi-shield-lock me-1"></i> We respect nature and your inbox privacy.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 AURA PINES Wilderness Resort & Campsite. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/images-config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Gallery Filtering
+    const galleryBtns = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item-wrap');
+
+    galleryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        galleryBtns.forEach(b => {
+          b.classList.remove('btn-camp-primary');
+          b.classList.add('btn-camp-secondary');
+        });
+        btn.classList.remove('btn-camp-secondary');
+        btn.classList.add('btn-camp-primary');
+
+        const cat = btn.dataset.category;
+        galleryItems.forEach(item => {
+          if (cat === 'all' || item.dataset.category === cat) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

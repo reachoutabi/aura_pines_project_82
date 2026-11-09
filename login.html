@@ -189,6 +189,12 @@
           <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0;">Sign in to access your wilderness reservations, offline maps, and permits.</p>
         </div>
 
+        <!-- Redirect / Auth Notice Banner -->
+        <div id="authNoticeBanner" class="alert d-flex align-items-center gap-2 mb-3 py-2 px-3" style="display: none; background: var(--accent-subtle); border: 1px solid var(--accent-primary); color: var(--text-primary); border-radius: var(--radius-md); font-size: 0.85rem;">
+          <i class="bi bi-info-circle-fill flex-shrink-0" style="color: var(--accent-primary);"></i>
+          <span id="authNoticeText">Please sign in to view your trips &amp; reservations.</span>
+        </div>
+
         <!-- Social Logins (Google & Microsoft) -->
         <div class="row g-2 mb-3">
           <div class="col-6">
@@ -362,7 +368,92 @@
       btn.innerHTML = isPassword ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
     }
 
-    // Social Provider Login (Google & Microsoft) -> redirects to home page (index.html)
+    // Helper: Determine redirect target (prioritizes URL redirect parameter & stored destination)
+    function getAuthRedirectTarget() {
+      let target = null;
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        target = urlParams.get('redirect');
+        if (target && !target.includes('#') && window.location.hash) {
+          target += window.location.hash;
+        }
+      } catch (_) {}
+
+      if (!target) {
+        try {
+          target = sessionStorage.getItem('aurapines_auth_redirect');
+          if (target) sessionStorage.removeItem('aurapines_auth_redirect');
+        } catch (_) {}
+      }
+
+      if (target && typeof target === 'string') {
+        const clean = target.trim();
+        if (clean.startsWith('dashboard.html') || clean.startsWith('booking.html') || clean.startsWith('index.html') || clean.startsWith('packages.html') || clean.startsWith('activities.html')) {
+          return clean;
+        }
+      }
+      return 'index.html';
+    }
+
+    // Helper: Check for logout notice or auth redirect notice
+    function checkAuthNoticeAndLogout() {
+      let isLoggedOut = false;
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        isLoggedOut = Boolean(urlParams.get('logout') || urlParams.get('logged_out'));
+      } catch (_) {}
+
+      if (isLoggedOut) {
+        if (window.CampStore) window.CampStore.logout();
+        try {
+          sessionStorage.removeItem('aurapines_active_tab');
+          sessionStorage.removeItem('aurapines_auth_redirect');
+        } catch (_) {}
+        setTimeout(() => {
+          showToast('You have been signed out safely. Come back anytime!', 'info', 3200);
+        }, 150);
+      }
+
+      const target = getAuthRedirectTarget();
+      const banner = document.getElementById('authNoticeBanner');
+      const text = document.getElementById('authNoticeText');
+      if (banner && text && target && target !== 'index.html') {
+        const isTrips = target.includes('#bookings') || target.toLowerCase().includes('bookings');
+        if (isTrips) {
+          text.textContent = 'Please log in to view your trips & reservations.';
+        } else if (target.startsWith('dashboard.html')) {
+          text.textContent = 'Please log in to access your Guest Dashboard.';
+        } else {
+          text.textContent = 'Please log in to continue.';
+        }
+        banner.style.display = 'flex';
+      }
+    }
+
+    // Helper: Complete login and route user to intended section
+    function completeLoginRedirect(customMsg) {
+      const target = getAuthRedirectTarget();
+      const isTrips = target.includes('#bookings') || target.toLowerCase().includes('bookings');
+      const isDashboard = target.startsWith('dashboard.html');
+
+      let toastMsg = customMsg;
+      if (!toastMsg) {
+        if (isTrips) {
+          toastMsg = 'Login successful! Taking you to your trips...';
+        } else if (isDashboard) {
+          toastMsg = 'Login successful! Taking you to Guest Dashboard...';
+        } else {
+          toastMsg = 'Login successful! Redirecting to home page...';
+        }
+      }
+
+      showToast(toastMsg, 'success');
+      setTimeout(() => {
+        window.location.href = target;
+      }, 650);
+    }
+
+    // Social Provider Login (Google & Microsoft)
     function loginWithProvider(provider) {
       const providerUser = provider === 'Google'
         ? { name: 'Google Guest', email: 'demo@pine.com' }
@@ -376,10 +467,7 @@
         });
       }
 
-      showToast(`Signed in with ${provider}! Redirecting to home page...`, 'success');
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 650);
+      completeLoginRedirect(`Signed in with ${provider}! Taking you to your trips...`);
     }
 
     // Login Submission
@@ -413,10 +501,7 @@
         window.CampStore.login(email, pwd);
       }
 
-      showToast('Login successful! Redirecting to home page...', 'success');
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 650);
+      completeLoginRedirect();
     });
 
     // Register Submission
@@ -439,11 +524,11 @@
         });
       }
 
-      showToast(`Welcome to the wilderness, ${fname}! Redirecting to home page...`, 'success');
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 650);
+      completeLoginRedirect(`Welcome to the wilderness, ${fname}!`);
     });
+
+    // Run auth notice check on load
+    document.addEventListener('DOMContentLoaded', checkAuthNoticeAndLogout);
 
     // Forgot Password Submission
     document.getElementById('formForgot').addEventListener('submit', (e) => {

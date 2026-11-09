@@ -16,7 +16,21 @@ class CampGuestDashboard {
     this.chartsInitialized = false;
   }
 
+  checkAuth() {
+    const user = window.CampStore ? window.CampStore.getUser() : null;
+    if (!user || user.isLoggedIn === false) {
+      const dest = 'dashboard.html' + (window.location.hash || '');
+      try {
+        sessionStorage.setItem('aurapines_auth_redirect', dest);
+      } catch (_) {}
+      window.location.replace('login.html?redirect=' + encodeURIComponent(dest));
+      return false;
+    }
+    return true;
+  }
+
   init() {
+    if (!this.checkAuth()) return;
     this.setupSidebar();
     this.setupTabNavigation();
     this.renderOverview();
@@ -122,47 +136,85 @@ class CampGuestDashboard {
      TAB SWITCHING
      ============================================================ */
   setupTabNavigation() {
-    const navLinks = document.querySelectorAll('.sidebar-link[data-tab]');
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const tab = link.dataset.tab;
-        this.switchTab(tab);
-      });
+    // Delegated click listener for any tab navigation element
+    document.addEventListener('click', (e) => {
+      const tabLink = e.target.closest('[data-tab]');
+      if (tabLink) {
+        const tab = tabLink.dataset.tab;
+        if (tab && document.getElementById('tab-' + tab)) {
+          e.preventDefault();
+          this.switchTab(tab, true);
+        }
+      }
     });
 
-    // Also support hash in URL
-    const hash = window.location.hash.replace('#', '');
-    if (hash && document.getElementById(`tab-${hash}`)) {
-      this.switchTab(hash);
+    // Hash change routing (Back/Forward buttons and anchor links)
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '').trim();
+      if (hash && document.getElementById('tab-' + hash) && hash !== this.currentTab) {
+        this.switchTab(hash, false);
+      }
+    });
+
+    // Initial tab selection: URL hash > stored active tab > default 'overview'
+    const hash = window.location.hash.replace('#', '').trim();
+    let storedTab = null;
+    try { storedTab = sessionStorage.getItem('aurapines_active_tab'); } catch(_) {}
+
+    if (hash && document.getElementById('tab-' + hash)) {
+      this.switchTab(hash, false);
+    } else if (storedTab && document.getElementById('tab-' + storedTab)) {
+      this.switchTab(storedTab, true);
+    } else {
+      this.switchTab('overview', false);
     }
   }
 
-  switchTab(tabName) {
-    this.currentTab = tabName;
+  switchTab(tabName, updateHash = true) {
+    const targetPanel = document.getElementById('tab-' + tabName);
+    if (!targetPanel) return;
 
-    // Update sidebar active class
+    this.currentTab = tabName;
+    try {
+      sessionStorage.setItem('aurapines_active_tab', tabName);
+    } catch (_) {}
+
+    // Update URL hash without jumping page scroll
+    if (updateHash && window.location.hash !== '#' + tabName) {
+      if (history.replaceState) {
+        history.replaceState(null, '', '#' + tabName);
+      } else {
+        window.location.hash = '#' + tabName;
+      }
+    }
+
+    // Update sidebar active classes
     document.querySelectorAll('.sidebar-link').forEach(link => {
       if (link.dataset.tab === tabName) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       } else {
         link.classList.remove('active');
+        link.removeAttribute('aria-current');
       }
     });
 
     // Show selected panel
     document.querySelectorAll('.dashboard-tab-panel').forEach(panel => {
       panel.style.display = 'none';
+      panel.classList.remove('active');
     });
 
-    const targetPanel = document.getElementById(`tab-${tabName}`);
-    if (targetPanel) {
-      targetPanel.style.display = 'block';
-    }
+    targetPanel.style.display = 'block';
+    targetPanel.classList.add('active');
 
     // Refresh charts if opening overview
-    if (tabName === 'overview' && !this.chartsInitialized) {
-      this.initCharts();
+    if (tabName === 'overview') {
+      if (!this.chartsInitialized) {
+        this.initCharts();
+      } else if (this.spendChartInstance) {
+        this.spendChartInstance.resize();
+      }
     }
 
     // Close mobile sidebar if open
@@ -617,6 +669,9 @@ class CampGuestDashboard {
     const dropdown = document.getElementById('topbarNotifDropdown');
     const markAllBtn = document.getElementById('topbarMarkAllReadBtn');
     const viewAllLink = document.getElementById('topbarViewAllNotifsLink');
+    if (viewAllLink) {
+      viewAllLink.addEventListener('click', () => toggle(false));
+    }
 
     if (!btn || !dropdown) return;
 

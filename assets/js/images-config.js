@@ -30,10 +30,10 @@ const CAMP_IMAGES = {
   activities: {
     trekking: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2000&q=90",
     campfire: "https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=2000&q=90",
-    kayaking: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2000&q=90",
+    kayaking: "assets/images/activities/kayaking-4k.jpg",
     climbing: "https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=2000&q=90",
     zipline: "https://images.unsplash.com/photo-1539372786391-0518119e77f5?auto=format&fit=crop&w=2000&q=90",
-    biking: "https://images.unsplash.com/photo-1660149109561-b98acecd4238?auto=format&fit=crop&w=2000&q=90",
+    biking: "https://images.unsplash.com/photo-1633707167682-9068729bc84c?auto=format&fit=crop&w=2000&q=90",
     stargazing: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=2000&q=90",
     fishing: "https://images.unsplash.com/photo-1505950476988-702d4a1af500?auto=format&fit=crop&w=2000&q=90",
     birdWatching: "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=2000&q=90",

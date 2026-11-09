@@ -49,6 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Setup Social Media Links Safeguard & Redirection
   setupSocialLinks();
+
+  // Setup Auth Guarded Navigation (e.g. My Trips, Dashboard) & Dynamic Navbar State
+  setupAuthGuardedLinks();
+  updateNavAuthState();
 });
 
 /* ============================================================
@@ -209,6 +213,119 @@ function setupNavigation() {
       }
     }
   });
+}
+
+/* ============================================================
+   AUTHENTICATION STATE & ROUTE GUARDS
+   ============================================================ */
+function setupAuthGuardedLinks() {
+  document.addEventListener('click', (e) => {
+    const authLink = e.target.closest('a[href*="dashboard.html"], a[title="My Trips"]');
+    if (!authLink) return;
+
+    // Check login state
+    let isLoggedIn = false;
+    if (window.CampStore && typeof window.CampStore.isLoggedIn === 'function') {
+      isLoggedIn = window.CampStore.isLoggedIn();
+    } else if (window.CampStore && typeof window.CampStore.getUser === 'function') {
+      const u = window.CampStore.getUser();
+      isLoggedIn = Boolean(u && u.isLoggedIn === true);
+    }
+
+    if (!isLoggedIn) {
+      e.preventDefault();
+      const href = authLink.getAttribute('href') || 'dashboard.html#bookings';
+      try {
+        sessionStorage.setItem('aurapines_auth_redirect', href);
+      } catch (_) {}
+
+      const linkText = (authLink.textContent || '').trim().toLowerCase();
+      const linkTitle = (authLink.getAttribute('title') || '').toLowerCase();
+      const isTrips = href.includes('#bookings') || linkTitle.includes('trips') || linkText.includes('trips');
+
+      const msg = isTrips
+        ? 'Please sign in to view your trips and bookings.'
+        : 'Please sign in to access the Guest Dashboard.';
+
+      showToast(msg, 'info', 2400);
+
+      setTimeout(() => {
+        window.location.href = 'login.html?redirect=' + encodeURIComponent(href);
+      }, 350);
+    }
+  });
+}
+
+function updateNavAuthState() {
+  let user = null;
+  let isLoggedIn = false;
+  if (window.CampStore && typeof window.CampStore.getUser === 'function') {
+    user = window.CampStore.getUser();
+    isLoggedIn = Boolean(user && user.isLoggedIn === true);
+  }
+
+  // Desktop Sign-In / Account Icon
+  const desktopSignInBtns = document.querySelectorAll('.nav-signin-btn');
+  desktopSignInBtns.forEach(btn => {
+    if (isLoggedIn && user) {
+      btn.setAttribute('title', `${user.name || 'Julian Vance'} (Signed in - Click to Sign Out)`);
+      btn.setAttribute('aria-label', `Signed in as ${user.name || 'Julian Vance'}. Click to Sign Out`);
+      btn.innerHTML = '<i class="bi bi-box-arrow-right text-danger"></i>';
+      btn.setAttribute('href', 'login.html?logout=true');
+      btn.onclick = (e) => {
+        e.preventDefault();
+        if (window.CampStore) window.CampStore.logout();
+        try {
+          sessionStorage.removeItem('aurapines_active_tab');
+          sessionStorage.removeItem('aurapines_auth_redirect');
+        } catch (_) {}
+        showToast('You have been signed out safely.', 'info', 2500);
+        setTimeout(() => {
+          window.location.href = 'login.html?logout=true';
+        }, 350);
+      };
+    } else {
+      btn.setAttribute('title', 'Sign In');
+      btn.setAttribute('aria-label', 'Sign In');
+      btn.innerHTML = '<i class="bi bi-box-arrow-in-right"></i>';
+      btn.setAttribute('href', 'login.html');
+      btn.onclick = null;
+    }
+  });
+
+  // Mobile Drawer Auth Action
+  const mobileDrawerAuth = document.querySelector('.mobile-drawer-auth');
+  if (mobileDrawerAuth) {
+    if (isLoggedIn && user) {
+      const fName = user.name ? user.name.split(' ')[0] : 'Guest';
+      mobileDrawerAuth.innerHTML = `
+        <a href="login.html?logout=true" id="mobileDrawerLogoutBtn" class="btn-camp btn-camp-secondary w-100 justify-content-center text-danger">
+          <i class="bi bi-box-arrow-right me-2"></i> Sign Out (${fName})
+        </a>
+      `;
+      const logoutBtn = document.getElementById('mobileDrawerLogoutBtn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (window.CampStore) window.CampStore.logout();
+          try {
+            sessionStorage.removeItem('aurapines_active_tab');
+            sessionStorage.removeItem('aurapines_auth_redirect');
+          } catch (_) {}
+          showToast('Signed out safely.', 'info', 2500);
+          setTimeout(() => {
+            window.location.href = 'login.html?logout=true';
+          }, 350);
+        });
+      }
+    } else {
+      mobileDrawerAuth.innerHTML = `
+        <a href="login.html" class="btn-camp btn-camp-primary w-100 justify-content-center">
+          <i class="bi bi-box-arrow-in-right me-2"></i> Sign In / Register
+        </a>
+      `;
+    }
+  }
 }
 
 /* ============================================================

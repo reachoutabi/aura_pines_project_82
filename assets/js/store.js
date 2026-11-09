@@ -4,7 +4,7 @@
  * itinerary, transactions, packing checklist, notifications, theme & RTL.
  */
 
-const CampStore = (function() {
+var CampStore = (function() {
   const STORAGE_KEYS = {
     USER: 'aurapines_user',
     BOOKINGS: 'aurapines_bookings',
@@ -160,6 +160,11 @@ const CampStore = (function() {
     return JSON.parse(localStorage.getItem(STORAGE_KEYS.USER) || JSON.stringify(SEED_DATA.user));
   }
 
+  function isLoggedIn() {
+    const user = getUser();
+    return Boolean(user && user.isLoggedIn === true);
+  }
+
   function updateUser(userData) {
     const current = getUser();
     const updated = { ...current, ...userData };
@@ -180,6 +185,10 @@ const CampStore = (function() {
     const user = getUser();
     user.isLoggedIn = false;
     updateUser(user);
+    try {
+      sessionStorage.removeItem('aurapines_active_tab');
+      sessionStorage.removeItem('aurapines_auth_redirect');
+    } catch (_) {}
     return true;
   }
 
@@ -374,6 +383,7 @@ const CampStore = (function() {
     init,
     resetToDefault,
     getUser,
+    isLoggedIn,
     updateUser,
     login,
     logout,

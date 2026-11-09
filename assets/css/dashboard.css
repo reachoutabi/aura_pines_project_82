@@ -111,16 +111,68 @@
   transition: all var(--transition-fast);
   white-space: nowrap;
   position: relative;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .sidebar-link i {
   font-size: 1.2rem;
   width: 24px;
+  min-width: 24px;
+  max-width: 24px;
+  height: 24px;
   text-align: center;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.sidebar-link > span:not(.camp-badge) {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.sidebar-link .notif-badge-count {
+  margin-inline-start: auto !important;
+  margin-inline-end: 0 !important;
+  flex-shrink: 0;
+}
+
+/* RTL Specific Sidebar Navigation & Link Alignments */
+[dir="rtl"] .sidebar-header {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+[dir="rtl"] .sidebar-brand {
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+[dir="rtl"] .sidebar-nav {
+  direction: rtl;
+}
+
+[dir="rtl"] .nav-category-label {
+  text-align: right;
+}
+
+[dir="rtl"] .sidebar-link {
+  flex-direction: row;
+  justify-content: flex-start;
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .sidebar-link i {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+[dir="rtl"] .sidebar-link > span:not(.camp-badge) {
+  text-align: right;
+  direction: rtl;
 }
 
 /* Custom Tent Icon Extension for Bootstrap Icons */
@@ -161,7 +213,7 @@ i.bi-tent::before {
 }
 
 .sidebar-footer {
-  padding: 1rem 1.15rem;
+  padding: 1rem 0.75rem;
   border-top: 1px solid var(--border-color);
 }
 
@@ -207,8 +259,10 @@ i.bi-tent::before {
   padding: 0.75rem 0;
 }
 
-.dashboard-sidebar.collapsed .sidebar-link span {
-  display: none;
+.dashboard-sidebar.collapsed .sidebar-link span,
+.dashboard-sidebar.collapsed .sidebar-link .camp-badge,
+.dashboard-sidebar.collapsed .sidebar-link .notif-badge-count {
+  display: none !important;
 }
 
 .dashboard-sidebar.collapsed .sidebar-link i {
@@ -216,9 +270,15 @@ i.bi-tent::before {
 }
 
 .dashboard-sidebar.collapsed .sidebar-link.active {
-  box-shadow: none;
+  box-shadow: inset 0 0 0 1.5px var(--accent-primary);
   background-color: var(--accent-subtle);
-  border: 1px solid var(--accent-primary);
+  border: none;
+}
+
+.dashboard-sidebar.collapsed .sidebar-nav {
+  overflow-x: visible;
+  overflow-y: visible;
+  padding: 1.15rem 0.5rem;
 }
 
 .dashboard-sidebar.collapsed .sidebar-footer {
@@ -254,51 +314,6 @@ i.bi-tent::before {
   opacity: 1;
   visibility: visible;
   transform: translateY(-50%) translateX(0);
-}
-
-/* Auto-Reveal Hover Expansion (Desktop Mini-Variant Peek) */
-@media (min-width: 992px) {
-  .dashboard-sidebar.collapsed:hover {
-    width: 270px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
-    z-index: 1050;
-  }
-
-  .dashboard-sidebar.collapsed:hover .sidebar-header {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1.25rem 1.15rem;
-  }
-
-  .dashboard-sidebar.collapsed:hover .sidebar-brand {
-    justify-content: flex-start;
-  }
-
-  .dashboard-sidebar.collapsed:hover .sidebar-brand span {
-    display: inline;
-  }
-
-  .dashboard-sidebar.collapsed:hover .nav-category-label {
-    display: block;
-  }
-
-  .dashboard-sidebar.collapsed:hover .sidebar-link {
-    justify-content: flex-start;
-    padding: 0.75rem 0.85rem;
-  }
-
-  .dashboard-sidebar.collapsed:hover .sidebar-link span {
-    display: inline;
-  }
-
-  .dashboard-sidebar.collapsed:hover .sidebar-link::after {
-    display: none;
-  }
-
-  .dashboard-sidebar.collapsed:hover .sidebar-footer {
-    padding: 1rem 1.15rem;
-    justify-content: flex-start;
-  }
 }
 
 /* Mobile Backdrop */

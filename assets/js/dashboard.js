@@ -66,24 +66,35 @@ class CampGuestDashboard {
       toggleBtn.setAttribute('aria-label', isCollapsed ? 'Expand side pane' : 'Collapse side pane');
     };
 
-    // Always ensure fully viewable sidebar by default
-    if (sidebar) {
-      const stored = localStorage.getItem('aurapines_sidebar_collapsed');
-      if (stored === 'true') {
-        sidebar.classList.add('collapsed');
-        updateToggleBtnState(true);
+    // Responsive sync: mobile (< 992px) ALWAYS uses full drawer with text;
+    // Desktop (>= 992px) restores user's preferred collapsed/expanded state.
+    const syncSidebarResponsiveState = () => {
+      if (!sidebar) return;
+      if (window.innerWidth >= 992) {
+        const stored = localStorage.getItem('aurapines_sidebar_collapsed');
+        if (stored === 'true') {
+          sidebar.classList.add('collapsed');
+          updateToggleBtnState(true);
+        } else {
+          sidebar.classList.remove('collapsed');
+          updateToggleBtnState(false);
+        }
       } else {
         sidebar.classList.remove('collapsed');
-        updateToggleBtnState(false);
       }
-    }
+    };
+
+    syncSidebarResponsiveState();
+    window.addEventListener('resize', syncSidebarResponsiveState);
 
     if (toggleBtn && sidebar) {
       toggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        const isCollapsed = sidebar.classList.toggle('collapsed');
-        updateToggleBtnState(isCollapsed);
-        localStorage.setItem('aurapines_sidebar_collapsed', isCollapsed ? 'true' : 'false');
+        if (window.innerWidth >= 992) {
+          const isCollapsed = sidebar.classList.toggle('collapsed');
+          updateToggleBtnState(isCollapsed);
+          localStorage.setItem('aurapines_sidebar_collapsed', isCollapsed ? 'true' : 'false');
+        }
       });
     }
 
@@ -100,11 +111,16 @@ class CampGuestDashboard {
     const closeMobileDrawer = () => {
       if (sidebar) sidebar.classList.remove('mobile-open');
       if (backdrop) backdrop.classList.remove('show');
+      document.body.style.overflow = '';
     };
 
     const openMobileDrawer = () => {
-      if (sidebar) sidebar.classList.add('mobile-open');
+      if (sidebar) {
+        sidebar.classList.remove('collapsed');
+        sidebar.classList.add('mobile-open');
+      }
       if (backdrop) backdrop.classList.add('show');
+      document.body.style.overflow = 'hidden';
     };
 
     if (mobileTrigger) {
@@ -222,6 +238,7 @@ class CampGuestDashboard {
     const backdrop = document.getElementById('sidebarBackdrop');
     if (sidebar) sidebar.classList.remove('mobile-open');
     if (backdrop) backdrop.classList.remove('show');
+    document.body.style.overflow = '';
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
